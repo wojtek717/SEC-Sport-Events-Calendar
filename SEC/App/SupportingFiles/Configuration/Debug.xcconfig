@@ -1,0 +1,6 @@
+#include "Base.xcconfig"
+
+APP_NAME = SEC
+DEVELOPMENT_TEAM = WojciechKonury
+PRODUCT_BUNDLE_IDENTIFIER = no.sec.app
+PROVISIONING_PROFILE_SPECIFIER = SEC Development

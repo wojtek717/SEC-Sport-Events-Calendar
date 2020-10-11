@@ -1,0 +1,15 @@
+import Core
+import NeedleFoundation
+import UIKit
+
+public protocol {{ name }}Routing: RoutesDefinition { }
+
+public final class {{ name }}Component: BootstrapComponent {
+    public override init() {
+        registerProviderFactories()
+
+        super.init()
+    }
+ }
+
+ extension {{ name }}Component: {{ name }}Routing {}

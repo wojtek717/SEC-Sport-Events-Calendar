@@ -1,0 +1,19 @@
+name: Swift
+
+on:
+  push:
+    branches: [ Development ]
+  pull_request:
+    branches: [ Development ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: GitHub Script
+      uses: actions/github-script@v3.0.0
+      with:
+        tuist up

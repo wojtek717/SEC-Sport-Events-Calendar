@@ -10,5 +10,4 @@ let project = Project.framework(name: "Splash",
                                     "DesignSystem",
                                     "CommonUI",
                                 ],
-                                resources: [.glob(pattern: "**/*.xib"),
-                                            .glob(pattern: "Resources/**")])
+                                resources: [.glob(pattern: "**/*.xib"))

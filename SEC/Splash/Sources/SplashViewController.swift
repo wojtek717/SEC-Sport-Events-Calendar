@@ -9,7 +9,7 @@ final class SplashViewController: UIViewController {
     private enum Constants {
         static let gravityMagnitude: CGFloat = 2
         static let tenisBallElasticity: CGFloat = 0.6
-        static let scaleFactor: CGFloat = 10
+        static let scaleFactor: CGFloat = 30
         static let scaleAnimationTime: TimeInterval = 1.5
     }
     
@@ -81,7 +81,7 @@ extension SplashViewController: UIDynamicAnimatorDelegate {
                 .scaledBy(
                     x: Constants.scaleFactor,
                     y: Constants.scaleFactor)
-                .rotated(by: CGFloat.pi)
+                .rotated(by: 3/4*CGFloat.pi)
         } completion: { _ in
             //TODO: Navigate to next screen
         }

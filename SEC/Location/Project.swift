@@ -1,15 +1,12 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(name: "Splash",
+let project = Project.framework(name: "Location",
                                 targets: [.framework],
                                 packages: [],
                                 externalDependencies: [],
                                 internalDependencies: [
                                     "Core",
-                                    "DesignSystem",
-                                    "CommonUI",
-                                    "Onboarding",
-                                    "Location",
                                 ],
-                                resources: [.glob(pattern: "**/*.xib")])
+                                resources: [],
+                                withPublicResources: true)

@@ -1,8 +1,12 @@
 import Core
 import NeedleFoundation
 import UIKit
+import Onboarding
+import Location
 
-public protocol SplashRouting: RoutesDefinition {}
+public protocol SplashRouting: RoutesDefinition {
+    var onboarding: OnboardingComponent { get }
+}
 
 public final class SplashComponent: BootstrapComponent, RoutableBootstrapComponent {
     override public init() {
@@ -19,6 +23,10 @@ public final class SplashComponent: BootstrapComponent, RoutableBootstrapCompone
         UserDefaults.standard
     }
     
+    var locationWorker: LocationWorkerProtocol {
+        locationComponent.locationWorker
+    }
+    
     public var viewController: UIViewController {
         let viewController = SplashViewController(nib: R.nib.splashViewController)
         let presenter = SplashPresenter(viewController: viewController)
@@ -27,7 +35,8 @@ public final class SplashComponent: BootstrapComponent, RoutableBootstrapCompone
             viewController: viewController,
             dataStore: interactor,
             routes: self,
-            window: keyWindow)
+            window: keyWindow,
+            locationWorker: locationWorker)
         
         viewController.interactor = interactor
         viewController.router = router
@@ -36,4 +45,8 @@ public final class SplashComponent: BootstrapComponent, RoutableBootstrapCompone
     }
 }
 
-extension SplashComponent: SplashRouting {}
+extension SplashComponent: SplashRouting {
+    public var onboarding: OnboardingComponent {
+        OnboardingComponent()
+    }
+}

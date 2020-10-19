@@ -1,5 +1,6 @@
 import UIKit
 import CommonUI
+import Location
 
 typealias SplashRouterType = SplashRouterProtocol
 
@@ -9,26 +10,27 @@ typealias SplashRouterType = SplashRouterProtocol
 
 final class SplashRouter {
 
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
     private weak var viewController: SplashViewController?
     private let dataStore: SplashDataStore
 
-    // MARK: - Private Properties
-
     private let routes: SplashRouting
     private let window: UIWindow?
+    private let locationWorker: LocationWorkerProtocol
 
     // MARK: - Initializers
 
     init(viewController: SplashViewController?,
          dataStore: SplashDataStore,
          routes: SplashRouting,
-         window: UIWindow?) {
+         window: UIWindow?,
+         locationWorker: LocationWorkerProtocol) {
         self.viewController = viewController
         self.dataStore = dataStore
         self.routes = routes
         self.window = window
+        self.locationWorker = locationWorker
     }
 }
 
@@ -37,10 +39,12 @@ extension SplashRouter: SplashRouterProtocol {
         let rootViewController: UIViewController
         let navigationController: UINavigationController
         
-        //TODO: Check where to navigate Onboarding/FirstScreen
-        rootViewController = routes.onboarding.onboardingLocation.viewController
-        navigationController = UINavigationController(rootViewController: rootViewController)
+        if locationWorker.authorizationStatus == .notDetermined {
+            rootViewController = routes.onboarding.onboardingLocation.viewController
+            navigationController = UINavigationController(rootViewController: rootViewController)
+            window?.pushToViewController(newRootController: navigationController)
+        }
         
-        window?.pushToViewController(newRootController: navigationController)
+        
     }
 }

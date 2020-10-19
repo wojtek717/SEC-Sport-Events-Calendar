@@ -12,6 +12,7 @@ public extension LocationWorkerDelegate {
 public protocol LocationWorkerProtocol {
     var delegate: LocationWorkerDelegate? { get set }
     var currentLocation: Location? { get }
+    var authorizationStatus: CLAuthorizationStatus { get }
     func startUpdatingLocation()
 }
 
@@ -27,6 +28,10 @@ public final class LocationWorker: NSObject, LocationWorkerProtocol {
         }
         
         return Location(position: location.coordinate, heading: heading, accuracy: location.horizontalAccuracy)
+    }
+    
+    public var authorizationStatus: CLAuthorizationStatus {
+        return manager.authorizationStatus
     }
     
     // MARK: - Private Properties

@@ -83,7 +83,7 @@ extension SplashViewController: UIDynamicAnimatorDelegate {
                     y: Constants.scaleFactor)
                 .rotated(by: 3/4*CGFloat.pi)
         } completion: { _ in
-            //TODO: Navigate to next screen
+            self.router?.navigateToNextModule()
         }
         
     }

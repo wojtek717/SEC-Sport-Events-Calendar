@@ -1,8 +1,11 @@
 import Core
 import NeedleFoundation
 import UIKit
+import Onboarding
 
-public protocol SplashRouting: RoutesDefinition {}
+public protocol SplashRouting: RoutesDefinition {
+    var onboarding: OnboardingComponent { get }
+}
 
 public final class SplashComponent: BootstrapComponent, RoutableBootstrapComponent {
     override public init() {
@@ -36,4 +39,8 @@ public final class SplashComponent: BootstrapComponent, RoutableBootstrapCompone
     }
 }
 
-extension SplashComponent: SplashRouting {}
+extension SplashComponent: SplashRouting {
+    public var onboarding: OnboardingComponent {
+        OnboardingComponent()
+    }
+}

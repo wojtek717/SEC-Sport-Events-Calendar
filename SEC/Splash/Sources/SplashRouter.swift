@@ -1,4 +1,5 @@
 import UIKit
+import CommonUI
 
 typealias SplashRouterType = SplashRouterProtocol
 
@@ -33,11 +34,13 @@ final class SplashRouter {
 
 extension SplashRouter: SplashRouterProtocol {
     func navigateToNextModule() {
-        
         let rootViewController: UIViewController
+        let navigationController: UINavigationController
         
-
-        //window?.pushToViewController(newRootController: rootViewController)
+        //TODO: Check where to navigate Onboarding/FirstScreen
+        rootViewController = routes.onboarding.onboardingLocation.viewController
+        navigationController = UINavigationController(rootViewController: rootViewController)
+        
+        window?.pushToViewController(newRootController: navigationController)
     }
-
 }

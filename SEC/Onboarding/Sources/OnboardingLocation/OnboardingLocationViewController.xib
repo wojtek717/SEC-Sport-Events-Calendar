@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingLocationViewController" customModule="Onboarding" customModuleProvider="target">
+            <connections>
+                <outlet property="basketBall" destination="Ngr-VX-9gh" id="8Re-tw-1u9"/>
+                <outlet property="locationPin1" destination="hYY-dc-51n" id="cjw-cO-faJ"/>
+                <outlet property="locationPin2" destination="T28-bg-OyJ" id="Wsb-5V-BPF"/>
+                <outlet property="locationPin3" destination="Ju4-nK-d9i" id="gZa-AD-DlP"/>
+                <outlet property="mapBackground" destination="T3l-xr-q9v" id="QZl-2i-dF1"/>
+                <outlet property="running" destination="oxu-o4-OGR" id="OnK-A3-Peg"/>
+                <outlet property="tenisBall" destination="KYn-Dc-bPN" id="qhi-bX-Me1"/>
+                <outlet property="view" destination="iN0-l3-epB" id="2EV-sA-wVd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapBackground" translatesAutoresizingMaskIntoConstraints="NO" id="T3l-xr-q9v">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="hYY-dc-51n" userLabel="location-pin1">
+                    <rect key="frame" x="294" y="194" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="m09-VW-VbO"/>
+                        <constraint firstAttribute="width" constant="70" id="oYe-RG-GQ0"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="T28-bg-OyJ" userLabel="location-pin2">
+                    <rect key="frame" x="80" y="324" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="5dD-1s-yuv"/>
+                        <constraint firstAttribute="height" constant="70" id="ebw-nq-rWm"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="Ju4-nK-d9i" userLabel="location-pin3">
+                    <rect key="frame" x="224" y="652" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="faQ-a4-QT6"/>
+                        <constraint firstAttribute="height" constant="70" id="zKO-1l-aHo"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tenis-ball" translatesAutoresizingMaskIntoConstraints="NO" id="KYn-Dc-bPN">
+                    <rect key="frame" x="294" y="194" width="70" height="70"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="Ngr-VX-9gh">
+                    <rect key="frame" x="80" y="324" width="70" height="70"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="oxu-o4-OGR">
+                    <rect key="frame" x="224" y="652" width="70" height="70"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="T3l-xr-q9v" secondAttribute="trailing" id="2zy-uP-bp4"/>
+                <constraint firstItem="Ngr-VX-9gh" firstAttribute="leading" secondItem="T28-bg-OyJ" secondAttribute="leading" id="37b-8Z-Edb"/>
+                <constraint firstItem="T3l-xr-q9v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4xi-bm-XZo"/>
+                <constraint firstItem="T3l-xr-q9v" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HkH-vl-mAK"/>
+                <constraint firstItem="oxu-o4-OGR" firstAttribute="trailing" secondItem="Ju4-nK-d9i" secondAttribute="trailing" id="ItI-yB-Y2s"/>
+                <constraint firstItem="Ngr-VX-9gh" firstAttribute="bottom" secondItem="T28-bg-OyJ" secondAttribute="bottom" id="Jp4-2s-drw"/>
+                <constraint firstItem="hYY-dc-51n" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="150" id="K9d-aN-vuA"/>
+                <constraint firstItem="KYn-Dc-bPN" firstAttribute="top" secondItem="hYY-dc-51n" secondAttribute="top" id="M35-lV-0Qc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hYY-dc-51n" secondAttribute="trailing" constant="50" id="Ngo-gc-M9U"/>
+                <constraint firstItem="oxu-o4-OGR" firstAttribute="bottom" secondItem="Ju4-nK-d9i" secondAttribute="bottom" id="O1V-rA-49n"/>
+                <constraint firstItem="KYn-Dc-bPN" firstAttribute="bottom" secondItem="hYY-dc-51n" secondAttribute="bottom" id="ZfQ-M4-ot6"/>
+                <constraint firstItem="T28-bg-OyJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="280" id="ari-0f-KFL"/>
+                <constraint firstItem="KYn-Dc-bPN" firstAttribute="leading" secondItem="hYY-dc-51n" secondAttribute="leading" id="ehK-RM-Ba6"/>
+                <constraint firstItem="Ngr-VX-9gh" firstAttribute="trailing" secondItem="T28-bg-OyJ" secondAttribute="trailing" id="fNC-uZ-Wgr"/>
+                <constraint firstItem="Ngr-VX-9gh" firstAttribute="top" secondItem="T28-bg-OyJ" secondAttribute="top" id="h4D-8I-q1x"/>
+                <constraint firstItem="KYn-Dc-bPN" firstAttribute="trailing" secondItem="hYY-dc-51n" secondAttribute="trailing" id="iAT-Ph-Tjf"/>
+                <constraint firstItem="T28-bg-OyJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="p6t-WX-GL6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ju4-nK-d9i" secondAttribute="trailing" constant="120" id="qjV-TG-fZp"/>
+                <constraint firstItem="oxu-o4-OGR" firstAttribute="top" secondItem="Ju4-nK-d9i" secondAttribute="top" id="r1b-RZ-knf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ju4-nK-d9i" secondAttribute="bottom" constant="140" id="s5M-Sp-jdB"/>
+                <constraint firstAttribute="bottom" secondItem="T3l-xr-q9v" secondAttribute="bottom" id="swf-nJ-nCN"/>
+                <constraint firstItem="oxu-o4-OGR" firstAttribute="leading" secondItem="Ju4-nK-d9i" secondAttribute="leading" id="xzn-Kn-Zcx"/>
+            </constraints>
+            <point key="canvasLocation" x="-65.217391304347828" y="99.776785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="MapBackground" width="914" height="937"/>
+        <image name="basketball" width="512" height="512"/>
+        <image name="location-pin" width="512" height="512"/>
+        <image name="running" width="512" height="512"/>
+        <image name="tenis-ball" width="277" height="277"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

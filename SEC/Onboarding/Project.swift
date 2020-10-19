@@ -1,7 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(name: "Splash",
+let project = Project.framework(name: "Onboarding",
                                 targets: [.framework],
                                 packages: [],
                                 externalDependencies: [],
@@ -9,6 +9,5 @@ let project = Project.framework(name: "Splash",
                                     "Core",
                                     "DesignSystem",
                                     "CommonUI",
-                                    "Onboarding",
                                 ],
                                 resources: [.glob(pattern: "**/*.xib")])

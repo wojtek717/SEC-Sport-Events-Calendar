@@ -1,6 +1,7 @@
 import Core
 import NeedleFoundation
 import UIKit
+import Location
 
 public protocol OnboardingRouting: RoutesDefinition {
     var onboardingLocation: OnboardingLocationComponent { get }
@@ -11,6 +12,10 @@ public final class OnboardingComponent: BootstrapComponent {
         registerProviderFactories()
 
         super.init()
+    }
+    
+    var locationWorker: LocationWorkerProtocol {
+        locationComponent.locationWorker
     }
  }
 

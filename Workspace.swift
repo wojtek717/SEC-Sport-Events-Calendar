@@ -8,4 +8,5 @@ let workspace = Workspace(name: "SEC", projects: [
     "SEC/CommonUI",
     "SEC/Splash",
     "SEC/Onboarding",
+    "SEC/Location"
 ])

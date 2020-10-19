@@ -1,5 +1,6 @@
 import UIKit
 import CommonUI
+import Location
 
 protocol OnboardingLocationViewControllerLogic: AnyObject {}
 
@@ -47,8 +48,8 @@ final class OnboardingLocationViewController: UIViewController {
             self.basketBall.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.running.transform = CGAffineTransform(scaleX: 1, y: 1)
             
-        } completion: { (_) in
-            
+        } completion: { _ in
+            self.interactor?.askForLocationPermission()
         }
     }
     

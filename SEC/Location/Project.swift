@@ -1,14 +1,12 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(name: "Onboarding",
+let project = Project.framework(name: "Location",
                                 targets: [.framework],
                                 packages: [],
                                 externalDependencies: [],
                                 internalDependencies: [
                                     "Core",
-                                    "DesignSystem",
-                                    "CommonUI",
-                                    "Location"
                                 ],
-                                resources: [.glob(pattern: "**/*.xib")])
+                                resources: [],
+                                withPublicResources: true)

@@ -11,5 +11,6 @@ let project = Project.framework(name: "Splash",
                                     "CommonUI",
                                     "Onboarding",
                                     "Location",
+                                    "EventsPanel",
                                 ],
                                 resources: [.glob(pattern: "**/*.xib")])

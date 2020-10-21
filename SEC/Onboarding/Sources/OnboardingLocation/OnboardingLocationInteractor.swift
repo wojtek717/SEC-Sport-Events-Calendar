@@ -31,6 +31,8 @@ extension OnboardingLocationInteractor: OnboardingLocationInteractorLogic {
 
 extension OnboardingLocationInteractor: LocationWorkerDelegate {
     func locationWorker(_ worker: LocationWorker, didChangeAuthorizationStatus isAuthorized: Bool) {
-        //TODO: NavigateToSextScreen
+        if isAuthorized {
+            presenter.presentMainEventsList()
+        }
     }
 }

@@ -1,6 +1,8 @@
 import UIKit
 
-protocol OnboardingLocationPresenterLogic {}
+protocol OnboardingLocationPresenterLogic {
+    func presentMainEventsList()
+}
 
 final class OnboardingLocationPresenter {
 
@@ -15,4 +17,8 @@ final class OnboardingLocationPresenter {
     }
 }
 
-extension OnboardingLocationPresenter: OnboardingLocationPresenterLogic {}
+extension OnboardingLocationPresenter: OnboardingLocationPresenterLogic {
+    func presentMainEventsList() {
+        viewController?.presentMainEventsList()
+    }
+}

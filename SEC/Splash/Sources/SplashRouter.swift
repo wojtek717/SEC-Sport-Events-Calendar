@@ -42,9 +42,11 @@ extension SplashRouter: SplashRouterProtocol {
         if locationWorker.authorizationStatus == .notDetermined {
             rootViewController = routes.onboarding.onboardingLocation.viewController
             navigationController = UINavigationController(rootViewController: rootViewController)
-            window?.pushToViewController(newRootController: navigationController)
+        } else {
+            rootViewController = routes.eventsPanel.mainEventsList.viewController
+            navigationController = UINavigationController(rootViewController: rootViewController)
         }
         
-        
+        window?.pushToViewController(newRootController: navigationController)
     }
 }

@@ -8,6 +8,17 @@ final class MainEventsListViewController: UIViewController {
 
     var interactor: MainEventsListInteractorLogic?
     var router: MainEventsListRouterType?
+    
+    // MARK: - View Methods
+    override func viewDidLoad() {
+        setup()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setup() {
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 extension MainEventsListViewController: MainEventsListViewControllerLogic {}

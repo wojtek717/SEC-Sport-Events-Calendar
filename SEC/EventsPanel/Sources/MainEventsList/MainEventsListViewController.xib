@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainEventsListViewController" customModule="EventsPanel" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="X2I-Ic-mMZ" id="Jst-rP-PxR"/>
+                <outlet property="view" destination="iN0-l3-epB" id="M10-nf-vng"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X2I-Ic-mMZ">
+                    <rect key="frame" x="15" y="74" width="384" height="788"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="BackgroundPrimary"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="X2I-Ic-mMZ" secondAttribute="trailing" constant="15" id="4Qc-ae-54B"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="X2I-Ic-mMZ" secondAttribute="bottom" id="DYY-dW-wJn"/>
+                <constraint firstItem="X2I-Ic-mMZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="gAA-cB-OtY"/>
+                <constraint firstItem="X2I-Ic-mMZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="vid-jj-yiB"/>
+            </constraints>
+            <point key="canvasLocation" x="32" y="124"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundPrimary">
+            <color red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

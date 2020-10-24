@@ -3,9 +3,11 @@ import NeedleFoundation
 import UIKit
 import Onboarding
 import Location
+import EventsPanel
 
 public protocol SplashRouting: RoutesDefinition {
     var onboarding: OnboardingComponent { get }
+    var eventsPanel: EventsPanelComponent { get }
 }
 
 public final class SplashComponent: BootstrapComponent, RoutableBootstrapComponent {
@@ -46,6 +48,10 @@ public final class SplashComponent: BootstrapComponent, RoutableBootstrapCompone
 }
 
 extension SplashComponent: SplashRouting {
+    public var eventsPanel: EventsPanelComponent {
+        EventsPanelComponent()
+    }
+    
     public var onboarding: OnboardingComponent {
         OnboardingComponent()
     }

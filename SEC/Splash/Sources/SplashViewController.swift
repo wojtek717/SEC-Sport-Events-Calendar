@@ -1,4 +1,5 @@
 import UIKit
+import DesignSystem
 import CommonUI
 
 protocol SplashViewControllerLogic: AnyObject {}
@@ -50,6 +51,8 @@ final class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        DesignSystem.FontsConfigurator().initialize()
         
         setup()
     }

@@ -2,12 +2,15 @@ import Core
 import NeedleFoundation
 import UIKit
 import Location
+import EventsPanel
 
 public protocol OnboardingLocationDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }
 }
 
-public protocol OnboardingLocationRouting: RoutesDefinition {}
+public protocol OnboardingLocationRouting: RoutesDefinition {
+    var eventsPanel: EventsPanelComponent { get }
+}
 
 public final class OnboardingLocationComponent: Component<OnboardingLocationDependency> {}
 
@@ -26,4 +29,8 @@ extension OnboardingLocationComponent: RoutableComponent {
     }
 }
 
-extension OnboardingLocationComponent: OnboardingLocationRouting {}
+extension OnboardingLocationComponent: OnboardingLocationRouting {
+    public var eventsPanel: EventsPanelComponent {
+        EventsPanelComponent()
+    }
+}

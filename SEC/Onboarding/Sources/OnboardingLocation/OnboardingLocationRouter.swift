@@ -2,7 +2,9 @@ import UIKit
 
 typealias OnboardingLocationRouterType = OnboardingLocationRouterProtocol
 
-@objc protocol OnboardingLocationRouterProtocol {}
+@objc protocol OnboardingLocationRouterProtocol {
+    func navigateToMainEventsList()
+}
 
 final class OnboardingLocationRouter {
 
@@ -26,4 +28,12 @@ final class OnboardingLocationRouter {
     }
 }
 
-extension OnboardingLocationRouter: OnboardingLocationRouterProtocol {}
+extension OnboardingLocationRouter: OnboardingLocationRouterProtocol {
+    func navigateToMainEventsList() {
+        let mainEventsListViewController = routes.eventsPanel.mainEventsList.viewController
+        let navigationController = UINavigationController(rootViewController: mainEventsListViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .crossDissolve
+        self.viewController?.present(navigationController, animated: true)
+    }
+}

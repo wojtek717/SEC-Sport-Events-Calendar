@@ -2,7 +2,9 @@ import UIKit
 import CommonUI
 import Location
 
-protocol OnboardingLocationViewControllerLogic: AnyObject {}
+protocol OnboardingLocationViewControllerLogic: AnyObject {
+    func presentMainEventsList()
+}
 
 final class OnboardingLocationViewController: UIViewController {
 
@@ -49,7 +51,9 @@ final class OnboardingLocationViewController: UIViewController {
             self.running.transform = CGAffineTransform(scaleX: 1, y: 1)
             
         } completion: { _ in
-            self.interactor?.askForLocationPermission()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.interactor?.askForLocationPermission()
+            }
         }
     }
     
@@ -74,4 +78,8 @@ final class OnboardingLocationViewController: UIViewController {
     }
 }
 
-extension OnboardingLocationViewController: OnboardingLocationViewControllerLogic {}
+extension OnboardingLocationViewController: OnboardingLocationViewControllerLogic {
+    func presentMainEventsList() {
+        router?.navigateToMainEventsList()
+    }
+}

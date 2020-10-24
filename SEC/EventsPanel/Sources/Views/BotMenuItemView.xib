@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-SemiBold.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BotMenuItemView" customModule="EventsPanel" customModuleProvider="target">
+            <connections>
+                <outlet property="iconImageView" destination="D2a-er-R3T" id="8LX-Ab-lCO"/>
+                <outlet property="titleLabel" destination="9JV-K2-vdP" id="b07-uZ-RLp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="196" height="184"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-er-R3T">
+                    <rect key="frame" x="86" y="0.0" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="1aU-8s-HqE"/>
+                        <constraint firstAttribute="height" constant="24" id="v3N-DJ-od4"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JV-K2-vdP">
+                    <rect key="frame" x="5" y="29" width="186" height="21"/>
+                    <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flR-Nm-qrK">
+                    <rect key="frame" x="0.0" y="0.0" width="196" height="184"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="itemTapped:" destination="-1" eventType="touchUpInside" id="SMU-X7-scI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="flR-Nm-qrK" secondAttribute="trailing" id="1dA-BK-hGg"/>
+                <constraint firstItem="D2a-er-R3T" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3aq-MB-pq5"/>
+                <constraint firstItem="flR-Nm-qrK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="B5z-Kl-vEy"/>
+                <constraint firstItem="9JV-K2-vdP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="HbY-Vl-Sy4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9JV-K2-vdP" secondAttribute="trailing" constant="5" id="Ruk-r9-xTE"/>
+                <constraint firstItem="flR-Nm-qrK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cre-4s-i4b"/>
+                <constraint firstItem="9JV-K2-vdP" firstAttribute="top" secondItem="D2a-er-R3T" secondAttribute="bottom" constant="5" id="lbr-8B-cUv"/>
+                <constraint firstItem="D2a-er-R3T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lz8-nC-obG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="flR-Nm-qrK" secondAttribute="bottom" id="qtQ-96-DnW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-426.08695652173918" y="-119.86607142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Calendar" width="368" height="368"/>
+    </resources>
+</document>

@@ -9,6 +9,9 @@ final class MainEventsListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var topMenuView: UIView!
     @IBOutlet var topMenuTopConstraint: NSLayoutConstraint!
+    @IBOutlet var botMenuItem1: BotMenuItemView!
+    @IBOutlet var botMenuItem2: BotMenuItemView!
+    @IBOutlet var botMenuItem3: BotMenuItemView!
     
     // MARK: - Private Properties
     
@@ -24,6 +27,7 @@ final class MainEventsListViewController: UIViewController {
     override func viewDidLoad() {
         setup()
         setupTableView()
+        setupBotMenu()
         
         dataSource.content = [
             MainEventsListRow.event(EventTableViewCellPresentable(title: "Bieg Niepodleglosci 2020",
@@ -51,9 +55,21 @@ final class MainEventsListViewController: UIViewController {
         tableView.bounces = false
         tableView.bouncesZoom = false
     }
+    
+    private func setupBotMenu() {
+        botMenuItem1.setup(itemType: .signedUp, delegate: self)
+        botMenuItem2.setup(itemType: .add, delegate: self)
+        botMenuItem3.setup(itemType: .profile, delegate: self)
+    }
 }
 
 extension MainEventsListViewController: MainEventsListViewControllerLogic {}
+
+extension MainEventsListViewController: MenuItemDelegate {
+    func didTapItem(_ itemType: MenuItemType) {
+        print("==== tapped \(itemType.title)")
+    }
+}
 
 extension MainEventsListViewController: MainEventsListDelegate {
     func scrollViewDidScroll(delta: CGFloat) {

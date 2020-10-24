@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-SemiBold.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTableViewCell" rowHeight="110" id="KGk-i7-Jjw" customClass="EventTableViewCell" customModule="EventsPanel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-Qt-iXr">
+                        <rect key="frame" x="20" y="44" width="75.5" height="53"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/11 11:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKL-Lm-8Ph">
+                                <rect key="frame" x="0.0" y="0.0" width="75.5" height="26.5"/>
+                                <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wroclaw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5If-mw-IA6">
+                                <rect key="frame" x="0.0" y="26.5" width="75.5" height="26.5"/>
+                                <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdd-5V-pNJ">
+                        <rect key="frame" x="5" y="0.0" width="5" height="110"/>
+                        <color key="backgroundColor" name="SECBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="e9z-4z-w9u"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bieg Niepodleglosci 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJt-1S-1Tg">
+                        <rect key="frame" x="20" y="5" width="300" height="34"/>
+                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="fFk-of-ui4">
+                        <rect key="frame" x="257" y="46.5" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="edW-aM-D4o"/>
+                            <constraint firstAttribute="height" constant="48" id="wnz-9f-vPg"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" name="BrightWhite"/>
+                <constraints>
+                    <constraint firstItem="EP2-Qt-iXr" firstAttribute="leading" secondItem="dJt-1S-1Tg" secondAttribute="leading" id="DEd-Mq-fbe"/>
+                    <constraint firstAttribute="bottom" secondItem="Mdd-5V-pNJ" secondAttribute="bottom" id="GrO-jS-iPZ"/>
+                    <constraint firstItem="dJt-1S-1Tg" firstAttribute="leading" secondItem="Mdd-5V-pNJ" secondAttribute="trailing" constant="10" id="Nne-aQ-vb2"/>
+                    <constraint firstAttribute="trailing" secondItem="fFk-of-ui4" secondAttribute="trailing" constant="15" id="TBu-xy-sKf"/>
+                    <constraint firstItem="EP2-Qt-iXr" firstAttribute="top" secondItem="dJt-1S-1Tg" secondAttribute="bottom" constant="5" id="Yfx-NA-KJr"/>
+                    <constraint firstItem="fFk-of-ui4" firstAttribute="centerY" secondItem="EP2-Qt-iXr" secondAttribute="centerY" id="dAC-Qt-jFB"/>
+                    <constraint firstAttribute="trailing" secondItem="dJt-1S-1Tg" secondAttribute="trailing" id="j3g-3P-38W"/>
+                    <constraint firstItem="Mdd-5V-pNJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oRv-9K-fUS"/>
+                    <constraint firstItem="dJt-1S-1Tg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="rjg-NL-mC6"/>
+                    <constraint firstItem="Mdd-5V-pNJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="y2z-gb-DgY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="BrightWhite"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="cityLabel" destination="5If-mw-IA6" id="1T1-Ao-WWF"/>
+                <outlet property="dateLabel" destination="aKL-Lm-8Ph" id="giw-hx-F7G"/>
+                <outlet property="sportTypeImageView" destination="fFk-of-ui4" id="LV1-2A-ewF"/>
+                <outlet property="titleLabel" destination="dJt-1S-1Tg" id="aNV-Mj-1mh"/>
+            </connections>
+            <point key="canvasLocation" x="-65.217391304347828" y="85.714285714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="running" width="512" height="512"/>
+        <namedColor name="BrightWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SECBlue">
+            <color red="0.0" green="0.50980392156862742" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

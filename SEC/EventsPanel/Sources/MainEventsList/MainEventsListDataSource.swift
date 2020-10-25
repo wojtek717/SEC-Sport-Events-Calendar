@@ -4,6 +4,7 @@ final class MainEventsListDataSource: NSObject, UITableViewDataSource {
     // MARK: - Private Properties
     
     private weak var delegate: MainEventsListDelegate?
+    private var lastContentOffset: CGFloat = 0
     
     // MARK: - Public Properties
 
@@ -45,5 +46,17 @@ extension MainEventsListDataSource: UITableViewDelegate {
         let item = content[indexPath.row]
         
         delegate?.didSelectItem(item, atIndex: indexPath.row)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let delta = scrollView.contentOffset.y - lastContentOffset
+        
+        delegate?.scrollViewDidScroll(delta: delta)
+        
+        lastContentOffset = scrollView.contentOffset.y
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        lastContentOffset = scrollView.contentOffset.y
     }
 }

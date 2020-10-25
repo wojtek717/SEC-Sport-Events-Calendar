@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,35 +82,50 @@
                     <color key="backgroundColor" name="BrightWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tS-gV-xcI">
-                    <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                    <rect key="frame" x="0.0" y="797" width="414" height="65"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="hBR-uE-Rp9">
-                            <rect key="frame" x="0.0" y="10" width="414" height="70"/>
+                            <rect key="frame" x="0.0" y="10" width="414" height="55"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dac-VC-B5j">
+                                    <rect key="frame" x="0.0" y="0.0" width="35" height="55"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="rbD-TL-Vmd"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8m-LW-ZsW" customClass="BotMenuItemView" customModule="EventsPanel" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="70"/>
+                                    <rect key="frame" x="61" y="0.0" width="80" height="55"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="07S-PB-foe"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSN-iS-aPP" customClass="BotMenuItemView" customModule="EventsPanel" customModuleProvider="target">
-                                    <rect key="frame" x="167" y="0.0" width="80" height="70"/>
+                                    <rect key="frame" x="167" y="0.0" width="80" height="55"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="Xid-e8-geV"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8N9-vO-F0J" customClass="BotMenuItemView" customModule="EventsPanel" customModuleProvider="target">
-                                    <rect key="frame" x="334" y="0.0" width="80" height="70"/>
+                                    <rect key="frame" x="273" y="0.0" width="80" height="55"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="fzu-FL-a1b"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bd-OY-hc7">
+                                    <rect key="frame" x="379" y="0.0" width="35" height="55"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="Zlc-Gj-55b"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="E8m-LW-ZsW" secondAttribute="bottom" id="Nf1-Yc-cuP"/>
+                                <constraint firstAttribute="bottom" secondItem="dac-VC-B5j" secondAttribute="bottom" id="OeJ-9O-pa2"/>
                                 <constraint firstAttribute="bottom" secondItem="RSN-iS-aPP" secondAttribute="bottom" id="PGj-RA-Q0s"/>
                                 <constraint firstAttribute="bottom" secondItem="8N9-vO-F0J" secondAttribute="bottom" id="lxz-t1-r1l"/>
                             </constraints>
@@ -121,7 +136,7 @@
                         <constraint firstAttribute="bottom" secondItem="hBR-uE-Rp9" secondAttribute="bottom" id="Ln5-ng-Nmr"/>
                         <constraint firstItem="hBR-uE-Rp9" firstAttribute="leading" secondItem="1tS-gV-xcI" secondAttribute="leading" id="OXL-ME-2JH"/>
                         <constraint firstItem="hBR-uE-Rp9" firstAttribute="top" secondItem="1tS-gV-xcI" secondAttribute="top" constant="10" id="UQY-gc-qb8"/>
-                        <constraint firstAttribute="height" constant="80" id="Yan-WJ-hUa"/>
+                        <constraint firstAttribute="height" constant="65" id="Yan-WJ-hUa"/>
                         <constraint firstAttribute="trailing" secondItem="hBR-uE-Rp9" secondAttribute="trailing" id="j1q-bY-RMy"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

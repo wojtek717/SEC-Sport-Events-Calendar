@@ -9,8 +9,14 @@ public enum MenuItemType {
     
     public var icon: UIImage? {
         switch self {
+        case .add:
+            return CommonUI.R.image.addButton()
+        case .profile:
+            return CommonUI.R.image.profile()
+        case .signedUp:
+            return CommonUI.R.image.star()
         default:
-            return CommonUI.R.image.calendar()
+            return nil
         }
     }
     
@@ -18,11 +24,11 @@ public enum MenuItemType {
     public var title: String {
         switch self {
         case .add:
-            return "Add"
+            return "Dodaj"
         case .profile:
-            return "Profile"
+            return "Profil"
         case .signedUp:
-            return "Signed up"
+            return "Zapisane"
         default:
             return "Unknown"
         }

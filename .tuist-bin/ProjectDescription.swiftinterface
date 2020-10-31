@@ -117,6 +117,27 @@ public struct CoreDataModel : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: Swift.Encoder) throws
   public static func == (a: ProjectDescription.CoreDataModel, b: ProjectDescription.CoreDataModel) -> Swift.Bool
 }
+public struct Dependency : Swift.Codable, Swift.Equatable {
+  public init(name: Swift.String, requirement: ProjectDescription.Dependency.Requirement)
+  public static func carthage(name: Swift.String, requirement: ProjectDescription.Dependency.Requirement) -> ProjectDescription.Dependency
+  public static func == (lhs: ProjectDescription.Dependency, rhs: ProjectDescription.Dependency) -> Swift.Bool
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Dependencies : Swift.Codable, Swift.Equatable {
+  public init(_ dependencies: [ProjectDescription.Dependency])
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: ProjectDescription.Dependencies, b: ProjectDescription.Dependencies) -> Swift.Bool
+}
+extension Dependency {
+  public enum Requirement : Swift.Codable, Swift.Equatable {
+    case exact(ProjectDescription.Version)
+    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: Swift.Encoder) throws
+    public static func == (a: ProjectDescription.Dependency.Requirement, b: ProjectDescription.Dependency.Requirement) -> Swift.Bool
+  }
+}
 public struct DeploymentDevice : Swift.OptionSet, Swift.Codable, Swift.Equatable {
   public static let iphone: ProjectDescription.DeploymentDevice
   public static let ipad: ProjectDescription.DeploymentDevice
@@ -681,6 +702,7 @@ public struct TargetAction : Swift.Codable, Swift.Equatable {
   public let inputFileListPaths: [ProjectDescription.Path]
   public let outputPaths: [ProjectDescription.Path]
   public let outputFileListPaths: [ProjectDescription.Path]
+  public let basedOnDependencyAnalysis: Swift.Bool?
   public enum CodingKeys : Swift.String, Swift.CodingKey {
     case name
     case tool
@@ -691,6 +713,7 @@ public struct TargetAction : Swift.Codable, Swift.Equatable {
     case inputFileListPaths
     case outputPaths
     case outputFileListPaths
+    case basedOnDependencyAnalysis
     public typealias RawValue = Swift.String
     public init?(rawValue: Swift.String)
     public var rawValue: Swift.String {
@@ -705,14 +728,14 @@ public struct TargetAction : Swift.Codable, Swift.Equatable {
     }
     public init?(intValue: Swift.Int)
   }
-  public static func pre(tool: Swift.String, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func pre(tool: Swift.String, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func pre(path: ProjectDescription.Path, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func pre(path: ProjectDescription.Path, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func post(tool: Swift.String, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func post(tool: Swift.String, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func post(path: ProjectDescription.Path, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
-  public static func post(path: ProjectDescription.Path, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = []) -> ProjectDescription.TargetAction
+  public static func pre(tool: Swift.String, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func pre(tool: Swift.String, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func pre(path: ProjectDescription.Path, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func pre(path: ProjectDescription.Path, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func post(tool: Swift.String, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func post(tool: Swift.String, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func post(path: ProjectDescription.Path, arguments: Swift.String..., name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
+  public static func post(path: ProjectDescription.Path, arguments: [Swift.String], name: Swift.String, inputPaths: [ProjectDescription.Path] = [], inputFileListPaths: [ProjectDescription.Path] = [], outputPaths: [ProjectDescription.Path] = [], outputFileListPaths: [ProjectDescription.Path] = [], basedOnDependencyAnalysis: Swift.Bool? = nil) -> ProjectDescription.TargetAction
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
   public static func == (a: ProjectDescription.TargetAction, b: ProjectDescription.TargetAction) -> Swift.Bool

@@ -13,7 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Bash Command Lines for GitHub Actions
+      run: tuist up
+    - name: Bash Command Lines for GitHub Actions
+      run: tuist generate
     - name: Build
       run: swift build -v
     - name: Run tests
       run: swift test -v
+

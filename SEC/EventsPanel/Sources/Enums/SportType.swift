@@ -1,8 +1,9 @@
 import UIKit
 import CommonUI
 
-enum SportType {
-    case running
+enum SportType: Int {
+    case unknown = 0
+    case running = 1
     
     var image: UIImage? {
         switch self {

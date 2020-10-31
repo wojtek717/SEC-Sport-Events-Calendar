@@ -1,0 +1,8 @@
+query GetEvents {
+  Events(order_by: {begin_date: asc}) {
+    title
+    description
+    max_participant
+  }
+}
+

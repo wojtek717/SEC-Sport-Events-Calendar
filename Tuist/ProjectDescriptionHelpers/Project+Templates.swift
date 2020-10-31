@@ -24,7 +24,7 @@ extension Project {
             "OTHER_LDFLAGS": "-ObjC",
             "EXCLUDED_ARCHS[sdk=iphonesimulator*]": SettingValue(stringLiteral: "arm64"),
         ]
-
+        
         let frameworkConfigurations: [CustomConfiguration] = [
             .debug(name: "Debug", settings: disableDiamondProblemDiagnostic),
             .debug(name: "Release", settings: disableDiamondProblemDiagnostic)
@@ -37,30 +37,56 @@ extension Project {
             .debug(name: "Debug", settings: disableDiamondProblemDiagnostic),
             .debug(name: "Release", settings: disableDiamondProblemDiagnostic)
         ]
-
+        
         let projectConfigurations: [CustomConfiguration] = [
             .debug(name: "Debug", settings: disableDiamondProblemDiagnostic),
             .debug(name: "Release", settings: disableDiamondProblemDiagnostic)
         ]
-
+        
         let testsDependencies: [TargetDependency] = [
             .target(name: "\(name)"),
             .xctest
         ]
-
+        
         // Target dependencies
         var targetDependencies: [TargetDependency] = internalDependencies.map { .project(target: $0, path: .relativeToRoot("SEC/\($0)")) }
         targetDependencies.append(contentsOf: sdks.map { .sdk(name: $0) })
-
+        
         targetDependencies.append(contentsOf: [
             .package(product: "Rswift"),
             .package(product: "NeedleFoundation")
         ])
         targetDependencies.append(contentsOf: externalDependencies)
-
+        
         var commonRows: [String: ProjectDescription.InfoPlist.Value] = ["CFBundleLocalizations": ["en"]]
         commonRows = commonRows.merging(additionalPlistRows) { $1 }
-
+        
+        var actions: [TargetAction] = [
+            .pre(path: .relativeToRoot(withPublicResources ? "Scripts/rswift_public.sh" : "Scripts/rswift.sh"),
+                 arguments: [],
+                 name: "R.swift",
+                 inputPaths: ["$TEMP_DIR/rswift-lastrun"],
+                 inputFileListPaths: [],
+                 outputPaths: ["SupportingFiles/Generated/R.generated.swift"],
+                 outputFileListPaths: []),
+            .pre(path: .relativeToRoot("Scripts/generate_needle.sh"),
+                 arguments: ["SupportingFiles/Generated", "Sources"],
+                 name: "Needle"),
+            .post(path: .relativeToRoot("Scripts/swiftlint.sh"),
+                  arguments: [],
+                  name: "Swiftlint")
+        ]
+        
+        let networkingActions: [TargetAction] = [
+            .pre(path: .relativeToRoot("Scripts/Apollo.sh"),
+                 arguments: [],
+                 name: "Apollo CLI")
+        ]
+        
+        if name == "Networking" {
+            actions += networkingActions
+        }
+        
         // Project targets
         var projectTargets: [Target] = []
         if targets.contains(.framework) {
@@ -71,26 +97,13 @@ extension Project {
                                          deploymentTarget: .iOS(targetVersion: "14.0", devices: .iphone),
                                          infoPlist: InfoPlist.extendingDefault(with: commonRows),
                                          sources: [
-                                             "Sources/**/*.swift",
-                                             "SupportingFiles/Generated/R.generated.swift",
-                                             "SupportingFiles/Generated/Needle.generated.swift"
+                                            "Sources/**/*.swift",
+                                            "SupportingFiles/Generated/R.generated.swift",
+                                            "SupportingFiles/Generated/Needle.generated.swift",
+                                            "API.swift"
                                          ],
                                          resources: resources,
-                                         actions: [
-                                             .pre(path: .relativeToRoot(withPublicResources ? "Scripts/rswift_public.sh" : "Scripts/rswift.sh"),
-                                                  arguments: [],
-                                                  name: "R.swift",
-                                                  inputPaths: ["$TEMP_DIR/rswift-lastrun"],
-                                                  inputFileListPaths: [],
-                                                  outputPaths: ["SupportingFiles/Generated/R.generated.swift"],
-                                                  outputFileListPaths: []),
-                                             .pre(path: .relativeToRoot("Scripts/generate_needle.sh"),
-                                                  arguments: ["SupportingFiles/Generated", "Sources"],
-                                                  name: "Needle"),
-                                             .post(path: .relativeToRoot("Scripts/swiftlint.sh"),
-                                                   arguments: [],
-                                                   name: "Swiftlint")
-                                         ],
+                                         actions: actions,
                                          dependencies: targetDependencies,
                                          settings: Settings(configurations: frameworkConfigurations)))
         }
@@ -127,15 +140,15 @@ extension Project {
                                          dependencies: [.target(name: "\(name)")],
                                          settings: Settings(configurations: appConfigurations)))
         }
-
+        
         var projecPackages: [Package] = [
             .package(url: "https://github.com/mac-cain13/R.swift.Library", from: "5.1.0"),
             .package(url: "https://github.com/mac-cain13/R.swift", from: "5.1.0"),
             .package(url: "https://github.com/uber/needle", from: "0.15.0")
         ]
-
+        
         projecPackages.append(contentsOf: packages)
-
+        
         // Project
         return Project(name: name,
                        packages: projecPackages,

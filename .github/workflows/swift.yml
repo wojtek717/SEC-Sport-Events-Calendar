@@ -19,8 +19,12 @@ jobs:
       run: tuist up
     - name: Bash Command Lines for GitHub Actions
       run: tuist generate
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Build iOS App
+      uses: sparkfabrik/ios-build-action@1.0.3
+      with:
+        project-path: SEC.xcworkspace
+        mobileprovision-base64: iOS Distribution
+        team-id: Wojciech Konury
+        scheme: SEC
+      
 

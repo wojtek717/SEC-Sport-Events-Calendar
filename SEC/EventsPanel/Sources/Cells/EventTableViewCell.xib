@@ -26,16 +26,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-Qt-iXr">
-                        <rect key="frame" x="20" y="44" width="75.5" height="53"/>
+                        <rect key="frame" x="20" y="31" width="75" height="33"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/11 11:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKL-Lm-8Ph">
-                                <rect key="frame" x="0.0" y="0.0" width="75.5" height="26.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wroclaw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5If-mw-IA6">
-                                <rect key="frame" x="0.0" y="26.5" width="75.5" height="26.5"/>
+                                <rect key="frame" x="0.0" y="16.5" width="75" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,13 +50,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bieg Niepodleglosci 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJt-1S-1Tg">
-                        <rect key="frame" x="20" y="5" width="300" height="34"/>
+                        <rect key="frame" x="20" y="5" width="300" height="21"/>
                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="fFk-of-ui4">
-                        <rect key="frame" x="257" y="46.5" width="48" height="48"/>
+                        <rect key="frame" x="257" y="23.5" width="48" height="48"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="edW-aM-D4o"/>
                             <constraint firstAttribute="height" constant="48" id="wnz-9f-vPg"/>
@@ -76,6 +76,11 @@
                     <constraint firstItem="dJt-1S-1Tg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="rjg-NL-mC6"/>
                     <constraint firstItem="Mdd-5V-pNJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="y2z-gb-DgY"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <real key="value" value="10"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="BrightWhite"/>

@@ -14,6 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Bash Command Lines for GitHub Actions
+      run: bash <(curl -Ls https://install.tuist.io)
+    - name: Bash Command Lines for GitHub Actions
       run: tuist up
     - name: Bash Command Lines for GitHub Actions
       run: tuist generate

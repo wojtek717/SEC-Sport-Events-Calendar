@@ -4,7 +4,9 @@ import UIKit
 
 public protocol MainEventsListDependency: Dependency {}
 
-public protocol MainEventsListRouting: RoutesDefinition {}
+public protocol MainEventsListRouting: RoutesDefinition {
+    var localizationSelect: LocalizationSelectComponent { get }
+}
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
 
@@ -23,4 +25,8 @@ extension MainEventsListComponent: RoutableComponent {
     }
 }
 
-extension MainEventsListComponent: MainEventsListRouting {}
+extension MainEventsListComponent: MainEventsListRouting {
+    public var localizationSelect: LocalizationSelectComponent {
+        LocalizationSelectComponent(parent: self)
+    }
+}

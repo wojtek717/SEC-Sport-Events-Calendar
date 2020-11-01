@@ -1,0 +1,25 @@
+query GetAllEvents {
+  Events(order_by: {begin_date: asc}) {
+    id
+    title
+    description
+    begin_date
+    end_date
+    max_participant
+    type
+    Localization {
+      latitude
+      longitude
+    }
+    Creator {
+      name
+      surname
+    }
+    Events_participants_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}
+

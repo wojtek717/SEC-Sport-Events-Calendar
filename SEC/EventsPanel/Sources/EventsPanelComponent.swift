@@ -1,6 +1,7 @@
 import Core
 import NeedleFoundation
 import UIKit
+import Networking
 
 public protocol EventsPanelRouting: RoutesDefinition {
     var mainEventsList: MainEventsListComponent { get }
@@ -11,6 +12,14 @@ public final class EventsPanelComponent: BootstrapComponent {
         registerProviderFactories()
 
         super.init()
+    }
+    
+    var networkingWorker: NetworkingWorkerProtocol {
+        networkingComponent.networkingWorker
+    }
+    
+    var dateHelper: DateHelper {
+        DateHelper()
     }
  }
 

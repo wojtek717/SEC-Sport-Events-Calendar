@@ -58,7 +58,7 @@ final class LocalizationSelectViewController: UIViewController, UITextFieldDeleg
             image: CommonUI.R.image.close(),
             style: .plain,
             target: self,
-            action: #selector(dismiss))
+            action: #selector(closeTapped))
         navigationItem.leftBarButtonItem = quitButton
         navigationItem.leftBarButtonItem?.tintColor = DesignSystem.R.color.secRed()
     }

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocalizationSelectViewController" customModule="EventsPanel" customModuleProvider="target">
             <connections>
                 <outlet property="secTextField" destination="Kk7-oG-BkU" id="svs-Le-K33"/>
+                <outlet property="tableView" destination="r9l-N8-9n3" id="pdu-2X-orm"/>
                 <outlet property="userLocationView" destination="xbb-j5-adY" id="AG2-bj-saL"/>
                 <outlet property="view" destination="iN0-l3-epB" id="M63-Vr-vSY"/>
             </connections>
@@ -35,14 +36,22 @@
                         <constraint firstAttribute="height" constant="60" id="fN6-Xl-9wp"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r9l-N8-9n3">
+                    <rect key="frame" x="15" y="244" width="384" height="618"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="BrightWhite"/>
             <constraints>
+                <constraint firstItem="r9l-N8-9n3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="2bL-E1-MZI"/>
                 <constraint firstItem="xbb-j5-adY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="9sl-PK-aaZ"/>
                 <constraint firstItem="xbb-j5-adY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="TkM-pk-i09"/>
                 <constraint firstItem="Kk7-oG-BkU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="V4t-Z3-BJp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Kk7-oG-BkU" secondAttribute="trailing" constant="15" id="Vzx-3O-y5z"/>
+                <constraint firstItem="r9l-N8-9n3" firstAttribute="top" secondItem="Kk7-oG-BkU" secondAttribute="bottom" constant="15" id="haq-5O-7hl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="r9l-N8-9n3" secondAttribute="bottom" id="jVh-qe-Ze7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="r9l-N8-9n3" secondAttribute="trailing" constant="15" id="jrw-6P-B6L"/>
                 <constraint firstItem="Kk7-oG-BkU" firstAttribute="top" secondItem="xbb-j5-adY" secondAttribute="bottom" constant="15" id="s0R-ae-00x"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xbb-j5-adY" secondAttribute="trailing" constant="15" id="yIt-Ml-2of"/>
             </constraints>

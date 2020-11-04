@@ -1,5 +1,6 @@
 import Foundation
 import CoreLocation
+import MapKit
 
 public protocol LocationWorkerDelegate: AnyObject {
     func locationWorker(_ worker: LocationWorker, didChangeAuthorizationStatus isAuthorized: Bool)
@@ -16,10 +17,11 @@ public protocol LocationWorkerProtocol {
     func startUpdatingLocation()
     func getPlace(for location: CLLocation,
                   completion: @escaping (CLPlacemark?) -> Void)
+    func search(for name: String,
+                completion: @escaping (MKLocalSearch.Response?) -> Void)
 }
 
 public final class LocationWorker: NSObject, LocationWorkerProtocol {
-    
     // MARK: - Public Properties
     
     public weak var delegate: LocationWorkerDelegate?
@@ -69,6 +71,28 @@ public final class LocationWorker: NSObject, LocationWorkerProtocol {
             }
             
             completion(placemark)
+        }
+    }
+    
+    public func search(for name: String,
+                       completion: @escaping (MKLocalSearch.Response?) -> Void) {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = name
+        
+        if let centerCoordinations = manager.location?.coordinate {
+            searchRequest.region = MKCoordinateRegion(center: centerCoordinations,
+                                                      latitudinalMeters: 500, longitudinalMeters: 500)
+        }
+        
+        let search = MKLocalSearch(request: searchRequest)
+        
+        search.start { (reposnse, error) in
+            guard error == nil else{
+                completion(nil)
+                return
+            }
+            
+            completion(reposnse)
         }
     }
 }

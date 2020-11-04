@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocalizationTableViewCell" rowHeight="70" id="KGk-i7-Jjw" customClass="LocalizationTableViewCell" customModule="EventsPanel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-7" translatesAutoresizingMaskIntoConstraints="NO" id="uTm-DT-8om">
+                        <rect key="frame" x="0.0" y="17.5" width="320" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrocław" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lJ-Xt-NMH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
+                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dolnośląskie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd7-OK-48Y">
+                                <rect key="frame" x="0.0" y="14" width="320" height="21"/>
+                                <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owg-3e-X9H">
+                        <rect key="frame" x="0.0" y="68" width="320" height="2"/>
+                        <color key="backgroundColor" name="SECRed"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="N6Q-8p-q5q"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uTm-DT-8om" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0r9-EE-brJ"/>
+                    <constraint firstItem="owg-3e-X9H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7e3-GH-ZSn"/>
+                    <constraint firstAttribute="bottom" secondItem="owg-3e-X9H" secondAttribute="bottom" id="VAo-Mm-jVK"/>
+                    <constraint firstAttribute="trailing" secondItem="owg-3e-X9H" secondAttribute="trailing" id="jLg-gU-aXG"/>
+                    <constraint firstAttribute="trailing" secondItem="uTm-DT-8om" secondAttribute="trailing" id="p1h-BB-61i"/>
+                    <constraint firstItem="uTm-DT-8om" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vPr-hL-JXN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomLabel" destination="kd7-OK-48Y" id="7l9-FD-YVc"/>
+                <outlet property="cityLabel" destination="5lJ-Xt-NMH" id="BaU-oQ-wls"/>
+            </connections>
+            <point key="canvasLocation" x="-268.1159420289855" y="131.25"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="SECRed">
+            <color red="0.8666666666666667" green="0.17647058823529413" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -30,7 +30,7 @@ final class MainEventsListRouter {
 
 extension MainEventsListRouter: MainEventsListRouterProtocol {
     func navigateToLocalizationSelect() {
-        let localizationSelectViewController = routes.localizationSelect.viewController
+        let localizationSelectViewController = routes.localizationSelect(delegate: viewController).viewController
         let navigationController = UINavigationController(rootViewController: localizationSelectViewController)
         navigationController.modalPresentationStyle = .fullScreen
         viewController?.present(navigationController, animated: true)

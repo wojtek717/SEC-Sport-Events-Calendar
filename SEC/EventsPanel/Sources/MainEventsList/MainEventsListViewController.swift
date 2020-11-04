@@ -84,7 +84,6 @@ extension MainEventsListViewController: MainEventsListViewControllerLogic {}
 
 extension MainEventsListViewController: MenuItemDelegate {
     func didTapItem(_ itemType: MenuItemType) {
-        print("==== tapped \(itemType.title)")
     }
 }
 
@@ -99,5 +98,11 @@ extension MainEventsListViewController: MainEventsListDelegate {
     
     func didSelectItem(_ mainEventsListItem: MainEventsListRow, atIndex index: Int) {
         // TODO: Handle selection
+    }
+}
+
+extension MainEventsListViewController: MainEventsListLocalizationDelegate {
+    func didSelectLocalizationType(_ queryLocalizationType: QueryLocalizationType) {
+        print("======= \(queryLocalizationType)")
     }
 }

@@ -2,33 +2,40 @@ import UIKit
 
 typealias LocalizationSelectRouterType = LocalizationSelectRouterProtocol
 
-@objc protocol LocalizationSelectRouterProtocol {
+protocol LocalizationSelectRouterProtocol {
     func dismiss()
+    func localizationTypeSelected(_ queryLocalizationType: QueryLocalizationType)
 }
 
 final class LocalizationSelectRouter {
 
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
     private weak var viewController: LocalizationSelectViewController?
     private let dataStore: LocalizationSelectDataStore
 
-    // MARK: - Private Properties
-
     private let routes: LocalizationSelectRouting
+    private weak var delegate: MainEventsListLocalizationDelegate?
 
     // MARK: - Initializers
 
     init(viewController: LocalizationSelectViewController?,
          dataStore: LocalizationSelectDataStore,
-         routes: LocalizationSelectRouting) {
+         routes: LocalizationSelectRouting,
+         delegate: MainEventsListLocalizationDelegate?) {
         self.viewController = viewController
         self.dataStore = dataStore
         self.routes = routes
+        self.delegate = delegate
     }
 }
 
 extension LocalizationSelectRouter: LocalizationSelectRouterProtocol {
+    func localizationTypeSelected(_ queryLocalizationType: QueryLocalizationType) {
+        delegate?.didSelectLocalizationType(queryLocalizationType)
+        dismiss()
+    }
+    
     func dismiss() {
         viewController?.navigationController?.dismiss(animated: true)
     }

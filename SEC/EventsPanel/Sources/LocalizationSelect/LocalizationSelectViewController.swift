@@ -4,19 +4,25 @@ import DesignSystem
 
 protocol LocalizationSelectViewControllerLogic: AnyObject {
     func presentUserPlace(with presentable: UserLocationViewPresentable)
+    func presentLocalizationSearch(with presentables: [LocalizationTableViewCellPresentable])
 }
 
-final class LocalizationSelectViewController: UIViewController {
+final class LocalizationSelectViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - IBOutlets
     
     @IBOutlet private var userLocationView: UserLocationView!
     @IBOutlet private var secTextField: SECTextFieldView!
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: - Public Properties
 
     var interactor: LocalizationSelectInteractorLogic?
     var router: LocalizationSelectRouterType?
+    
+    // MARK: - Private Properties
+    
+    private var dataSource = LocalizationSelectDataSource()
     
     // MARK: - View Methods
     
@@ -27,14 +33,20 @@ final class LocalizationSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         setup()
+        interactor?.getPlace()
     }
     
     // MARK: - Private Methods
     
     private func setup() {
-        interactor?.getPlace()
-        secTextField.setup(delegate: self,
-                           icon: CommonUI.R.image.search())
+        setupTableView()
+        
+        secTextField.setup(icon: CommonUI.R.image.search(),
+                           target: interactor,
+                           action: #selector(interactor?.textFieldDidChange(_:)))
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(userLocalizationTapped))
+        userLocationView.addGestureRecognizer(tap)
     }
     
     private func setupNavigationBar() {
@@ -45,19 +57,43 @@ final class LocalizationSelectViewController: UIViewController {
         let quitButton = UIBarButtonItem(
             image: CommonUI.R.image.close(),
             style: .plain,
-            target: router,
-            action: #selector(router?.dismiss))
+            target: self,
+            action: #selector(dismiss))
         navigationItem.leftBarButtonItem = quitButton
         navigationItem.leftBarButtonItem?.tintColor = DesignSystem.R.color.secRed()
+    }
+    
+    private func setupTableView() {
+        tableView.register(R.nib.localizationTableViewCell)
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.bounces = false
+        tableView.bouncesZoom = false
+    }
+    
+    @objc private func closeTapped() {
+        router?.dismiss()
+    }
+    
+    @objc private func userLocalizationTapped() {
+        router?.localizationTypeSelected(.atUserLocalization)
     }
 }
 
 extension LocalizationSelectViewController: LocalizationSelectViewControllerLogic {
+    func presentLocalizationSearch(with presentables: [LocalizationTableViewCellPresentable]) {
+        dataSource.content = presentables
+        tableView.reloadData()
+    }
+    
     func presentUserPlace(with presentable: UserLocationViewPresentable) {
         userLocationView.setup(with: presentable)
     }
 }
 
-extension LocalizationSelectViewController: UITextFieldDelegate {
-    
+extension LocalizationSelectViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70.0
+    }
 }

@@ -1,6 +1,8 @@
 import UIKit
 
-protocol MainEventsListViewControllerLogic: AnyObject {}
+protocol MainEventsListViewControllerLogic: AnyObject {
+    func presentEvents(events: [MainEventsListRow])
+}
 
 final class MainEventsListViewController: UIViewController {
     
@@ -19,6 +21,12 @@ final class MainEventsListViewController: UIViewController {
     
     private var dataSource = MainEventsListDataSource()
     private var range: Range<CGFloat> = (0..<0)
+    private var searchLocalizationType: QueryLocalizationType? {
+        didSet {
+            localizationButton.setTitle(searchLocalizationType?.title, for: [])
+            interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere)
+        }
+    }
     
     // MARK: - Public Properties
     
@@ -39,15 +47,7 @@ final class MainEventsListViewController: UIViewController {
         setupBotMenu()
         setupButtons()
         
-        dataSource.content = [
-            MainEventsListRow.event(EventTableViewCellPresentable(title: "Bieg Niepodleglosci 2020",
-                                                                  date: "11/11 12:30",
-                                                                  city: "Wroclaw",
-                                                                  sport: .running)),
-        ]
-        tableView.reloadData()
-        
-        interactor?.fetchEvents()
+        searchLocalizationType = .everywhere
     }
     
     // MARK: - Private Methods
@@ -82,7 +82,12 @@ final class MainEventsListViewController: UIViewController {
     
 }
 
-extension MainEventsListViewController: MainEventsListViewControllerLogic {}
+extension MainEventsListViewController: MainEventsListViewControllerLogic {
+    func presentEvents(events: [MainEventsListRow]) {
+        dataSource.content = events
+        tableView.reloadData()
+    }
+}
 
 extension MainEventsListViewController: MenuItemDelegate {
     func didTapItem(_ itemType: MenuItemType) {
@@ -105,6 +110,6 @@ extension MainEventsListViewController: MainEventsListDelegate {
 
 extension MainEventsListViewController: MainEventsListLocalizationDelegate {
     func didSelectLocalizationType(_ queryLocalizationType: QueryLocalizationType) {
-        print("======= \(queryLocalizationType)")
+        searchLocalizationType = queryLocalizationType
     }
 }

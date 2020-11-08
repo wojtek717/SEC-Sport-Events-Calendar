@@ -3,7 +3,7 @@ import UIKit
 import Networking
 
 protocol MainEventsListInteractorLogic {
-    func fetchEvents()
+    func fetchEvents(localizationType: QueryLocalizationType)
 }
 protocol MainEventsListDataStore {}
 
@@ -27,11 +27,9 @@ final class MainEventsListInteractor: MainEventsListDataStore {
         self.networkingWorker = networkingWorker
         self.dateHelper = dateHelper
     }
-}
-
-extension MainEventsListInteractor: MainEventsListInteractorLogic {
-    func fetchEvents() {
-        networkingWorker.request(query: GetAllEventsQuery()) { (result) in
+    
+    private func fetchEventsFromEverywhere(){
+        networkingWorker.request(query: GetAllEventsQuery()) { [weak self] (result) in
             switch result {
             case .success(let graphqlResult):
                 let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.map { [weak self] in
@@ -46,13 +44,26 @@ extension MainEventsListInteractor: MainEventsListInteractorLogic {
                 }
                 
                 if let eventsRows = eventsRows {
-                    //TODO: Present results
+                    self?.presenter.presentEvents(events: eventsRows)
                 }
                 
             case .failure(let error):
                 //TODO: Handle error
                 print(error)
             }
+        }
+    }
+}
+
+extension MainEventsListInteractor: MainEventsListInteractorLogic {
+    func fetchEvents(localizationType: QueryLocalizationType) {
+        switch localizationType {
+        case .everywhere:
+            fetchEventsFromEverywhere()
+        case .atUserLocalization:
+            return
+        case .atSelectedLocalization(_):
+            return
         }
     }
 }

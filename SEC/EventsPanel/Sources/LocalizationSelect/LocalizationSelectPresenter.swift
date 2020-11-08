@@ -5,6 +5,7 @@ import MapKit
 protocol LocalizationSelectPresenterLogic {
     func presentUserPlace(placeMark: CLPlacemark)
     func presentSearchResponse(response: [MKMapItem])
+    func presentLocalizationEvents(item: MKMapItem)
 }
 
 final class LocalizationSelectPresenter {
@@ -35,5 +36,9 @@ extension LocalizationSelectPresenter: LocalizationSelectPresenterLogic {
                                                       country: placeMark.country ?? "")
         
         viewController?.presentUserPlace(with: presentable)
+    }
+    
+    func presentLocalizationEvents(item: MKMapItem) {
+        viewController?.localizationItemSelected(item: item)
     }
 }

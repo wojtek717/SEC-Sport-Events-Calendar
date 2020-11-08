@@ -31,9 +31,11 @@ public final class SECTextFieldView: XibView {
 
     public func setup(icon: UIImage?,
                       target: Any?,
-                      action: Selector) {
+                      action: Selector,
+                      delegate: UITextFieldDelegate? = nil) {
         iconImageView.image = icon
         
         textField.addTarget(target, action: action, for: .editingChanged)
+        textField.delegate = delegate
     }
 }

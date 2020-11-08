@@ -1,10 +1,12 @@
 import Core
 import UIKit
+import MapKit
 import Location
 
 @objc protocol LocalizationSelectInteractorLogic {
     func getPlace()
     func textFieldDidChange(_ textField: UITextField)
+    func localizationSelected(at row: Int)
 }
 protocol LocalizationSelectDataStore {}
 
@@ -15,6 +17,8 @@ final class LocalizationSelectInteractor: LocalizationSelectDataStore {
     private let presenter: LocalizationSelectPresenterLogic
     private var locationWorker: LocationWorkerProtocol
     private var debounceWorker: DebounceWorker
+    
+    private var mapItems: [MKMapItem] = []
 
     // MARK: - Initializers
 
@@ -31,6 +35,7 @@ final class LocalizationSelectInteractor: LocalizationSelectDataStore {
     private func search(for name: String) {
         locationWorker.search(for: name) { (response) in
             if let response = response?.mapItems {
+                self.mapItems = response
                 self.presenter.presentSearchResponse(response: response)
             }
         }
@@ -38,6 +43,12 @@ final class LocalizationSelectInteractor: LocalizationSelectDataStore {
 }
 
 extension LocalizationSelectInteractor: LocalizationSelectInteractorLogic {
+    func localizationSelected(at row: Int) {
+        if row <= mapItems.count {
+            presenter.presentLocalizationEvents(item: mapItems[row])
+        }
+    }
+    
     func getPlace() {
         locationWorker.startUpdatingLocation()
         guard let location = locationWorker.currentLocation else {
@@ -55,6 +66,7 @@ extension LocalizationSelectInteractor: LocalizationSelectInteractorLogic {
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let searchQuery = textField.text,
               searchQuery.count >= 3 else {
+            mapItems = []
             presenter.presentSearchResponse(response: [])
             return
         }

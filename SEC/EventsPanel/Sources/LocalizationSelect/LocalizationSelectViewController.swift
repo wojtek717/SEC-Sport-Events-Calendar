@@ -1,19 +1,25 @@
 import UIKit
+import MapKit
+import Core
 import CommonUI
 import DesignSystem
 
 protocol LocalizationSelectViewControllerLogic: AnyObject {
     func presentUserPlace(with presentable: UserLocationViewPresentable)
     func presentLocalizationSearch(with presentables: [LocalizationTableViewCellPresentable])
+    func localizationItemSelected(item: MKMapItem)
 }
 
-final class LocalizationSelectViewController: UIViewController, UITextFieldDelegate {
+final class LocalizationSelectViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+
     @IBOutlet private var userLocationView: UserLocationView!
     @IBOutlet private var secTextField: SECTextFieldView!
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var everywhereViewImageVIew: UIImageView!
+    @IBOutlet private var everywhereView: UIView!
     
     // MARK: - Public Properties
 
@@ -23,12 +29,12 @@ final class LocalizationSelectViewController: UIViewController, UITextFieldDeleg
     // MARK: - Private Properties
     
     private var dataSource = LocalizationSelectDataSource()
+    private let keyboardWorker = KeyboardWorker()
     
     // MARK: - View Methods
     
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBar()
-        interactor?.getPlace()
     }
     
     override func viewDidLoad() {
@@ -43,10 +49,18 @@ final class LocalizationSelectViewController: UIViewController, UITextFieldDeleg
         
         secTextField.setup(icon: CommonUI.R.image.search(),
                            target: interactor,
-                           action: #selector(interactor?.textFieldDidChange(_:)))
+                           action: #selector(interactor?.textFieldDidChange(_:)),
+                           delegate: self)
+
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(userLocalizationTapped))
+        userLocationView.addGestureRecognizer(tap1)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(userLocalizationTapped))
-        userLocationView.addGestureRecognizer(tap)
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(everywhereTapped))
+        everywhereView.addGestureRecognizer(tap2)
+        everywhereViewImageVIew.image = CommonUI.R.image.world()
+        
+        keyboardWorker.delegate = self
+        userLocationView.isHidden = true
     }
     
     private func setupNavigationBar() {
@@ -68,8 +82,6 @@ final class LocalizationSelectViewController: UIViewController, UITextFieldDeleg
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.bounces = false
-        tableView.bouncesZoom = false
     }
     
     @objc private func closeTapped() {
@@ -78,6 +90,10 @@ final class LocalizationSelectViewController: UIViewController, UITextFieldDeleg
     
     @objc private func userLocalizationTapped() {
         router?.localizationTypeSelected(.atUserLocalization)
+    }
+    
+    @objc private func everywhereTapped() {
+        router?.localizationTypeSelected(.everywhere)
     }
 }
 
@@ -88,12 +104,40 @@ extension LocalizationSelectViewController: LocalizationSelectViewControllerLogi
     }
     
     func presentUserPlace(with presentable: UserLocationViewPresentable) {
+        userLocationView.isHidden = false
         userLocationView.setup(with: presentable)
+    }
+    
+    func localizationItemSelected(item: MKMapItem) {
+        router?.localizationTypeSelected(.atSelectedLocalization(item))
     }
 }
 
 extension LocalizationSelectViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        interactor?.localizationSelected(at: indexPath.row)
+    }
+}
+
+extension LocalizationSelectViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
+}
+
+extension LocalizationSelectViewController: KeyboardWorkerDelegate {
+    func keyboardWillShow(with keyboardBounds: CGRect) {
+        userLocationView.isHidden = true
+        view.layoutIfNeeded()
+    }
+    
+    func keyboardWillHide(with keyboardBounds: CGRect) {
+        userLocationView.isHidden = false
+        view.layoutIfNeeded()
     }
 }

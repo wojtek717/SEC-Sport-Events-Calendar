@@ -117,8 +117,8 @@ public final class GetAllEventsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GetAllEvents {
-      Events(order_by: {begin_date: asc}) {
+    query GetAllEvents($sportTypes: [Int!]) {
+      Events(order_by: {begin_date: asc}, where: {type: {_in: $sportTypes}}) {
         __typename
         id
         title
@@ -150,7 +150,14 @@ public final class GetAllEventsQuery: GraphQLQuery {
 
   public let operationName: String = "GetAllEvents"
 
-  public init() {
+  public var sportTypes: [Int]?
+
+  public init(sportTypes: [Int]?) {
+    self.sportTypes = sportTypes
+  }
+
+  public var variables: GraphQLMap? {
+    return ["sportTypes": sportTypes]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -158,7 +165,7 @@ public final class GetAllEventsQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("Events", arguments: ["order_by": ["begin_date": "asc"]], type: .nonNull(.list(.nonNull(.object(Event.selections))))),
+        GraphQLField("Events", arguments: ["order_by": ["begin_date": "asc"], "where": ["type": ["_in": GraphQLVariable("sportTypes")]]], type: .nonNull(.list(.nonNull(.object(Event.selections))))),
       ]
     }
 

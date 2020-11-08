@@ -1,13 +1,26 @@
 import Core
 import UIKit
 import Networking
+import CoreLocation
 
 protocol MainEventsListInteractorLogic {
-    func fetchEvents(localizationType: QueryLocalizationType)
+    func fetchEvents(localizationType: QueryLocalizationType, sportTypes: [SportType])
 }
 protocol MainEventsListDataStore {}
 
 final class MainEventsListInteractor: MainEventsListDataStore {
+    
+    private enum Constants {
+        static let eartPerimeter = 40075000.0 // in meters
+        static let fetchRadious = 15000.0 // in meters
+        static var fetchLatRadiousDegree: Double {
+            return 360.0 * fetchRadious / eartPerimeter
+        }
+        
+        static func fetchLongRadiousDegree(lat: Double) -> Double {
+            return 360 * Constants.fetchRadious / Constants.eartPerimeter * cos(lat)
+        }
+    }
     
     // MARK: - Private Properties
     
@@ -28,8 +41,8 @@ final class MainEventsListInteractor: MainEventsListDataStore {
         self.dateHelper = dateHelper
     }
     
-    private func fetchEventsFromEverywhere(){
-        networkingWorker.request(query: GetAllEventsQuery()) { [weak self] (result) in
+    private func fetchEventsFromEverywhere(sportTypes: [Int]) {
+        networkingWorker.request(query: GetAllEventsQuery(sportTypes: sportTypes)) { [weak self] (result) in
             switch result {
             case .success(let graphqlResult):
                 let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.map { [weak self] in
@@ -53,13 +66,23 @@ final class MainEventsListInteractor: MainEventsListDataStore {
             }
         }
     }
+    
+    private func fetchEventsAroudLocalization(sportTypes: [Int], localization: CLLocationCoordinate2D) {
+        let startLat = localization.latitude - Constants.fetchLatRadiousDegree
+        let endLat = localization.latitude + Constants.fetchLatRadiousDegree
+        
+        let startLong = localization.longitude - Constants.fetchLongRadiousDegree(lat: localization.latitude)
+        let endLong = localization.longitude + Constants.fetchLongRadiousDegree(lat: localization.latitude)
+    }
 }
 
 extension MainEventsListInteractor: MainEventsListInteractorLogic {
-    func fetchEvents(localizationType: QueryLocalizationType) {
+    func fetchEvents(localizationType: QueryLocalizationType, sportTypes: [SportType]) {
+        let sportTypeValues = sportTypes.map { $0.rawValue }
+        
         switch localizationType {
         case .everywhere:
-            fetchEventsFromEverywhere()
+            fetchEventsFromEverywhere(sportTypes: sportTypeValues)
         case .atUserLocalization:
             return
         case .atSelectedLocalization(_):

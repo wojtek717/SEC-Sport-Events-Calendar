@@ -1,5 +1,5 @@
-query GetAllEvents {
-  Events(order_by: {begin_date: asc}) {
+query GetAllEvents($sportTypes: [Int!]) {
+  Events(order_by: {begin_date: asc}, where: {type: {_in: $sportTypes}}) {
     id
     title
     description

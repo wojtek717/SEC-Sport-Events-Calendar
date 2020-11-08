@@ -24,7 +24,7 @@ final class MainEventsListViewController: UIViewController {
     private var searchLocalizationType: QueryLocalizationType? {
         didSet {
             localizationButton.setTitle(searchLocalizationType?.title, for: [])
-            interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere)
+            interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere, sportTypes: SportType.allCases)
         }
     }
     

@@ -1,0 +1,32 @@
+query GetEventsAround($sportTypes: [Int!],
+  $latLte: Float,
+  $latGte: Float,
+  $longLte: Float,
+  $longGte: Float) {
+  Events(order_by: {begin_date: asc},
+    where: {type: {_in: $sportTypes},
+      Localization: {
+        latitude: {_lte: $latLte, _gte: $latGte},
+        longitude: {_lte: $longLte, _gte: $longGte}}}) {
+    id
+    title
+    description
+    begin_date
+    end_date
+    max_participant
+    type
+    Localization {
+      latitude
+      longitude
+    }
+    Creator {
+      name
+      surname
+    }
+    Events_participants_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}

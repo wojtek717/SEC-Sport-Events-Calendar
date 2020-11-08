@@ -7,6 +7,7 @@ import Location
     func getPlace()
     func textFieldDidChange(_ textField: UITextField)
     func localizationSelected(at row: Int)
+    func userLocalizationSelected()
 }
 protocol LocalizationSelectDataStore {}
 
@@ -73,6 +74,16 @@ extension LocalizationSelectInteractor: LocalizationSelectInteractorLogic {
         
         debounceWorker.debounce { [weak self] in
             self?.search(for: searchQuery)
+        }
+    }
+    
+    func userLocalizationSelected() {
+        guard let localization = locationWorker.currentLocation else {
+            return
+        }
+        
+        locationWorker.getPlace(for: localization) { [weak self] (placemark) in
+            self?.presenter.presentLocalizationEvents(placemark: placemark)
         }
     }
 }

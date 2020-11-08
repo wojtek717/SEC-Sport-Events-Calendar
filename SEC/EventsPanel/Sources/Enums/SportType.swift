@@ -1,7 +1,7 @@
 import UIKit
 import CommonUI
 
-enum SportType: Int {
+enum SportType: Int, CaseIterable {
     case unknown = 0
     case running = 1
     

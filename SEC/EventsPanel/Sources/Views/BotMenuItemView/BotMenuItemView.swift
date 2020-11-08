@@ -37,7 +37,5 @@ final class BotMenuItemView: XibView {
     
     @IBAction func itemTapped(_ sender: Any) {
         delegate?.didTapItem(itemType)
-        
-        print("==== Buttontapped")
     }
 }

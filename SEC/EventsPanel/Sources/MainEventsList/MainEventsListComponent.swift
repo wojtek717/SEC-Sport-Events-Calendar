@@ -2,8 +2,10 @@ import Core
 import NeedleFoundation
 import UIKit
 import Networking
+import Location
 
 public protocol MainEventsListDependency: Dependency {
+    var locationWorker: LocationWorkerProtocol { get }
     var networkingWorker: NetworkingWorkerProtocol { get }
     var dateHelper: DateHelper { get }
 }
@@ -20,6 +22,7 @@ extension MainEventsListComponent: RoutableComponent {
 
         let presenter = MainEventsListPresenter(viewController: viewController)
         let interactor = MainEventsListInteractor(presenter: presenter,
+                                                  locationWorker: dependency.locationWorker,
                                                   networkingWorker: dependency.networkingWorker,
                                                   dateHelper: dependency.dateHelper)
         let router = MainEventsListRouter(viewController: viewController, dataStore: interactor, routes: self)

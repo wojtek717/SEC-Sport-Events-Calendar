@@ -1,6 +1,10 @@
 import UIKit
+import Core
+import Networking
 
-protocol MainEventsListPresenterLogic {}
+protocol MainEventsListPresenterLogic {
+    func presentEvents(events: [MainEventsListRow])
+}
 
 final class MainEventsListPresenter {
 
@@ -15,4 +19,8 @@ final class MainEventsListPresenter {
     }
 }
 
-extension MainEventsListPresenter: MainEventsListPresenterLogic {}
+extension MainEventsListPresenter: MainEventsListPresenterLogic {
+    func presentEvents(events: [MainEventsListRow]) {
+        viewController?.presentEvents(events: events)
+    }
+}

@@ -25,12 +25,7 @@ let iosTarget = Target(name: "SEC",
                        sources: SourceFilesList(globs: [SourceFileGlob("SEC/**")]),
                        resources: [
                         .glob(pattern: "SEC/Resources/**"),
-                        "SupportingFiles/**"
-                       ],
-                       actions: [
-                        .post(path: .relativeToRoot("Scripts/swiftlint.sh"),
-                              arguments: [],
-                              name: "Swiftlint"),
+                        "SupportingFiles/**",
                        ],
                        dependencies: [
                         .project(target: "Core", path: "../Core"),

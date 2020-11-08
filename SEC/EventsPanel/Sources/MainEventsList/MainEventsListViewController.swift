@@ -46,6 +46,8 @@ final class MainEventsListViewController: UIViewController {
                                                                   sport: .running)),
         ]
         tableView.reloadData()
+        
+        interactor?.fetchEvents()
     }
     
     // MARK: - Private Methods

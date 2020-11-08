@@ -2,6 +2,7 @@ import Core
 import NeedleFoundation
 import UIKit
 import Location
+import Networking
 
 public protocol EventsPanelRouting: RoutesDefinition {
     var mainEventsList: MainEventsListComponent { get }
@@ -16,6 +17,14 @@ public final class EventsPanelComponent: BootstrapComponent {
     
     var locationWorker: LocationWorkerProtocol {
         locationComponent.locationWorker
+    }
+    
+    var networkingWorker: NetworkingWorkerProtocol {
+        networkingComponent.networkingWorker
+    }
+    
+    var dateHelper: DateHelper {
+        DateHelper()
     }
  }
 

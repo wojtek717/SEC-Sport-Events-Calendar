@@ -9,5 +9,6 @@ let workspace = Workspace(name: "SEC", projects: [
     "SEC/Splash",
     "SEC/Onboarding",
     "SEC/Location",
-    "SEC/EventsPanel"
+    "SEC/EventsPanel",
+    "SEC/Networking",
 ])

@@ -6,6 +6,7 @@ protocol LocalizationSelectPresenterLogic {
     func presentUserPlace(placeMark: CLPlacemark)
     func presentSearchResponse(response: [MKMapItem])
     func presentLocalizationEvents(item: MKMapItem)
+    func presentLocalizationEvents(placemark: CLPlacemark?)
 }
 
 final class LocalizationSelectPresenter {
@@ -40,5 +41,9 @@ extension LocalizationSelectPresenter: LocalizationSelectPresenterLogic {
     
     func presentLocalizationEvents(item: MKMapItem) {
         viewController?.localizationItemSelected(item: item)
+    }
+    
+    func presentLocalizationEvents(placemark: CLPlacemark?) {
+        viewController?.userlocalizationSelected(placemark: placemark)
     }
 }

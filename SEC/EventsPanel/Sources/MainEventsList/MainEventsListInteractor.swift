@@ -1,6 +1,7 @@
 import Core
 import UIKit
 import Networking
+import Location
 import CoreLocation
 
 protocol MainEventsListInteractorLogic {
@@ -25,6 +26,7 @@ final class MainEventsListInteractor: MainEventsListDataStore {
     // MARK: - Private Properties
     
     private let presenter: MainEventsListPresenterLogic
+    private let locationWorker: LocationWorkerProtocol
     private let networkingWorker: NetworkingWorkerProtocol
     private let dateHelper: DateHelper
     
@@ -34,9 +36,11 @@ final class MainEventsListInteractor: MainEventsListDataStore {
     // MARK: - Initializers
     
     init(presenter: MainEventsListPresenterLogic,
+         locationWorker: LocationWorkerProtocol,
          networkingWorker: NetworkingWorkerProtocol,
          dateHelper: DateHelper) {
         self.presenter = presenter
+        self.locationWorker = locationWorker
         self.networkingWorker = networkingWorker
         self.dateHelper = dateHelper
     }
@@ -73,6 +77,34 @@ final class MainEventsListInteractor: MainEventsListDataStore {
         
         let startLong = localization.longitude - Constants.fetchLongRadiousDegree(lat: localization.latitude)
         let endLong = localization.longitude + Constants.fetchLongRadiousDegree(lat: localization.latitude)
+        
+        networkingWorker.request(query: GetEventsAroundQuery(sportTypes: sportTypes,
+                                                             latLte: max(startLat, endLat),
+                                                             latGte: min(startLat, endLat),
+                                                             longLte: max(startLong, endLong),
+                                                             longGte: min(startLong, endLong))) { [weak self] (result) in
+            switch result {
+            case .success(let graphqlResult):
+                let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.map { [weak self] in
+                    MainEventsListRow.event(
+                        EventTableViewCellPresentable(
+                            title: $0.title,
+                            date: self?.dateHelper.convertDateToString(
+                                self?.dateHelper.convertGraphQLDateToDate($0.beginDate),
+                                with: DateHelper.Constants.monthDayYearFormat) ?? "",
+                            city: "cityHere",
+                            sport: SportType(rawValue: $0.type) ?? .unknown))
+                }
+                
+                if let eventsRows = eventsRows {
+                    self?.presenter.presentEvents(events: eventsRows)
+                }
+                
+            case .failure(let error):
+                //TODO: Handle error
+                print(error)
+            }
+        }
     }
 }
 
@@ -84,9 +116,12 @@ extension MainEventsListInteractor: MainEventsListInteractorLogic {
         case .everywhere:
             fetchEventsFromEverywhere(sportTypes: sportTypeValues)
         case .atUserLocalization:
-            return
-        case .atSelectedLocalization(_):
-            return
+            guard let localization = locationWorker.currentLocation?.coordinate else {
+                return
+            }
+            fetchEventsAroudLocalization(sportTypes: sportTypeValues, localization: localization)
+        case let .atSelectedLocalization(item):
+            fetchEventsAroudLocalization(sportTypes: sportTypeValues, localization: item.placemark.coordinate)
         }
     }
 }

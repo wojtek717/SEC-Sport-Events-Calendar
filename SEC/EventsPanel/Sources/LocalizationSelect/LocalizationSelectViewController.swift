@@ -8,6 +8,7 @@ protocol LocalizationSelectViewControllerLogic: AnyObject {
     func presentUserPlace(with presentable: UserLocationViewPresentable)
     func presentLocalizationSearch(with presentables: [LocalizationTableViewCellPresentable])
     func localizationItemSelected(item: MKMapItem)
+    func userlocalizationSelected(placemark: CLPlacemark?)
 }
 
 final class LocalizationSelectViewController: UIViewController {
@@ -89,7 +90,7 @@ final class LocalizationSelectViewController: UIViewController {
     }
     
     @objc private func userLocalizationTapped() {
-        router?.localizationTypeSelected(.atUserLocalization)
+        interactor?.userLocalizationSelected()
     }
     
     @objc private func everywhereTapped() {
@@ -98,6 +99,10 @@ final class LocalizationSelectViewController: UIViewController {
 }
 
 extension LocalizationSelectViewController: LocalizationSelectViewControllerLogic {
+    func userlocalizationSelected(placemark: CLPlacemark?) {
+        router?.localizationTypeSelected(.atUserLocalization(placemark))
+    }
+    
     func presentLocalizationSearch(with presentables: [LocalizationTableViewCellPresentable]) {
         dataSource.content = presentables
         tableView.reloadData()

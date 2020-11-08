@@ -142,8 +142,8 @@ extension Project {
         }
         
         var projecPackages: [Package] = [
-            .package(url: "https://github.com/mac-cain13/R.swift.Library", from: "5.1.0"),
-            .package(url: "https://github.com/mac-cain13/R.swift", from: "5.1.0"),
+            .package(url: "https://github.com/mac-cain13/R.swift.Library", from: "5.3.0"),
+            .package(url: "https://github.com/mac-cain13/R.swift", from: "5.3.0"),
             .package(url: "https://github.com/uber/needle", from: "0.15.0")
         ]
         

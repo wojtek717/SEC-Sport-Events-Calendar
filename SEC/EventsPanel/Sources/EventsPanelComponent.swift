@@ -1,6 +1,7 @@
 import Core
 import NeedleFoundation
 import UIKit
+import Location
 import Networking
 
 public protocol EventsPanelRouting: RoutesDefinition {
@@ -12,6 +13,10 @@ public final class EventsPanelComponent: BootstrapComponent {
         registerProviderFactories()
 
         super.init()
+    }
+    
+    var locationWorker: LocationWorkerProtocol {
+        locationComponent.locationWorker
     }
     
     var networkingWorker: NetworkingWorkerProtocol {

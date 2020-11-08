@@ -19,6 +19,8 @@
                 <outlet property="botMenuItem1" destination="E8m-LW-ZsW" id="Jf5-Yu-cM0"/>
                 <outlet property="botMenuItem2" destination="RSN-iS-aPP" id="7nu-9N-jbg"/>
                 <outlet property="botMenuItem3" destination="8N9-vO-F0J" id="qza-o9-hWZ"/>
+                <outlet property="localizationButton" destination="Pd6-La-417" id="gll-xp-zLR"/>
+                <outlet property="sportTypeButton" destination="69Y-R1-rvv" id="RDm-K9-Ldh"/>
                 <outlet property="tableView" destination="X2I-Ic-mMZ" id="Jst-rP-PxR"/>
                 <outlet property="topMenuTopConstraint" destination="83l-fU-Qsi" id="ofE-EH-3kj"/>
                 <outlet property="topMenuView" destination="QFK-14-Mbn" id="fa0-ZV-1Ak"/>

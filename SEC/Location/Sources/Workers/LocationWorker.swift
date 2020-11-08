@@ -1,5 +1,6 @@
 import Foundation
 import CoreLocation
+import MapKit
 
 public protocol LocationWorkerDelegate: AnyObject {
     func locationWorker(_ worker: LocationWorker, didChangeAuthorizationStatus isAuthorized: Bool)
@@ -11,9 +12,13 @@ public extension LocationWorkerDelegate {
 
 public protocol LocationWorkerProtocol {
     var delegate: LocationWorkerDelegate? { get set }
-    var currentLocation: Location? { get }
+    var currentLocation: CLLocation? { get }
     var authorizationStatus: CLAuthorizationStatus { get }
     func startUpdatingLocation()
+    func getPlace(for location: CLLocation,
+                  completion: @escaping (CLPlacemark?) -> Void)
+    func search(for name: String,
+                completion: @escaping (MKLocalSearch.Response?) -> Void)
 }
 
 public final class LocationWorker: NSObject, LocationWorkerProtocol {
@@ -21,13 +26,8 @@ public final class LocationWorker: NSObject, LocationWorkerProtocol {
     
     public weak var delegate: LocationWorkerDelegate?
     
-    public var currentLocation: Location? {
-        guard let location = manager.location,
-              let heading = manager.heading else {
-            return nil
-        }
-        
-        return Location(position: location.coordinate, heading: heading, accuracy: location.horizontalAccuracy)
+    public var currentLocation: CLLocation? {
+        return manager.location
     }
     
     public var authorizationStatus: CLAuthorizationStatus {
@@ -51,6 +51,49 @@ public final class LocationWorker: NSObject, LocationWorkerProtocol {
         
         manager.startUpdatingLocation()
         manager.startUpdatingHeading()
+    }
+    
+    public func getPlace(for location: CLLocation,
+                  completion: @escaping (CLPlacemark?) -> Void) {
+        
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            
+            guard error == nil else {
+                completion(nil)
+                return
+            }
+            
+            guard let placemark = placemarks?[0] else {
+                completion(nil)
+                return
+            }
+            
+            completion(placemark)
+        }
+    }
+    
+    public func search(for name: String,
+                       completion: @escaping (MKLocalSearch.Response?) -> Void) {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = name
+        
+        if let centerCoordinations = manager.location?.coordinate {
+            searchRequest.region = MKCoordinateRegion(center: centerCoordinations,
+                                                      latitudinalMeters: 500, longitudinalMeters: 500)
+        }
+        
+        let search = MKLocalSearch(request: searchRequest)
+        
+        search.start { (reposnse, error) in
+            guard error == nil else{
+                completion(nil)
+                return
+            }
+            
+            completion(reposnse)
+        }
     }
 }
 

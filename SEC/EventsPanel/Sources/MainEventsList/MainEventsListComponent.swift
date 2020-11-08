@@ -8,7 +8,9 @@ public protocol MainEventsListDependency: Dependency {
     var dateHelper: DateHelper { get }
 }
 
-public protocol MainEventsListRouting: RoutesDefinition {}
+public protocol MainEventsListRouting: RoutesDefinition {
+    func localizationSelect(delegate: MainEventsListLocalizationDelegate?) -> LocalizationSelectComponent
+}
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
 
@@ -29,4 +31,8 @@ extension MainEventsListComponent: RoutableComponent {
     }
 }
 
-extension MainEventsListComponent: MainEventsListRouting {}
+extension MainEventsListComponent: MainEventsListRouting {
+    public func localizationSelect(delegate: MainEventsListLocalizationDelegate?) -> LocalizationSelectComponent {
+        LocalizationSelectComponent(parent: self, delegate: delegate)
+    }
+}

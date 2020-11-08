@@ -2,7 +2,9 @@ import UIKit
 
 typealias MainEventsListRouterType = MainEventsListRouterProtocol
 
-@objc protocol MainEventsListRouterProtocol {}
+@objc protocol MainEventsListRouterProtocol {
+    func navigateToLocalizationSelect()
+}
 
 final class MainEventsListRouter {
 
@@ -26,4 +28,11 @@ final class MainEventsListRouter {
     }
 }
 
-extension MainEventsListRouter: MainEventsListRouterProtocol {}
+extension MainEventsListRouter: MainEventsListRouterProtocol {
+    func navigateToLocalizationSelect() {
+        let localizationSelectViewController = routes.localizationSelect(delegate: viewController).viewController
+        let navigationController = UINavigationController(rootViewController: localizationSelectViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        viewController?.present(navigationController, animated: true)
+    }
+}

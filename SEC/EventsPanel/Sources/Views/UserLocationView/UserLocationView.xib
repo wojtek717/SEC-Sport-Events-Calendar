@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserLocationView" customModule="EventsPanel" customModuleProvider="target">
+            <connections>
+                <outlet property="cityLabel" destination="YXp-Ns-7nC" id="g29-Tt-Pbg"/>
+                <outlet property="countryLabel" destination="T06-vM-Vhv" id="7hP-1l-Jcv"/>
+                <outlet property="localizationImageView" destination="3Um-uw-gLL" id="UQS-9s-N1q"/>
+                <outlet property="postCodeLabel" destination="VAK-Ls-Vhc" id="ktI-LR-eFa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="409" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="3Um-uw-gLL">
+                    <rect key="frame" x="10" y="59" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="UCZ-DE-tKx"/>
+                        <constraint firstAttribute="height" constant="32" id="VQo-h5-mLM"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-7" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-Yx-TvF">
+                    <rect key="frame" x="57" y="60" width="337" height="30.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrocław" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXp-Ns-7nC">
+                            <rect key="frame" x="0.0" y="0.0" width="337" height="21"/>
+                            <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="18"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="izl-j1-1Ku">
+                            <rect key="frame" x="0.0" y="14" width="337" height="16.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50-314," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-Ls-Vhc">
+                                    <rect key="frame" x="0.0" y="0.0" width="48.5" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Polska" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T06-vM-Vhv">
+                                    <rect key="frame" x="53.5" y="0.0" width="283.5" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="BackgroundPrimary"/>
+            <constraints>
+                <constraint firstItem="29Q-Yx-TvF" firstAttribute="leading" secondItem="3Um-uw-gLL" secondAttribute="trailing" constant="15" id="3N1-8c-bOp"/>
+                <constraint firstItem="3Um-uw-gLL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="FxK-HG-OBe"/>
+                <constraint firstItem="3Um-uw-gLL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="JAs-Mf-xLo"/>
+                <constraint firstItem="29Q-Yx-TvF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="U2T-Sg-TfO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="29Q-Yx-TvF" secondAttribute="trailing" constant="15" id="lEl-gS-jkE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-218.11594202898553" y="-186.16071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="location-pin" width="512" height="512"/>
+        <namedColor name="BackgroundPrimary">
+            <color red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -8,10 +8,12 @@ final class MainEventsListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var topMenuView: UIView!
-    @IBOutlet var topMenuTopConstraint: NSLayoutConstraint!
-    @IBOutlet var botMenuItem1: BotMenuItemView!
-    @IBOutlet var botMenuItem2: BotMenuItemView!
-    @IBOutlet var botMenuItem3: BotMenuItemView!
+    @IBOutlet private var topMenuTopConstraint: NSLayoutConstraint!
+    @IBOutlet private var botMenuItem1: BotMenuItemView!
+    @IBOutlet private var botMenuItem2: BotMenuItemView!
+    @IBOutlet private var botMenuItem3: BotMenuItemView!
+    @IBOutlet private var localizationButton: UIButton!
+    @IBOutlet private var sportTypeButton: UIButton!
     
     // MARK: - Private Properties
     
@@ -24,10 +26,18 @@ final class MainEventsListViewController: UIViewController {
     var router: MainEventsListRouterType?
     
     // MARK: - View Methods
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         setup()
         setupTableView()
         setupBotMenu()
+        setupButtons()
         
         dataSource.content = [
             MainEventsListRow.event(EventTableViewCellPresentable(title: "Bieg Niepodleglosci 2020",
@@ -63,13 +73,19 @@ final class MainEventsListViewController: UIViewController {
         botMenuItem2.setup(itemType: .add, delegate: self)
         botMenuItem3.setup(itemType: .profile, delegate: self)
     }
+    
+    private func setupButtons() {
+        localizationButton.addTarget(router,
+                                     action: #selector(router?.navigateToLocalizationSelect),
+                                     for: .touchUpInside)
+    }
+    
 }
 
 extension MainEventsListViewController: MainEventsListViewControllerLogic {}
 
 extension MainEventsListViewController: MenuItemDelegate {
     func didTapItem(_ itemType: MenuItemType) {
-        print("==== tapped \(itemType.title)")
     }
 }
 
@@ -84,5 +100,11 @@ extension MainEventsListViewController: MainEventsListDelegate {
     
     func didSelectItem(_ mainEventsListItem: MainEventsListRow, atIndex index: Int) {
         // TODO: Handle selection
+    }
+}
+
+extension MainEventsListViewController: MainEventsListLocalizationDelegate {
+    func didSelectLocalizationType(_ queryLocalizationType: QueryLocalizationType) {
+        print("======= \(queryLocalizationType)")
     }
 }

@@ -58,7 +58,7 @@ extension Project {
         ])
         targetDependencies.append(contentsOf: externalDependencies)
         
-        var commonRows: [String: ProjectDescription.InfoPlist.Value] = ["CFBundleLocalizations": ["en"]]
+        var commonRows: [String: ProjectDescription.InfoPlist.Value] = ["CFBundleLocalizations": ["en", "pl"]]
         commonRows = commonRows.merging(additionalPlistRows) { $1 }
         
         var actions: [TargetAction] = [

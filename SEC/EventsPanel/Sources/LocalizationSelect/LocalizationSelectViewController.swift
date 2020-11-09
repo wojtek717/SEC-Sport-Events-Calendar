@@ -14,13 +14,13 @@ protocol LocalizationSelectViewControllerLogic: AnyObject {
 final class LocalizationSelectViewController: UIViewController {
     
     // MARK: - IBOutlets
-    
 
     @IBOutlet private var userLocationView: UserLocationView!
     @IBOutlet private var secTextField: SECTextFieldView!
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var everywhereViewImageVIew: UIImageView!
     @IBOutlet private var everywhereView: UIView!
+    @IBOutlet private var everywhereViewLabel: UILabel!
     
     // MARK: - Public Properties
 
@@ -49,6 +49,7 @@ final class LocalizationSelectViewController: UIViewController {
         setupTableView()
         
         secTextField.setup(icon: CommonUI.R.image.search(),
+                           placeholder: Core.R.string.localizable.localizationSelect_textfield_placeholder(),
                            target: interactor,
                            action: #selector(interactor?.textFieldDidChange(_:)),
                            delegate: self)
@@ -59,6 +60,7 @@ final class LocalizationSelectViewController: UIViewController {
         let tap2 = UITapGestureRecognizer(target: self, action: #selector(everywhereTapped))
         everywhereView.addGestureRecognizer(tap2)
         everywhereViewImageVIew.image = CommonUI.R.image.world()
+        everywhereViewLabel.text = Core.R.string.localizable.localizationSelect_search_everywhere_label()
         
         keyboardWorker.delegate = self
         userLocationView.isHidden = true
@@ -67,7 +69,7 @@ final class LocalizationSelectViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Lokalizacja"
+        title = Core.R.string.localizable.localizationSelect_title()
         
         let quitButton = UIBarButtonItem(
             image: CommonUI.R.image.close(),

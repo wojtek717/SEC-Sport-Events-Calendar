@@ -1,1 +1,12 @@
-
+"bottom_menu_add_button"="Add";
+"bottom_menu_saved_button"="Saved";
+"bottom_menu_profile_button"="Profile";
+"localizationSelect_title"="Localization";
+"localizationSelect_search_everywhere_label"="Search for all events";
+"localizationSelect_textfield_placeholder"="eg: London, Old Trafford";
+"localizationType_everywhere_title"="Everywhere";
+"localizationType_atUserLocation_title"="Near me";
+"sportType_running_title"="Running";
+"sportType_walking_title"="Walking";
+"sportType_Swimming_title"="Swimming";
+"sportType_Thriatlon_title"="Thriatlon";

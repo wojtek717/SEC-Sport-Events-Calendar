@@ -1,4 +1,5 @@
 import UIKit
+import Core
 import CommonUI
 
 public enum MenuItemType {
@@ -24,11 +25,11 @@ public enum MenuItemType {
     public var title: String {
         switch self {
         case .add:
-            return "Dodaj"
+            return Core.R.string.localizable.bottom_menu_add_button(preferredLanguages: ["pl_PL"])
         case .profile:
-            return "Profil"
+            return Core.R.string.localizable.bottom_menu_profile_button()
         case .signedUp:
-            return "Zapisane"
+            return Core.R.string.localizable.bottom_menu_saved_button()
         default:
             return "Unknown"
         }

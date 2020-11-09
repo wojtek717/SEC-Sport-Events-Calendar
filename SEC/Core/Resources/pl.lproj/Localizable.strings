@@ -1,0 +1,12 @@
+"bottom_menu_add_button"="Dodaj";
+"bottom_menu_saved_button"="Zapisane";
+"bottom_menu_profile_button"="Profil";
+"localizationSelect_title"="Lokalizacja";
+"localizationSelect_search_everywhere_label"="Wyszukaj wszystkie wydarzenia";
+"localizationSelect_textfield_placeholder"="np: 50-314 Wrocław, Stadion Narodowy";
+"localizationType_everywhere_title"="Wszędzie";
+"localizationType_atUserLocation_title"="W pobliżu mnie";
+"sportType_running_title"="Bieganie";
+"sportType_walking_title"="Chód";
+"sportType_Swimming_title"="Pływanie";
+"sportType_Thriatlon_title"="Thriatlon";

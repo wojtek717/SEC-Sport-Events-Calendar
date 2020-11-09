@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="everywhereView" destination="zUT-mY-zGt" id="8AC-RD-6QF"/>
                 <outlet property="everywhereViewImageVIew" destination="rxx-FL-jdq" id="nv5-K6-uSw"/>
+                <outlet property="everywhereViewLabel" destination="sJD-kK-xpu" id="zNc-TA-4tj"/>
                 <outlet property="secTextField" destination="Kk7-oG-BkU" id="svs-Le-K33"/>
                 <outlet property="tableView" destination="r9l-N8-9n3" id="pdu-2X-orm"/>
                 <outlet property="userLocationView" destination="xbb-j5-adY" id="AG2-bj-saL"/>

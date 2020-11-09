@@ -4,6 +4,7 @@ typealias SportTypeSelectRouterType = SportTypeSelectRouterProtocol
 
 protocol SportTypeSelectRouterProtocol {
     func dismiss()
+    func sportTypesSelected(_ sportTypes: [SportType])
 }
 
 final class SportTypeSelectRouter {
@@ -30,6 +31,11 @@ final class SportTypeSelectRouter {
 }
 
 extension SportTypeSelectRouter: SportTypeSelectRouterProtocol {
+    func sportTypesSelected(_ sportTypes: [SportType]) {
+        delegate?.didSelectSpotyTypes(sportTypes)
+        dismiss()
+    }
+    
     func dismiss() {
         viewController?.navigationController?.dismiss(animated: true)
     }

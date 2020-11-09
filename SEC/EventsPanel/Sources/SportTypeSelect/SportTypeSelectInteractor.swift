@@ -1,6 +1,11 @@
 import UIKit
 
-protocol SportTypeSelectInteractorLogic {}
+protocol SportTypeSelectInteractorLogic {
+    func prepareSports()
+    func sportSelected(_ sport: SportType)
+    
+    var currentlySelected: [SportType] { get }
+}
 protocol SportTypeSelectDataStore {}
 
 final class SportTypeSelectInteractor: SportTypeSelectDataStore {
@@ -8,7 +13,7 @@ final class SportTypeSelectInteractor: SportTypeSelectDataStore {
     // MARK: - Private Properties
 
     private let presenter: SportTypeSelectPresenterLogic
-    private var currentlySelected: [SportType]
+    private(set) var currentlySelected: [SportType]
 
     // MARK: - Initializers
 
@@ -19,4 +24,19 @@ final class SportTypeSelectInteractor: SportTypeSelectDataStore {
     }
 }
 
-extension SportTypeSelectInteractor: SportTypeSelectInteractorLogic {}
+extension SportTypeSelectInteractor: SportTypeSelectInteractorLogic {
+    func prepareSports() {
+        presenter.presentSports(selectedSports: currentlySelected)
+    }
+    
+    func sportSelected(_ sport: SportType) {
+        if currentlySelected.contains(sport) {
+            currentlySelected.removeAll { $0 == sport }
+        } else {
+            currentlySelected.append(sport)
+        }
+        
+        presenter.presentSports(selectedSports: currentlySelected)
+    }
+    
+}

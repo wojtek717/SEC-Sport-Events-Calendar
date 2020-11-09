@@ -38,7 +38,7 @@ extension MainEventsListDataSource: UITableViewDelegate {
         
         switch item {
         case .event(_):
-            return 110.0
+            return 120.0
         }
     }
     

@@ -2,18 +2,18 @@ import UIKit
 import Core
 import CommonUI
 
-enum SportType: Int, CaseIterable {
+public enum SportType: Int, CaseIterable {
     case unknown = 0
     case running = 1
     
-    var image: UIImage? {
+    public var image: UIImage? {
         switch self {
         default:
             return CommonUI.R.image.running()
         }
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .unknown:
             return "Unknown"

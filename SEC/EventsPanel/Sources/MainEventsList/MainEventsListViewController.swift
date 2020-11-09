@@ -27,6 +27,7 @@ final class MainEventsListViewController: UIViewController {
             interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere, sportTypes: SportType.allCases)
         }
     }
+    private var searchSportTypes: [SportType] = SportType.allCases
     
     // MARK: - Public Properties
     
@@ -75,11 +76,22 @@ final class MainEventsListViewController: UIViewController {
     }
     
     private func setupButtons() {
-        localizationButton.addTarget(router,
-                                     action: #selector(router?.navigateToLocalizationSelect),
+        localizationButton.addTarget(self,
+                                     action: #selector(localizationButtonTapped),
                                      for: .touchUpInside)
+        
+        sportTypeButton.addTarget(self,
+                                  action: #selector(sportTypeButtonTapped),
+                                  for: .touchUpInside)
     }
     
+    @objc private func localizationButtonTapped() {
+        router?.navigateToLocalizationSelect()
+    }
+    
+    @objc private func sportTypeButtonTapped() {
+        router?.navigateToSportTypeSelect(currentlySelected: searchSportTypes)
+    }
 }
 
 extension MainEventsListViewController: MainEventsListViewControllerLogic {
@@ -108,7 +120,11 @@ extension MainEventsListViewController: MainEventsListDelegate {
     }
 }
 
-extension MainEventsListViewController: MainEventsListLocalizationDelegate {
+extension MainEventsListViewController: MainEventsListSelectionDelegate {
+    func didSelectSpotyTypes(_ sportTypes: [SportType]) {
+        
+    }
+    
     func didSelectLocalizationType(_ queryLocalizationType: QueryLocalizationType) {
         searchLocalizationType = queryLocalizationType
     }

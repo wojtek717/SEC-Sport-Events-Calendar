@@ -11,7 +11,9 @@ public protocol MainEventsListDependency: Dependency {
 }
 
 public protocol MainEventsListRouting: RoutesDefinition {
-    func localizationSelect(delegate: MainEventsListLocalizationDelegate?) -> LocalizationSelectComponent
+    func localizationSelect(delegate: MainEventsListSelectionDelegate?) -> LocalizationSelectComponent
+    func spotyTypeSelect(delegate: MainEventsListSelectionDelegate?,
+                         currentlySelected: [SportType]) -> SportTypeSelectComponent
 }
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
@@ -35,7 +37,12 @@ extension MainEventsListComponent: RoutableComponent {
 }
 
 extension MainEventsListComponent: MainEventsListRouting {
-    public func localizationSelect(delegate: MainEventsListLocalizationDelegate?) -> LocalizationSelectComponent {
+    public func localizationSelect(delegate: MainEventsListSelectionDelegate?) -> LocalizationSelectComponent {
         LocalizationSelectComponent(parent: self, delegate: delegate)
+    }
+    
+    public func spotyTypeSelect(delegate: MainEventsListSelectionDelegate?,
+                                currentlySelected: [SportType]) -> SportTypeSelectComponent {
+        SportTypeSelectComponent(parent: self, delegate: delegate, currentlySelected: currentlySelected)
     }
 }

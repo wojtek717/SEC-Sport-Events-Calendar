@@ -10,9 +10,9 @@ public protocol LocalizationSelectDependency: Dependency {
 public protocol LocalizationSelectRouting: RoutesDefinition {}
 
 public final class LocalizationSelectComponent: Component<LocalizationSelectDependency> {
-    private weak var delegate: MainEventsListLocalizationDelegate?
+    private weak var delegate: MainEventsListSelectionDelegate?
     
-    public init(parent: Scope, delegate: MainEventsListLocalizationDelegate?) {
+    public init(parent: Scope, delegate: MainEventsListSelectionDelegate?) {
         self.delegate = delegate
         
         super.init(parent: parent)

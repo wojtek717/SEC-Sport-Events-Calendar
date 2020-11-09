@@ -15,14 +15,14 @@ final class LocalizationSelectRouter {
     private let dataStore: LocalizationSelectDataStore
 
     private let routes: LocalizationSelectRouting
-    private weak var delegate: MainEventsListLocalizationDelegate?
+    private weak var delegate: MainEventsListSelectionDelegate?
 
     // MARK: - Initializers
 
     init(viewController: LocalizationSelectViewController?,
          dataStore: LocalizationSelectDataStore,
          routes: LocalizationSelectRouting,
-         delegate: MainEventsListLocalizationDelegate?) {
+         delegate: MainEventsListSelectionDelegate?) {
         self.viewController = viewController
         self.dataStore = dataStore
         self.routes = routes

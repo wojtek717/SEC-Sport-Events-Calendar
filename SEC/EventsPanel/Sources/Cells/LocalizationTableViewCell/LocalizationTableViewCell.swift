@@ -5,7 +5,7 @@ public struct LocalizationTableViewCellPresentable {
     let bottomText: String
 }
 
-class LocalizationTableViewCell: UITableViewCell {
+final class LocalizationTableViewCell: UITableViewCell {
 
     @IBOutlet private var cityLabel: UILabel!
     @IBOutlet private var bottomLabel: UILabel!

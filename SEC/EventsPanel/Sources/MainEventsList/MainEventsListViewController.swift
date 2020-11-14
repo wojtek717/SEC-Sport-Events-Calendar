@@ -1,3 +1,4 @@
+import Core
 import UIKit
 
 protocol MainEventsListViewControllerLogic: AnyObject {
@@ -24,7 +25,17 @@ final class MainEventsListViewController: UIViewController {
     private var searchLocalizationType: QueryLocalizationType? {
         didSet {
             localizationButton.setTitle(searchLocalizationType?.title, for: [])
-            interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere, sportTypes: SportType.allCases)
+            interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere,
+                                    sportTypes: searchSportTypes ?? SportType.allCases)
+        }
+    }
+    private var searchSportTypes: [SportType]? {
+        didSet {
+            let title = searchSportTypes?.count == 1 ? searchSportTypes?.first?.title : Core.R.string.localizable.sportType_title()
+            sportTypeButton.setTitle(title, for: [])
+            
+            interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere,
+                                    sportTypes: searchSportTypes ?? SportType.allCases)
         }
     }
     
@@ -48,6 +59,7 @@ final class MainEventsListViewController: UIViewController {
         setupButtons()
         
         searchLocalizationType = .everywhere
+        searchSportTypes = SportType.allCases
     }
     
     // MARK: - Private Methods
@@ -75,11 +87,22 @@ final class MainEventsListViewController: UIViewController {
     }
     
     private func setupButtons() {
-        localizationButton.addTarget(router,
-                                     action: #selector(router?.navigateToLocalizationSelect),
+        localizationButton.addTarget(self,
+                                     action: #selector(localizationButtonTapped),
                                      for: .touchUpInside)
+        
+        sportTypeButton.addTarget(self,
+                                  action: #selector(sportTypeButtonTapped),
+                                  for: .touchUpInside)
     }
     
+    @objc private func localizationButtonTapped() {
+        router?.navigateToLocalizationSelect()
+    }
+    
+    @objc private func sportTypeButtonTapped() {
+        router?.navigateToSportTypeSelect(currentlySelected: searchSportTypes ?? SportType.allCases)
+    }
 }
 
 extension MainEventsListViewController: MainEventsListViewControllerLogic {
@@ -108,7 +131,11 @@ extension MainEventsListViewController: MainEventsListDelegate {
     }
 }
 
-extension MainEventsListViewController: MainEventsListLocalizationDelegate {
+extension MainEventsListViewController: MainEventsListSelectionDelegate {
+    func didSelectSpotyTypes(_ sportTypes: [SportType]) {
+        searchSportTypes = sportTypes
+    }
+    
     func didSelectLocalizationType(_ queryLocalizationType: QueryLocalizationType) {
         searchLocalizationType = queryLocalizationType
     }

@@ -49,15 +49,20 @@ final class MainEventsListInteractor: MainEventsListDataStore {
         networkingWorker.request(query: GetAllEventsQuery(sportTypes: sportTypes)) { [weak self] (result) in
             switch result {
             case .success(let graphqlResult):
-                let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.map { [weak self] in
-                    MainEventsListRow.event(
+                let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.compactMap { [weak self] in
+                    
+                    guard let sport = SportType(rawValue: $0.type) else {
+                        return nil
+                    }
+                    
+                    return MainEventsListRow.event(
                         EventTableViewCellPresentable(
                             title: $0.title,
                             date: self?.dateHelper.convertDateToString(
                                 self?.dateHelper.convertGraphQLDateToDate($0.beginDate),
                                 with: DateHelper.Constants.monthDayYearFormat) ?? "",
                             city: "cityHere",
-                            sport: SportType(rawValue: $0.type) ?? .unknown))
+                            sport: sport))
                 }
                 
                 if let eventsRows = eventsRows {
@@ -85,15 +90,20 @@ final class MainEventsListInteractor: MainEventsListDataStore {
                                                              longGte: min(startLong, endLong))) { [weak self] (result) in
             switch result {
             case .success(let graphqlResult):
-                let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.map { [weak self] in
-                    MainEventsListRow.event(
+                let eventsRows: [MainEventsListRow]? = graphqlResult.data?.events.compactMap { [weak self] in
+                    
+                    guard let sport = SportType(rawValue: $0.type) else {
+                        return nil
+                    }
+                    
+                    return MainEventsListRow.event(
                         EventTableViewCellPresentable(
                             title: $0.title,
                             date: self?.dateHelper.convertDateToString(
                                 self?.dateHelper.convertGraphQLDateToDate($0.beginDate),
                                 with: DateHelper.Constants.monthDayYearFormat) ?? "",
                             city: "cityHere",
-                            sport: SportType(rawValue: $0.type) ?? .unknown))
+                            sport: sport))
                 }
                 
                 if let eventsRows = eventsRows {

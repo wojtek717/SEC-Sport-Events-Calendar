@@ -7,7 +7,7 @@ public struct EventTableViewCellPresentable {
     let sport: SportType
 }
 
-class EventTableViewCell: UITableViewCell {
+final class EventTableViewCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var cityLabel: UILabel!
@@ -18,5 +18,11 @@ class EventTableViewCell: UITableViewCell {
         self.dateLabel.text = presentable.date
         self.cityLabel.text = presentable.city
         self.sportTypeImageView.image = presentable.sport.image
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0))
     }
 }

@@ -31,6 +31,7 @@ final class LocalizationSelectViewController: UIViewController {
     
     private var dataSource = LocalizationSelectDataSource()
     private let keyboardWorker = KeyboardWorker()
+    private var isUserLocation: Bool = false
     
     // MARK: - View Methods
     
@@ -63,7 +64,7 @@ final class LocalizationSelectViewController: UIViewController {
         everywhereViewLabel.text = Core.R.string.localizable.localizationSelect_search_everywhere_label()
         
         keyboardWorker.delegate = self
-        userLocationView.isHidden = true
+        userLocationView.isHidden = !isUserLocation
     }
     
     private func setupNavigationBar() {
@@ -111,7 +112,8 @@ extension LocalizationSelectViewController: LocalizationSelectViewControllerLogi
     }
     
     func presentUserPlace(with presentable: UserLocationViewPresentable) {
-        userLocationView.isHidden = false
+        isUserLocation = true
+        userLocationView.isHidden = !isUserLocation
         userLocationView.setup(with: presentable)
     }
     
@@ -144,7 +146,9 @@ extension LocalizationSelectViewController: KeyboardWorkerDelegate {
     }
     
     func keyboardWillHide(with keyboardBounds: CGRect) {
-        userLocationView.isHidden = false
+        if isUserLocation {
+            userLocationView.isHidden = false
+        }
         view.layoutIfNeeded()
     }
 }

@@ -10,3 +10,5 @@
 "sportType_walking_title"="Walking";
 "sportType_Swimming_title"="Swimming";
 "sportType_Thriatlon_title"="Thriatlon";
+"sportType_title"="Sport Category";
+"sportType_select_button"="Select";

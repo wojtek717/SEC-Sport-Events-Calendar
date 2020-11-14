@@ -44,10 +44,15 @@
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owg-3e-X9H">
                         <rect key="frame" x="0.0" y="68" width="320" height="2"/>
-                        <color key="backgroundColor" name="SECRed"/>
+                        <color key="backgroundColor" name="BackgroundPrimary"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="N6Q-8p-q5q"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -68,8 +73,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="SECRed">
-            <color red="0.8666666666666667" green="0.17647058823529413" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BackgroundPrimary">
+            <color red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

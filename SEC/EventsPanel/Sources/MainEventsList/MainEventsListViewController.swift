@@ -1,3 +1,4 @@
+import Core
 import UIKit
 
 protocol MainEventsListViewControllerLogic: AnyObject {
@@ -30,6 +31,9 @@ final class MainEventsListViewController: UIViewController {
     }
     private var searchSportTypes: [SportType]? {
         didSet {
+            let title = searchSportTypes?.count == 1 ? searchSportTypes?.first?.title : Core.R.string.localizable.sportType_title()
+            sportTypeButton.setTitle(title, for: [])
+            
             interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere,
                                     sportTypes: searchSportTypes ?? SportType.allCases)
         }

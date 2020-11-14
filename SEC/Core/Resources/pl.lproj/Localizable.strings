@@ -10,3 +10,5 @@
 "sportType_walking_title"="Chód";
 "sportType_Swimming_title"="Pływanie";
 "sportType_Thriatlon_title"="Thriatlon";
+"sportType_title"="Dyscyplina";
+"sportType_select_button"="Wybierz";

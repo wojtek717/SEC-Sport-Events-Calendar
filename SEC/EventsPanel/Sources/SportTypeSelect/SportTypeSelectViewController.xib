@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -11,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SportTypeSelectViewController" customModule="EventsPanel" customModuleProvider="target">
             <connections>
-                <outlet property="searchButton" destination="Pyt-3E-Hf2" id="Suc-Al-fsA"/>
+                <outlet property="selectButton" destination="Pyt-3E-Hf2" id="Suc-Al-fsA"/>
                 <outlet property="tableView" destination="4Sh-ih-zPi" id="ZK8-Vc-D2O"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1aJ-3N-cH3"/>
             </connections>
@@ -22,11 +21,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-ih-zPi">
-                    <rect key="frame" x="15" y="59" width="384" height="729"/>
+                    <rect key="frame" x="15" y="15" width="384" height="807"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyt-3E-Hf2" customClass="SecButton" customModule="CommonUI">
-                    <rect key="frame" x="15" y="803" width="384" height="44"/>
+                    <rect key="frame" x="15" y="837" width="384" height="44"/>
                     <color key="backgroundColor" name="SECBlue"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="6ui-cZ-KIp"/>
@@ -55,11 +54,6 @@
             <point key="canvasLocation" x="57.971014492753625" y="63.616071428571423"/>
         </view>
     </objects>
-    <designables>
-        <designable name="Pyt-3E-Hf2">
-            <size key="intrinsicContentSize" width="46" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="BrightWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

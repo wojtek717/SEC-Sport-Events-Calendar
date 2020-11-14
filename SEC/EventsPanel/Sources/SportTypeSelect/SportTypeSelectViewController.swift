@@ -12,7 +12,7 @@ final class SportTypeSelectViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var searchButton: SecButton!
+    @IBOutlet private var selectButton: SecButton!
     
     // MARK: - Public Properties
     
@@ -49,7 +49,7 @@ final class SportTypeSelectViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Sport types"
+        title = Core.R.string.localizable.sportType_title()
         navigationController?.navigationBar.sizeToFit()
         navigationController?.navigationBar.barTintColor = .white
         
@@ -71,10 +71,10 @@ final class SportTypeSelectViewController: UIViewController {
     }
     
     private func setupButton() {
-        searchButton.setTitle("Wyszukaj", for: [])
-        searchButton.addTarget(self,
-                             action: #selector(searchButtonTapped),
-                             for: .touchUpInside)
+        selectButton.setTitle(Core.R.string.localizable.sportType_select_button(), for: [])
+        selectButton.addTarget(self,
+                               action: #selector(selectButtonTapped),
+                               for: .touchUpInside)
     }
 }
 
@@ -83,7 +83,7 @@ extension SportTypeSelectViewController: SportTypeSelectViewControllerLogic {
         dataSource.content = presentables
         tableView.reloadData()
         
-        searchButton.isEnabled = isAnySelected
+        selectButton.isEnabled = isAnySelected
     }
 }
 
@@ -103,7 +103,7 @@ extension SportTypeSelectViewController: UITableViewDelegate {
         router?.dismiss()
     }
     
-    func searchButtonTapped() {
+    func selectButtonTapped() {
         guard let sports = interactor?.currentlySelected else {
             return
         }

@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterPhoneNumberViewController" customModule="Authentication" customModuleProvider="target">
             <connections>
                 <outlet property="bigImageView" destination="htk-wA-gWt" id="aeT-I3-9PH"/>
+                <outlet property="messageLabel" destination="ANI-PF-gkV" id="V9g-NV-8S0"/>
                 <outlet property="phoneNumberTextField" destination="EyY-Fo-diS" id="L1v-9Q-eV6"/>
                 <outlet property="sendButton" destination="BZc-Fc-5oe" id="P5m-YX-Jx1"/>
                 <outlet property="sendButtonBotConstraint" destination="l0L-hy-vLJ" id="hB2-Sq-zBN"/>

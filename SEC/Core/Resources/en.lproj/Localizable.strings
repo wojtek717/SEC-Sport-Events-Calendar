@@ -12,3 +12,10 @@
 "sportType_Thriatlon_title"="Thriatlon";
 "sportType_title"="Sport Category";
 "sportType_select_button"="Select";
+"enterPhoneNumber_title"="Hello!";
+"enterPhoneNumber_send_button"="Send";
+"enterPhoneNumber_message_label"="Log in with your phone number and discover more possibilities";
+"smsConfirmation_title"="Confirm your number";
+"smsConfirmation_confirm_button"="Confirm";
+"smsConfirmation_smsCodeTextField_placeholder"="123456";
+"smsConfirmation_message_label"="Enter the code received in the text message";

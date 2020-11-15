@@ -25,6 +25,7 @@ final class EnterPhoneNumberViewController: UIViewController {
     @IBOutlet private var sendButton: SecButton!
     @IBOutlet private var bigImageView: UIImageView!
     @IBOutlet private var sendButtonBotConstraint: NSLayoutConstraint!
+    @IBOutlet private var messageLabel: UILabel!
     
     // MARK: - Private Properties
     
@@ -45,17 +46,13 @@ final class EnterPhoneNumberViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        setupButton()
         setupTextField()
     }
     
     private func setup() {
-        sendButton.isEnabled = phoneNumberTextField.isValidNumber
-        sendButton.addTarget(
-            self,
-            action: #selector(sendButtonTapped),
-            for: .touchUpInside)
-        
         bigImageView.image = CommonUI.R.image.tenisBall()
+        messageLabel.text = Core.R.string.localizable.enterPhoneNumber_message_label()
         
         view.setupTapToDismiss()
         keyboardWorker.delegate = self
@@ -64,7 +61,7 @@ final class EnterPhoneNumberViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Hello"
+        title = Core.R.string.localizable.enterPhoneNumber_title()
         
         let quitButton = UIBarButtonItem(
             image: CommonUI.R.image.close(),
@@ -83,6 +80,15 @@ final class EnterPhoneNumberViewController: UIViewController {
             self,
             action: #selector(textFieldChanged),
             for: .editingChanged)
+    }
+    
+    private func setupButton() {
+        sendButton.setTitle(Core.R.string.localizable.enterPhoneNumber_send_button(), for: [])
+        sendButton.isEnabled = phoneNumberTextField.isValidNumber
+        sendButton.addTarget(
+            self,
+            action: #selector(sendButtonTapped),
+            for: .touchUpInside)
     }
 }
 

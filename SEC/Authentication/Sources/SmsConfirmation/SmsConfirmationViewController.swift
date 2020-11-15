@@ -59,7 +59,7 @@ final class SmsConfirmationViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Confirm your number"
+        title = Core.R.string.localizable.smsConfirmation_title()
         
         let quitButton = UIBarButtonItem(
             image: CommonUI.R.image.close(),
@@ -72,13 +72,14 @@ final class SmsConfirmationViewController: UIViewController {
     
     private func setup() {
         bigImageView.image = CommonUI.R.image.basketball()
+        messageLabel.text = Core.R.string.localizable.smsConfirmation_message_label()
         
         view.setupTapToDismiss()
         keyboardWorker.delegate = self
     }
     
     private func setupTextField() {
-        smsCodeTextField.placeholder = "SMS Code"
+        smsCodeTextField.placeholder = Core.R.string.localizable.smsConfirmation_smsCodeTextField_placeholder()
         smsCodeTextField.keyboardType = .numberPad
         smsCodeTextField.delegate = self
         
@@ -89,7 +90,7 @@ final class SmsConfirmationViewController: UIViewController {
     }
     
     private func setupButton() {
-        confirmButton.setTitle("Confirm", for: [])
+        confirmButton.setTitle(Core.R.string.localizable.smsConfirmation_confirm_button(), for: [])
         confirmButton.isEnabled = false
         confirmButton.addTarget(
             self,

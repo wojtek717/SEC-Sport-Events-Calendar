@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>21436033852-fom8i3ichvj14m1n8kf7clvvr2vr1508.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.21436033852-fom8i3ichvj14m1n8kf7clvvr2vr1508</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCpeq_F6i_YCqsk79KPYDckG0Ko5WMevV8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>21436033852</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>no.sec.app</string>
+	<key>PROJECT_ID</key>
+	<string>sec-sport-events-calendar</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sec-sport-events-calendar.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:21436033852:ios:447deadfffb2911eb54c39</string>
+	<key>DATABASE_URL</key>
+	<string>https://sec-sport-events-calendar.firebaseio.com</string>
+</dict>
+</plist>

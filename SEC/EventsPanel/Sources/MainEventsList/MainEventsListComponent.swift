@@ -3,6 +3,7 @@ import NeedleFoundation
 import UIKit
 import Networking
 import Location
+import Authentication
 
 public protocol MainEventsListDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }
@@ -14,6 +15,7 @@ public protocol MainEventsListRouting: RoutesDefinition {
     func localizationSelect(delegate: MainEventsListSelectionDelegate?) -> LocalizationSelectComponent
     func spotyTypeSelect(delegate: MainEventsListSelectionDelegate?,
                          currentlySelected: [SportType]) -> SportTypeSelectComponent
+    var authentication: AuthenticationComponent { get }
 }
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
@@ -37,6 +39,10 @@ extension MainEventsListComponent: RoutableComponent {
 }
 
 extension MainEventsListComponent: MainEventsListRouting {
+    public var authentication: AuthenticationComponent {
+        authenticationComponent
+    }
+    
     public func localizationSelect(delegate: MainEventsListSelectionDelegate?) -> LocalizationSelectComponent {
         LocalizationSelectComponent(parent: self, delegate: delegate)
     }

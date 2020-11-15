@@ -11,4 +11,5 @@ let workspace = Workspace(name: "SEC", projects: [
     "SEC/Location",
     "SEC/EventsPanel",
     "SEC/Networking",
+    "SEC/Authentication",
 ])

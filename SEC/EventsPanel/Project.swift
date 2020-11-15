@@ -10,6 +10,7 @@ let project = Project.framework(name: "EventsPanel",
                                     "DesignSystem",
                                     "CommonUI",
                                     "Location",
-                                    "Networking"
+                                    "Networking",
+                                    "Authentication",
                                 ],
                                 resources: [.glob(pattern: "**/*.xib")])

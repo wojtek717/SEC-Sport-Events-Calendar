@@ -12,6 +12,15 @@ final class UserProfileViewController: UIViewController {
     private enum ViewState {
         case editing
         case view
+        
+        var title: String {
+            switch self {
+            case .editing:
+                return Core.R.string.localizable.enterPhoneNumber_send_button()
+            case .view:
+                return Core.R.string.localizable.profile_edit_button()
+            }
+        }
     }
     
     // MARK: - IBOutlets
@@ -21,10 +30,12 @@ final class UserProfileViewController: UIViewController {
     @IBOutlet private var surnameLabel: UILabel!
     @IBOutlet private var surnameTextField: SECTextFieldView!
     @IBOutlet private var editingButton: SecButton!
+    @IBOutlet private var editingButtonBotConstraint: NSLayoutConstraint!
     
     // MARK: - Private Properties
     
     private var viewState: ViewState = .view
+    private let keyboardWorker = KeyboardWorker()
     
     // MARK: - Public Properties
 
@@ -53,7 +64,7 @@ final class UserProfileViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Profile"
+        title = Core.R.string.localizable.profile_title()
         
         let quitButton = UIBarButtonItem(
             image: CommonUI.R.image.close(),
@@ -67,22 +78,30 @@ final class UserProfileViewController: UIViewController {
     private func setupTextFields() {
         nameTextField.setup(
             icon: CommonUI.R.image.profile(),
-            placeholder: "np. Wojciech")
+            placeholder: Core.R.string.localizable.profile_name_placeholder())
         
         surnameTextField.setup(
             icon: CommonUI.R.image.profile(),
-            placeholder: "np. Konury")
+            placeholder: Core.R.string.localizable.profile_surname_placeholder())
         
         nameTextField.isEnabled = false
         surnameTextField.isEnabled = false
     }
     
     private func setupButton() {
-        editingButton.setTitle("Edytuj", for: [])
+        editingButton.setTitle(viewState.title, for: [])
         editingButton.addTarget(
             self,
             action: #selector(editingButtonTapped),
             for: .touchUpInside)
+    }
+    
+    private func setup() {
+        nameLabel.text = Core.R.string.localizable.profile_name()
+        surnameLabel.text = Core.R.string.localizable.profile_surname()
+        
+        keyboardWorker.delegate = self
+        view.setupTapToDismiss()
     }
 }
 
@@ -97,7 +116,7 @@ extension UserProfileViewController: UserProfileViewControllerLogic {
     func editingButtonTapped() {
         switch viewState {
         case .view:
-            editingButton.setTitle("Zapisz", for: [])
+            editingButton.setTitle(viewState.title, for: [])
             
             nameTextField.isEnabled = true
             surnameTextField.isEnabled = true
@@ -109,10 +128,25 @@ extension UserProfileViewController: UserProfileViewControllerLogic {
                 interactor?.updateUserData(name: name, surname: surname)
             }
             
-            editingButton.setTitle("Edytuj", for: [])
+            editingButton.setTitle(viewState.title, for: [])
             
             nameTextField.isEnabled = false
             surnameTextField.isEnabled = false
+            
+            viewState = .view
         }
+    }
+}
+
+
+extension UserProfileViewController: KeyboardWorkerDelegate {
+    func keyboardWillShow(with keyboardBounds: CGRect) {
+        view.layoutIfNeeded()
+        view.animateConstraint(editingButtonBotConstraint, constant: keyboardBounds.height, view: view)
+    }
+    
+    func keyboardWillHide(with keyboardBounds: CGRect) {
+        view.layoutIfNeeded()
+        view.animateConstraint(editingButtonBotConstraint, constant: 15.0, view: view)
     }
 }

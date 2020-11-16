@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserProfileViewController" customModule="Profile" customModuleProvider="target">
             <connections>
                 <outlet property="editingButton" destination="GNX-if-rNy" id="OBh-J4-g2Q"/>
+                <outlet property="editingButtonBotConstraint" destination="Ip2-lG-2nU" id="RE5-1q-nGv"/>
                 <outlet property="nameLabel" destination="Dbv-9s-eTf" id="smt-r5-eaA"/>
                 <outlet property="nameTextField" destination="7oo-h6-vSL" id="gra-h1-sGU"/>
                 <outlet property="surnameLabel" destination="4C1-jK-kx3" id="CMW-H9-PvD"/>

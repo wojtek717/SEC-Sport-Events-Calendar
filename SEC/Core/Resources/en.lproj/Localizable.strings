@@ -19,3 +19,10 @@
 "smsConfirmation_confirm_button"="Confirm";
 "smsConfirmation_smsCodeTextField_placeholder"="123456";
 "smsConfirmation_message_label"="Enter the code received in the text message";
+"profile_title"="Profile";
+"profile_name"="Name";
+"profile_surname"="Surname";
+"profile_name_placeholder"="Bilbo";
+"profile_surname_placeholder"="Baggins";
+"profile_edit_button"="Edit";
+"profile_save_button"="Save";

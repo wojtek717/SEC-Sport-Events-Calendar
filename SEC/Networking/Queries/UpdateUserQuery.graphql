@@ -1,0 +1,11 @@
+mutation UpdateUserQuery($uuid: String!, $name: String, $surname: String) {
+  update_Users(where: {uuid: {_eq: $uuid}}, _set: {name: $name, surname: $surname}) {
+    returning {
+      name
+      surname
+      uuid
+    }
+  }
+}
+
+

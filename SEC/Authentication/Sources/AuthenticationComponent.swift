@@ -2,6 +2,7 @@ import Core
 import NeedleFoundation
 import UIKit
 import Firebase
+import Networking
 
 public protocol AuthenticationRouting: RoutesDefinition {
     var enterPhoneNumber: EnterPhoneNumberComponent { get }
@@ -20,6 +21,10 @@ public final class AuthenticationComponent: BootstrapComponent {
     
     public var authenticationWorker: AuthenticationWorkerProtocol {
         shared { AuthenticationWorker() }
+    }
+    
+    var networkingWorker: NetworkingWorkerProtocol {
+        networkingComponent.networkingWorker
     }
  }
 

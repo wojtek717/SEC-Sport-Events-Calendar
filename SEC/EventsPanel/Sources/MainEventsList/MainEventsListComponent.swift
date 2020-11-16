@@ -4,6 +4,7 @@ import UIKit
 import Networking
 import Location
 import Authentication
+import Profile
 
 public protocol MainEventsListDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }
@@ -16,6 +17,7 @@ public protocol MainEventsListRouting: RoutesDefinition {
     func spotyTypeSelect(delegate: MainEventsListSelectionDelegate?,
                          currentlySelected: [SportType]) -> SportTypeSelectComponent
     var authentication: AuthenticationComponent { get }
+    var profile: ProfileComponent { get }
 }
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
@@ -39,6 +41,10 @@ extension MainEventsListComponent: RoutableComponent {
 }
 
 extension MainEventsListComponent: MainEventsListRouting {
+    public var profile: ProfileComponent {
+        ProfileComponent()
+    }
+    
     public var authentication: AuthenticationComponent {
         authenticationComponent
     }

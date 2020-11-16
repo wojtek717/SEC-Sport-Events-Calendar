@@ -21,6 +21,27 @@ public final class SECTextFieldView: XibView {
         containerView.addGestureRecognizer(tap)
     }
     
+    public var keyboardType: UIKeyboardType = .default {
+        didSet {
+            textField.keyboardType = keyboardType
+        }
+    }
+    
+    public var isEnabled: Bool = true {
+        didSet {
+            textField.isEnabled = isEnabled
+        }
+    }
+    
+    public var text: String? {
+        get {
+            textField.text
+        }
+        set(text) {
+            textField.text = text
+        }
+    }
+    
     // MARK: Private Methods
     
     @objc func handleTap() {
@@ -28,16 +49,18 @@ public final class SECTextFieldView: XibView {
     }
     
     // MARK: Public Methods
-
+    
     public func setup(icon: UIImage?,
                       placeholder: String,
-                      target: Any?,
-                      action: Selector,
+                      target: Any? = nil,
+                      action: Selector? = nil,
                       delegate: UITextFieldDelegate? = nil) {
         iconImageView.image = icon
         textField.placeholder = placeholder
         
-        textField.addTarget(target, action: action, for: .editingChanged)
+        if let action = action {
+            textField.addTarget(target, action: action, for: .editingChanged)
+        }
         textField.delegate = delegate
     }
 }

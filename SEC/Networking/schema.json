@@ -6237,29 +6237,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "phone_number",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -6269,13 +6249,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -6290,6 +6266,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -6594,16 +6586,6 @@
             "defaultValue": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "String_comparison_exp",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "surname",
             "description": null,
             "type": {
@@ -6619,6 +6601,16 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "timestamptz_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -6692,16 +6684,6 @@
             "defaultValue": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "surname",
             "description": null,
             "type": {
@@ -6717,6 +6699,16 @@
             "type": {
               "kind": "SCALAR",
               "name": "timestamptz",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -6756,18 +6748,6 @@
             "deprecationReason": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "surname",
             "description": null,
             "args": [],
@@ -6786,6 +6766,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "timestamptz",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -6824,16 +6816,6 @@
             "defaultValue": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "surname",
             "description": null,
             "type": {
@@ -6845,6 +6827,16 @@
           },
           {
             "name": "updated_at",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "uuid",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -6888,18 +6880,6 @@
             "deprecationReason": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "surname",
             "description": null,
             "args": [],
@@ -6918,6 +6898,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "timestamptz",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -6956,16 +6948,6 @@
             "defaultValue": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "surname",
             "description": null,
             "type": {
@@ -6977,6 +6959,16 @@
           },
           {
             "name": "updated_at",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "uuid",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -7180,16 +7172,6 @@
             "defaultValue": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "surname",
             "description": null,
             "type": {
@@ -7201,6 +7183,16 @@
           },
           {
             "name": "updated_at",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "uuid",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -7221,7 +7213,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "phone_number",
+            "name": "uuid",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -7260,12 +7252,6 @@
             "deprecationReason": null
           },
           {
-            "name": "phone_number",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "surname",
             "description": "column name",
             "isDeprecated": false,
@@ -7273,6 +7259,12 @@
           },
           {
             "name": "updated_at",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -7307,16 +7299,6 @@
             "defaultValue": null
           },
           {
-            "name": "phone_number",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "surname",
             "description": null,
             "type": {
@@ -7332,6 +7314,16 @@
             "type": {
               "kind": "SCALAR",
               "name": "timestamptz",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -7362,12 +7354,6 @@
             "deprecationReason": null
           },
           {
-            "name": "phone_number",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "surname",
             "description": "column name",
             "isDeprecated": false,
@@ -7375,6 +7361,12 @@
           },
           {
             "name": "updated_at",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -8417,7 +8409,7 @@
             "description": "delete single row from the table: \"Users\"",
             "args": [
               {
-                "name": "phone_number",
+                "name": "uuid",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -9943,7 +9935,7 @@
             "description": "fetch data from the table: \"Users\" using primary key columns",
             "args": [
               {
-                "name": "phone_number",
+                "name": "uuid",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -10758,7 +10750,7 @@
             "description": "fetch data from the table: \"Users\" using primary key columns",
             "args": [
               {
-                "name": "phone_number",
+                "name": "uuid",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",

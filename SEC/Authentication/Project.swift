@@ -15,6 +15,7 @@ let project = Project.framework(name: "Authentication",
                                     "Core",
                                     "DesignSystem",
                                     "CommonUI",
+                                    "Networking",
                                 ],
                                 resources: [.glob(pattern: "**/*.xib")],
                                 withPublicResources: false)

@@ -1,10 +1,12 @@
 import UIKit
+import Authentication
 
 typealias MainEventsListRouterType = MainEventsListRouterProtocol
 
 protocol MainEventsListRouterProtocol {
     func navigateToLocalizationSelect()
     func navigateToSportTypeSelect(currentlySelected: [SportType])
+    func navigateToAuthentication()
 }
 
 final class MainEventsListRouter {
@@ -30,6 +32,13 @@ final class MainEventsListRouter {
 }
 
 extension MainEventsListRouter: MainEventsListRouterProtocol {
+    func navigateToAuthentication() {
+        let enterPhoneNumberViewController = routes.authentication.enterPhoneNumber.viewController
+        let navigationController = UINavigationController(rootViewController: enterPhoneNumberViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        viewController?.present(navigationController, animated: true)
+    }
+    
     func navigateToLocalizationSelect() {
         let localizationSelectViewController = routes.localizationSelect(delegate: viewController).viewController
         let navigationController = UINavigationController(rootViewController: localizationSelectViewController)

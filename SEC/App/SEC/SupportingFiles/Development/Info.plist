@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need a location to show events near you</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need a location to show events near you</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need a location to show events near you</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -22,10 +16,36 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.21436033852-fom8i3ichvj14m1n8kf7clvvr2vr1508</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need a location to show events near you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need a location to show events near you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need a location to show events near you</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Cairo-Black.ttf</string>
+		<string>Cairo-Regular.ttf</string>
+		<string>Cairo-Light.ttf</string>
+		<string>Cairo-ExtraLight.ttf</string>
+		<string>Cairo-Bold.ttf</string>
+		<string>Cairo-Black.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -46,15 +66,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Cairo-Black.ttf</string>
-		<string>Cairo-Regular.ttf</string>
-		<string>Cairo-Light.ttf</string>
-		<string>Cairo-ExtraLight.ttf</string>
-		<string>Cairo-Bold.ttf</string>
-		<string>Cairo-Black.ttf</string>
 	</array>
 </dict>
 </plist>

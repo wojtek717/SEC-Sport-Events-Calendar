@@ -114,6 +114,7 @@ extension MainEventsListViewController: MainEventsListViewControllerLogic {
 
 extension MainEventsListViewController: MenuItemDelegate {
     func didTapItem(_ itemType: MenuItemType) {
+        router?.navigateToAuthentication()
     }
 }
 

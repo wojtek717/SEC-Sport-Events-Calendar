@@ -1,6 +1,7 @@
 import UIKit
 import DesignSystem
 import CommonUI
+import Firebase
 
 protocol SplashViewControllerLogic: AnyObject {}
 
@@ -16,7 +17,7 @@ final class SplashViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var tenisBall: UIImageView!
+    @IBOutlet private var tenisBall: UIImageView!
     
     // MARK: - Public Properties
     
@@ -50,8 +51,7 @@ final class SplashViewController: UIViewController {
     // MARK: - View Methods
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
+        super.viewDidAppear(animated)
         DesignSystem.FontsConfigurator().initialize()
         
         setup()

@@ -12,3 +12,10 @@
 "sportType_Thriatlon_title"="Thriatlon";
 "sportType_title"="Dyscyplina";
 "sportType_select_button"="Wybierz";
+"enterPhoneNumber_title"="Cześć!";
+"enterPhoneNumber_send_button"="Wyślij";
+"enterPhoneNumber_message_label"="Zaloguj się przy użyciu numeru telefonu i odkryj nowe możliwości";
+"smsConfirmation_title"="Potwierdź swój numer";
+"smsConfirmation_confirm_button"="Potwierdź";
+"smsConfirmation_smsCodeTextField_placeholder"="123456";
+"smsConfirmation_message_label"="Wpisz kod otrzymany w wiadomości";

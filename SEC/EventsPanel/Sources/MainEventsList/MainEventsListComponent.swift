@@ -10,6 +10,7 @@ public protocol MainEventsListDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }
     var networkingWorker: NetworkingWorkerProtocol { get }
     var dateHelper: DateHelper { get }
+    var authenticationWorker: AuthenticationWorkerProtocol { get }
 }
 
 public protocol MainEventsListRouting: RoutesDefinition {
@@ -30,7 +31,8 @@ extension MainEventsListComponent: RoutableComponent {
         let interactor = MainEventsListInteractor(presenter: presenter,
                                                   locationWorker: dependency.locationWorker,
                                                   networkingWorker: dependency.networkingWorker,
-                                                  dateHelper: dependency.dateHelper)
+                                                  dateHelper: dependency.dateHelper,
+                                                  authenticationWorker: dependency.authenticationWorker)
         let router = MainEventsListRouter(viewController: viewController, dataStore: interactor, routes: self)
 
         viewController.interactor = interactor

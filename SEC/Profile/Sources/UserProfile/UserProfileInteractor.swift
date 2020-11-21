@@ -5,6 +5,7 @@ import Networking
 protocol UserProfileInteractorLogic {
     func fetchUserData()
     func updateUserData(name: String, surname: String)
+    func signOut()
 }
 protocol UserProfileDataStore {}
 
@@ -28,6 +29,16 @@ final class UserProfileInteractor: UserProfileDataStore {
 }
 
 extension UserProfileInteractor: UserProfileInteractorLogic {
+    func signOut() {
+        authenticationWorker.signOut { [weak self] in
+            self?.presenter.presentMainScreen()
+        } failure: { (error) in
+            //TODO: present error
+            print(error)
+        }
+
+    }
+    
     func fetchUserData() {
         guard let uuid = authenticationWorker.user?.uid else { return }
         

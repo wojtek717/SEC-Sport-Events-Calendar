@@ -2,6 +2,7 @@ import UIKit
 
 protocol UserProfilePresenterLogic {
     func presentUserData(name: String?, surname: String?)
+    func presentMainScreen()
 }
 
 final class UserProfilePresenter {
@@ -18,6 +19,10 @@ final class UserProfilePresenter {
 }
 
 extension UserProfilePresenter: UserProfilePresenterLogic {
+    func presentMainScreen() {
+        viewController?.presentMainScreen()
+    }
+    
     func presentUserData(name: String?, surname: String?) {
         viewController?.presentUserData(
             name: name?.capitalized,

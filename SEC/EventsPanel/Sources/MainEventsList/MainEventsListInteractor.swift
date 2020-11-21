@@ -3,9 +3,11 @@ import UIKit
 import Networking
 import Location
 import CoreLocation
+import Authentication
 
 protocol MainEventsListInteractorLogic {
     func fetchEvents(localizationType: QueryLocalizationType, sportTypes: [SportType])
+    func isUserLoggedIn() -> Bool
 }
 protocol MainEventsListDataStore {}
 
@@ -29,7 +31,7 @@ final class MainEventsListInteractor: MainEventsListDataStore {
     private let locationWorker: LocationWorkerProtocol
     private let networkingWorker: NetworkingWorkerProtocol
     private let dateHelper: DateHelper
-    
+    private var authenticationWorker: AuthenticationWorkerProtocol
     
     var events = [GetAllEventsQuery.Data.Event]()
     
@@ -38,11 +40,13 @@ final class MainEventsListInteractor: MainEventsListDataStore {
     init(presenter: MainEventsListPresenterLogic,
          locationWorker: LocationWorkerProtocol,
          networkingWorker: NetworkingWorkerProtocol,
-         dateHelper: DateHelper) {
+         dateHelper: DateHelper,
+         authenticationWorker: AuthenticationWorkerProtocol) {
         self.presenter = presenter
         self.locationWorker = locationWorker
         self.networkingWorker = networkingWorker
         self.dateHelper = dateHelper
+        self.authenticationWorker = authenticationWorker
     }
     
     private func fetchEventsFromEverywhere(sportTypes: [Int]) {
@@ -119,6 +123,10 @@ final class MainEventsListInteractor: MainEventsListDataStore {
 }
 
 extension MainEventsListInteractor: MainEventsListInteractorLogic {
+    func isUserLoggedIn() -> Bool {
+        return authenticationWorker.user != nil ? true : false
+    }
+    
     func fetchEvents(localizationType: QueryLocalizationType, sportTypes: [SportType]) {
         let sportTypeValues = sportTypes.map { $0.rawValue }
         

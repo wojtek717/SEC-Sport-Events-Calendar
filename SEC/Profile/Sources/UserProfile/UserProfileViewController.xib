@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,7 @@
                 <outlet property="editingButtonBotConstraint" destination="Ip2-lG-2nU" id="RE5-1q-nGv"/>
                 <outlet property="nameLabel" destination="Dbv-9s-eTf" id="smt-r5-eaA"/>
                 <outlet property="nameTextField" destination="7oo-h6-vSL" id="gra-h1-sGU"/>
+                <outlet property="signOutButton" destination="pIj-qr-0t2" id="5xO-yf-J75"/>
                 <outlet property="surnameLabel" destination="4C1-jK-kx3" id="CMW-H9-PvD"/>
                 <outlet property="surnameTextField" destination="8uA-ii-CsY" id="yyt-h1-KW7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="XR5-Fe-HOW"/>
@@ -70,6 +71,13 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIj-qr-0t2">
+                    <rect key="frame" x="331" y="333" width="68" height="35"/>
+                    <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="19"/>
+                    <state key="normal" title="Wyloguj">
+                        <color key="titleColor" name="SECBlue"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="BrightWhite"/>
@@ -84,9 +92,11 @@
                 <constraint firstItem="Dbv-9s-eTf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="VBp-eb-xxH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4C1-jK-kx3" secondAttribute="trailing" constant="15" id="Xal-Sg-52s"/>
                 <constraint firstItem="8uA-ii-CsY" firstAttribute="top" secondItem="4C1-jK-kx3" secondAttribute="bottom" constant="15" id="ZHD-W9-eLy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pIj-qr-0t2" secondAttribute="trailing" constant="15" id="a75-Tf-gji"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7oo-h6-vSL" secondAttribute="trailing" constant="15" id="dJz-se-qqf"/>
                 <constraint firstItem="Dbv-9s-eTf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="otg-gB-ASj"/>
                 <constraint firstAttribute="trailing" secondItem="GNX-if-rNy" secondAttribute="trailing" constant="15" id="s7S-1e-Pi0"/>
+                <constraint firstItem="pIj-qr-0t2" firstAttribute="top" secondItem="8uA-ii-CsY" secondAttribute="bottom" constant="30" id="spD-c6-toL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dbv-9s-eTf" secondAttribute="trailing" constant="15" id="t0R-RH-klB"/>
                 <constraint firstItem="7oo-h6-vSL" firstAttribute="top" secondItem="Dbv-9s-eTf" secondAttribute="bottom" constant="15" id="zS4-il-l63"/>
             </constraints>

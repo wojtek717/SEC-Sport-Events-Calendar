@@ -5,6 +5,7 @@ import UIKit
 
 protocol UserProfileViewControllerLogic: AnyObject {
     func presentUserData(name: String?, surname: String?)
+    func presentMainScreen()
 }
 
 final class UserProfileViewController: UIViewController {
@@ -31,6 +32,7 @@ final class UserProfileViewController: UIViewController {
     @IBOutlet private var surnameTextField: SECTextFieldView!
     @IBOutlet private var editingButton: SecButton!
     @IBOutlet private var editingButtonBotConstraint: NSLayoutConstraint!
+    @IBOutlet private var signOutButton: UIButton!
     
     // MARK: - Private Properties
     
@@ -94,6 +96,11 @@ final class UserProfileViewController: UIViewController {
             self,
             action: #selector(editingButtonTapped),
             for: .touchUpInside)
+        
+        signOutButton.addTarget(
+            self,
+            action: #selector(signoutButtonTapped),
+            for: .touchUpInside)
     }
     
     private func setup() {
@@ -106,6 +113,10 @@ final class UserProfileViewController: UIViewController {
 }
 
 extension UserProfileViewController: UserProfileViewControllerLogic {
+    func presentMainScreen() {
+        router?.dismiss()
+    }
+    
     func presentUserData(name: String?, surname: String?) {
         nameTextField.text = name
         surnameTextField.text = surname
@@ -116,13 +127,15 @@ extension UserProfileViewController: UserProfileViewControllerLogic {
     func editingButtonTapped() {
         switch viewState {
         case .view:
+            viewState = .editing
+            
             editingButton.setTitle(viewState.title, for: [])
             
             nameTextField.isEnabled = true
             surnameTextField.isEnabled = true
-            
-            viewState = .editing
         case .editing:
+            viewState = .view
+            
             if let name = nameTextField.text,
                let surname = surnameTextField.text {
                 interactor?.updateUserData(name: name, surname: surname)
@@ -132,9 +145,11 @@ extension UserProfileViewController: UserProfileViewControllerLogic {
             
             nameTextField.isEnabled = false
             surnameTextField.isEnabled = false
-            
-            viewState = .view
         }
+    }
+    
+    func signoutButtonTapped() {
+        interactor?.signOut()
     }
 }
 

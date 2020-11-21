@@ -1,0 +1,6 @@
+mutation InsertNewUserQuery($uuid: String) {
+  insert_Users(objects: {uuid: $uuid}) {
+    affected_rows
+  }
+}
+

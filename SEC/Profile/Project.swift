@@ -1,7 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(name: "EventsPanel",
+let project = Project.framework(name: "Profile",
                                 targets: [.framework],
                                 packages: [],
                                 externalDependencies: [],
@@ -9,9 +9,7 @@ let project = Project.framework(name: "EventsPanel",
                                     "Core",
                                     "DesignSystem",
                                     "CommonUI",
-                                    "Location",
                                     "Networking",
                                     "Authentication",
-                                    "Profile",
                                 ],
                                 resources: [.glob(pattern: "**/*.xib")])

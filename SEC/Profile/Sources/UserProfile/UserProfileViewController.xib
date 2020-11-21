@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-SemiBold.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserProfileViewController" customModule="Profile" customModuleProvider="target">
+            <connections>
+                <outlet property="editingButton" destination="GNX-if-rNy" id="OBh-J4-g2Q"/>
+                <outlet property="editingButtonBotConstraint" destination="Ip2-lG-2nU" id="RE5-1q-nGv"/>
+                <outlet property="nameLabel" destination="Dbv-9s-eTf" id="smt-r5-eaA"/>
+                <outlet property="nameTextField" destination="7oo-h6-vSL" id="gra-h1-sGU"/>
+                <outlet property="signOutButton" destination="pIj-qr-0t2" id="5xO-yf-J75"/>
+                <outlet property="surnameLabel" destination="4C1-jK-kx3" id="CMW-H9-PvD"/>
+                <outlet property="surnameTextField" destination="8uA-ii-CsY" id="yyt-h1-KW7"/>
+                <outlet property="view" destination="iN0-l3-epB" id="XR5-Fe-HOW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imię:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbv-9s-eTf">
+                    <rect key="frame" x="15" y="74" width="384" height="24.5"/>
+                    <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="21"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-h6-vSL" customClass="SECTextFieldView" customModule="CommonUI">
+                    <rect key="frame" x="15" y="113.5" width="384" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="IE0-4S-7DN"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazwisko:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C1-jK-kx3">
+                    <rect key="frame" x="15" y="203.5" width="384" height="24.5"/>
+                    <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="21"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uA-ii-CsY" customClass="SECTextFieldView" customModule="CommonUI">
+                    <rect key="frame" x="15" y="243" width="384" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Yp6-9O-AkX"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNX-if-rNy" customClass="SecButton" customModule="CommonUI">
+                    <rect key="frame" x="15" y="803" width="384" height="44"/>
+                    <color key="backgroundColor" name="SECBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="S9A-ya-grN"/>
+                    </constraints>
+                    <state key="normal" title="Edytuj">
+                        <color key="titleColor" name="BrightWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIj-qr-0t2">
+                    <rect key="frame" x="331" y="333" width="68" height="35"/>
+                    <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="19"/>
+                    <state key="normal" title="Wyloguj">
+                        <color key="titleColor" name="SECBlue"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="BrightWhite"/>
+            <constraints>
+                <constraint firstItem="8uA-ii-CsY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="0eN-Ud-PKx"/>
+                <constraint firstItem="7oo-h6-vSL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="3bv-sy-eoe"/>
+                <constraint firstItem="4C1-jK-kx3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="DqH-lZ-AlB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GNX-if-rNy" secondAttribute="bottom" constant="15" id="Ip2-lG-2nU"/>
+                <constraint firstItem="GNX-if-rNy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="K3n-Pn-N0U"/>
+                <constraint firstItem="4C1-jK-kx3" firstAttribute="top" secondItem="7oo-h6-vSL" secondAttribute="bottom" constant="30" id="L6i-pn-SKk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8uA-ii-CsY" secondAttribute="trailing" constant="15" id="LBr-lo-qd6"/>
+                <constraint firstItem="Dbv-9s-eTf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="VBp-eb-xxH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4C1-jK-kx3" secondAttribute="trailing" constant="15" id="Xal-Sg-52s"/>
+                <constraint firstItem="8uA-ii-CsY" firstAttribute="top" secondItem="4C1-jK-kx3" secondAttribute="bottom" constant="15" id="ZHD-W9-eLy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pIj-qr-0t2" secondAttribute="trailing" constant="15" id="a75-Tf-gji"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7oo-h6-vSL" secondAttribute="trailing" constant="15" id="dJz-se-qqf"/>
+                <constraint firstItem="Dbv-9s-eTf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="otg-gB-ASj"/>
+                <constraint firstAttribute="trailing" secondItem="GNX-if-rNy" secondAttribute="trailing" constant="15" id="s7S-1e-Pi0"/>
+                <constraint firstItem="pIj-qr-0t2" firstAttribute="top" secondItem="8uA-ii-CsY" secondAttribute="bottom" constant="30" id="spD-c6-toL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dbv-9s-eTf" secondAttribute="trailing" constant="15" id="t0R-RH-klB"/>
+                <constraint firstItem="7oo-h6-vSL" firstAttribute="top" secondItem="Dbv-9s-eTf" secondAttribute="bottom" constant="15" id="zS4-il-l63"/>
+            </constraints>
+            <point key="canvasLocation" x="67" y="71"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="GNX-if-rNy">
+            <size key="intrinsicContentSize" width="43" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="BrightWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SECBlue">
+            <color red="0.0" green="0.50980392156862742" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

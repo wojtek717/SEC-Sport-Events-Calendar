@@ -19,6 +19,7 @@ public protocol MainEventsListRouting: RoutesDefinition {
                          currentlySelected: [SportType]) -> SportTypeSelectComponent
     var authentication: AuthenticationComponent { get }
     var profile: ProfileComponent { get }
+    func eventDetails(eventId: String) -> EventDetailsComponent
 }
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
@@ -43,6 +44,10 @@ extension MainEventsListComponent: RoutableComponent {
 }
 
 extension MainEventsListComponent: MainEventsListRouting {
+    public func eventDetails(eventId: String) -> EventDetailsComponent {
+        EventDetailsComponent(parent: self, eventId: eventId)
+    }
+    
     public var profile: ProfileComponent {
         ProfileComponent()
     }

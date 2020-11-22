@@ -5,6 +5,7 @@ public struct EventTableViewCellPresentable {
     let date: String
     let city: String
     let sport: SportType
+    let id: String
 }
 
 final class EventTableViewCell: UITableViewCell {

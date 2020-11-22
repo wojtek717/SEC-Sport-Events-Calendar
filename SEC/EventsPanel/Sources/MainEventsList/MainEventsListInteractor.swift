@@ -66,7 +66,8 @@ final class MainEventsListInteractor: MainEventsListDataStore {
                                 self?.dateHelper.convertGraphQLDateToDate($0.beginDate),
                                 with: DateHelper.Constants.monthDayYearFormat) ?? "",
                             city: "cityHere",
-                            sport: sport))
+                            sport: sport,
+                            id: $0.id))
                 }
                 
                 if let eventsRows = eventsRows {
@@ -107,7 +108,8 @@ final class MainEventsListInteractor: MainEventsListDataStore {
                                 self?.dateHelper.convertGraphQLDateToDate($0.beginDate),
                                 with: DateHelper.Constants.monthDayYearFormat) ?? "",
                             city: "cityHere",
-                            sport: sport))
+                            sport: sport,
+                            id: $0.id))
                 }
                 
                 if let eventsRows = eventsRows {

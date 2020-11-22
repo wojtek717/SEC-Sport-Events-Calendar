@@ -499,6 +499,381 @@ public final class GetAllEventsQuery: GraphQLQuery {
   }
 }
 
+public final class GetEventQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GetEvent($id: uuid) {
+      Events(where: {id: {_eq: $id}}) {
+        __typename
+        title
+        description
+        type
+        begin_date
+        end_date
+        max_participant
+        Events_participants_aggregate {
+          __typename
+          aggregate {
+            __typename
+            count
+          }
+        }
+        Localization {
+          __typename
+          latitude
+          longitude
+        }
+        Creator {
+          __typename
+          name
+          surname
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "GetEvent"
+
+  public var id: String?
+
+  public init(id: String? = nil) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["query_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("Events", arguments: ["where": ["id": ["_eq": GraphQLVariable("id")]]], type: .nonNull(.list(.nonNull(.object(Event.selections))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(events: [Event]) {
+      self.init(unsafeResultMap: ["__typename": "query_root", "Events": events.map { (value: Event) -> ResultMap in value.resultMap }])
+    }
+
+    /// fetch data from the table: "Events"
+    public var events: [Event] {
+      get {
+        return (resultMap["Events"] as! [ResultMap]).map { (value: ResultMap) -> Event in Event(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: Event) -> ResultMap in value.resultMap }, forKey: "Events")
+      }
+    }
+
+    public struct Event: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Events"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("title", type: .nonNull(.scalar(String.self))),
+          GraphQLField("description", type: .nonNull(.scalar(String.self))),
+          GraphQLField("type", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("begin_date", type: .nonNull(.scalar(String.self))),
+          GraphQLField("end_date", type: .nonNull(.scalar(String.self))),
+          GraphQLField("max_participant", type: .scalar(Int.self)),
+          GraphQLField("Events_participants_aggregate", type: .nonNull(.object(EventsParticipantsAggregate.selections))),
+          GraphQLField("Localization", type: .nonNull(.object(Localization.selections))),
+          GraphQLField("Creator", type: .nonNull(.object(Creator.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(title: String, description: String, type: Int, beginDate: String, endDate: String, maxParticipant: Int? = nil, eventsParticipantsAggregate: EventsParticipantsAggregate, localization: Localization, creator: Creator) {
+        self.init(unsafeResultMap: ["__typename": "Events", "title": title, "description": description, "type": type, "begin_date": beginDate, "end_date": endDate, "max_participant": maxParticipant, "Events_participants_aggregate": eventsParticipantsAggregate.resultMap, "Localization": localization.resultMap, "Creator": creator.resultMap])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var title: String {
+        get {
+          return resultMap["title"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "title")
+        }
+      }
+
+      public var description: String {
+        get {
+          return resultMap["description"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      public var type: Int {
+        get {
+          return resultMap["type"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "type")
+        }
+      }
+
+      public var beginDate: String {
+        get {
+          return resultMap["begin_date"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "begin_date")
+        }
+      }
+
+      public var endDate: String {
+        get {
+          return resultMap["end_date"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "end_date")
+        }
+      }
+
+      public var maxParticipant: Int? {
+        get {
+          return resultMap["max_participant"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "max_participant")
+        }
+      }
+
+      /// An aggregated array relationship
+      public var eventsParticipantsAggregate: EventsParticipantsAggregate {
+        get {
+          return EventsParticipantsAggregate(unsafeResultMap: resultMap["Events_participants_aggregate"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "Events_participants_aggregate")
+        }
+      }
+
+      /// An object relationship
+      public var localization: Localization {
+        get {
+          return Localization(unsafeResultMap: resultMap["Localization"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "Localization")
+        }
+      }
+
+      /// An object relationship
+      public var creator: Creator {
+        get {
+          return Creator(unsafeResultMap: resultMap["Creator"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "Creator")
+        }
+      }
+
+      public struct EventsParticipantsAggregate: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Events_participants_aggregate"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("aggregate", type: .object(Aggregate.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(aggregate: Aggregate? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Events_participants_aggregate", "aggregate": aggregate.flatMap { (value: Aggregate) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var aggregate: Aggregate? {
+          get {
+            return (resultMap["aggregate"] as? ResultMap).flatMap { Aggregate(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "aggregate")
+          }
+        }
+
+        public struct Aggregate: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Events_participants_aggregate_fields"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("count", type: .scalar(Int.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(count: Int? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Events_participants_aggregate_fields", "count": count])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var count: Int? {
+            get {
+              return resultMap["count"] as? Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "count")
+            }
+          }
+        }
+      }
+
+      public struct Localization: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Localization"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("latitude", type: .nonNull(.scalar(Double.self))),
+            GraphQLField("longitude", type: .nonNull(.scalar(Double.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(latitude: Double, longitude: Double) {
+          self.init(unsafeResultMap: ["__typename": "Localization", "latitude": latitude, "longitude": longitude])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var latitude: Double {
+          get {
+            return resultMap["latitude"]! as! Double
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "latitude")
+          }
+        }
+
+        public var longitude: Double {
+          get {
+            return resultMap["longitude"]! as! Double
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "longitude")
+          }
+        }
+      }
+
+      public struct Creator: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Users"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("name", type: .scalar(String.self)),
+            GraphQLField("surname", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(name: String? = nil, surname: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Users", "name": name, "surname": surname])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var name: String? {
+          get {
+            return resultMap["name"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+
+        public var surname: String? {
+          get {
+            return resultMap["surname"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "surname")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class GetEventsAroundQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

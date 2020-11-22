@@ -26,3 +26,8 @@
 "profile_surname_placeholder"="Baggins";
 "profile_edit_button"="Edytuj";
 "profile_save_button"="Zapisz";
+"EventDetails_title"="Szczegóły";
+"EventDetails_start_label"="Start:";
+"EventDetails_end_label"="Koniec:";
+"EventDetails_signed_up_label"="Zapisani:";
+"EventDetails_sign_up_button"="Zapisz się!";

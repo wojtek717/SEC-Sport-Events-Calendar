@@ -8,6 +8,7 @@ protocol MainEventsListRouterProtocol {
     func navigateToSportTypeSelect(currentlySelected: [SportType])
     func navigateToAuthentication()
     func navigateToUserProfile()
+    func navigateToEventDetails(eventId: String)
 }
 
 final class MainEventsListRouter {
@@ -33,6 +34,13 @@ final class MainEventsListRouter {
 }
 
 extension MainEventsListRouter: MainEventsListRouterProtocol {
+    func navigateToEventDetails(eventId: String) {
+        let eventDetailsViewController = routes.eventDetails(eventId: eventId).viewController
+        let navigationController = UINavigationController(rootViewController: eventDetailsViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        viewController?.present(navigationController, animated: true)
+    }
+    
     func navigateToUserProfile() {
         let userProfileViewController = routes.profile.userProfile.viewController
         let navigationController = UINavigationController(rootViewController: userProfileViewController)

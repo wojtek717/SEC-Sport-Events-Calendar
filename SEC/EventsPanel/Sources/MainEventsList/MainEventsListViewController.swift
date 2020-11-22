@@ -138,6 +138,12 @@ extension MainEventsListViewController: MainEventsListDelegate {
     
     func didSelectItem(_ mainEventsListItem: MainEventsListRow, atIndex index: Int) {
         // TODO: Handle selection
+        let item = dataSource.content[index]
+        
+        switch  item {
+        case let .event(presentable):
+            router?.navigateToEventDetails(eventId: presentable.id)
+        }
     }
 }
 

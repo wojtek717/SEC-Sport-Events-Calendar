@@ -1,0 +1,8 @@
+query IsSignedUp($userId: String, $eventId: uuid) {
+  Events_participants(where: {User: {uuid: {_eq: $userId}}, Event: {id: {_eq: $eventId}}}) {
+    id
+    event_id
+    user_id
+  }
+}
+

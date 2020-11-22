@@ -1944,14 +1944,14 @@
           },
           {
             "name": "id",
-            "description": null,
+            "description": "eventId+UserId",
             "args": [],
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "uuid",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -2266,7 +2266,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "uuid_comparison_exp",
+              "name": "String_comparison_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -2344,7 +2344,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -2387,7 +2387,7 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2475,7 +2475,7 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2752,13 +2752,13 @@
         "inputFields": [
           {
             "name": "id",
-            "description": null,
+            "description": "eventId+UserId",
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "uuid",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -2819,7 +2819,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -8302,13 +8302,13 @@
             "args": [
               {
                 "name": "id",
-                "description": null,
+                "description": "eventId+UserId",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "uuid",
+                    "name": "String",
                     "ofType": null
                   }
                 },
@@ -9534,13 +9534,13 @@
             "args": [
               {
                 "name": "id",
-                "description": null,
+                "description": "eventId+UserId",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "uuid",
+                    "name": "String",
                     "ofType": null
                   }
                 },
@@ -10349,13 +10349,13 @@
             "args": [
               {
                 "name": "id",
-                "description": null,
+                "description": "eventId+UserId",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "uuid",
+                    "name": "String",
                     "ofType": null
                   }
                 },

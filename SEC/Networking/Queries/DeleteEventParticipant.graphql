@@ -1,0 +1,6 @@
+mutation DeleteEventParticipant($userId: String, $eventId: uuid) {
+  delete_Events_participants(where: {User: {uuid: {_eq: $userId}}, Event: {id: {_eq: $eventId}}}) {
+    affected_rows
+  }
+}
+

@@ -64,6 +64,10 @@ final class EventDetailsViewController: UIViewController, LoaderPresenting {
             Core.R.string.localizable.eventDetails_sign_up_button(),
             for: [])
         
+        signOutButton.setTitle(
+            Core.R.string.localizable.eventDetails_signout_button(),
+            for: [])
+        
         signUpButton.addTarget(
             self,
             action: #selector(signUpButtonTapped),

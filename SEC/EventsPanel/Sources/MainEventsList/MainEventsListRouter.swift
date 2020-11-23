@@ -9,6 +9,7 @@ protocol MainEventsListRouterProtocol {
     func navigateToAuthentication()
     func navigateToUserProfile()
     func navigateToEventDetails(eventId: String)
+    func navigateToEventCreator()
 }
 
 final class MainEventsListRouter {
@@ -34,6 +35,13 @@ final class MainEventsListRouter {
 }
 
 extension MainEventsListRouter: MainEventsListRouterProtocol {
+    func navigateToEventCreator() {
+        let eventCreatorViewController = routes.eventCreator.creatorFirstStep.viewController
+        let navigationController = UINavigationController(rootViewController: eventCreatorViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        viewController?.present(navigationController, animated: true)
+    }
+    
     func navigateToEventDetails(eventId: String) {
         let eventDetailsViewController = routes.eventDetails(eventId: eventId).viewController
         let navigationController = UINavigationController(rootViewController: eventDetailsViewController)

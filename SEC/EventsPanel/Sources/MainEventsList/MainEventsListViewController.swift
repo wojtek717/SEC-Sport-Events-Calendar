@@ -120,6 +120,8 @@ extension MainEventsListViewController: MenuItemDelegate {
             switch itemType {
             case .profile:
                 router?.navigateToUserProfile()
+            case .add:
+                router?.navigateToEventCreator()
             default:
                 return
             }

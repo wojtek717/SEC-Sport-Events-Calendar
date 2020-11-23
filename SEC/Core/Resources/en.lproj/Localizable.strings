@@ -32,3 +32,7 @@
 "EventDetails_signed_up_label"="Signed up:";
 "EventDetails_sign_up_button"="Sign up!";
 "EventDetails_signout_button"="Sign out";
+"creator_firstStep_title"="New event";
+"creator_firstStep_desciption_label"="Enter the title of your event";
+"creator_next_button"="Next";
+"creator_firstStep_title_textfield_placeholder"="Marathon for sick dogs";

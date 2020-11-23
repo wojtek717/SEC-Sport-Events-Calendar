@@ -32,3 +32,7 @@
 "EventDetails_signed_up_label"="Zapisani:";
 "EventDetails_sign_up_button"="Zapisz się!";
 "EventDetails_signout_button"="Wypisz się";
+"creator_firstStep_title"="Nowe wydarzenie";
+"creator_firstStep_desciption_label"="Podaj tytuł swojego wydarzenia";
+"creator_next_button"="Dalej";
+"creator_firstStep_title_textfield_placeholder"="Bieg Niepodległości 10km";

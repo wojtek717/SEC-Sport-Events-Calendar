@@ -5,6 +5,7 @@ import Networking
 import Location
 import Authentication
 import Profile
+import EventCreator
 
 public protocol MainEventsListDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }
@@ -20,6 +21,7 @@ public protocol MainEventsListRouting: RoutesDefinition {
     var authentication: AuthenticationComponent { get }
     var profile: ProfileComponent { get }
     func eventDetails(eventId: String) -> EventDetailsComponent
+    var eventCreator: EventCreatorComponent { get }
 }
 
 public final class MainEventsListComponent: Component<MainEventsListDependency> {}
@@ -44,6 +46,10 @@ extension MainEventsListComponent: RoutableComponent {
 }
 
 extension MainEventsListComponent: MainEventsListRouting {
+    public var eventCreator: EventCreatorComponent {
+        EventCreatorComponent()
+    }
+    
     public func eventDetails(eventId: String) -> EventDetailsComponent {
         EventDetailsComponent(parent: self, eventId: eventId)
     }

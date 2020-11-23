@@ -13,4 +13,5 @@ let workspace = Workspace(name: "SEC", projects: [
     "SEC/Networking",
     "SEC/Authentication",
     "SEC/Profile",
+    "SEC/EventCreator",
 ])

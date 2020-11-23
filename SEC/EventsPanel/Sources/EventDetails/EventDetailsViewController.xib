@@ -23,6 +23,7 @@
                 <outlet property="descriptionLabel" destination="qPt-dY-Fdn" id="Rv1-Zq-3wF"/>
                 <outlet property="endDateLabel" destination="LhF-XP-Zc2" id="x5j-SM-TB3"/>
                 <outlet property="locationView" destination="smW-ur-fVX" id="ZdQ-yb-34Q"/>
+                <outlet property="signOutButton" destination="Tqe-XN-nBp" id="Xtz-99-k52"/>
                 <outlet property="signUpButton" destination="SlU-sz-0bg" id="X5n-b0-aei"/>
                 <outlet property="signedUpLabel" destination="GRX-DN-ANb" id="lga-KQ-Kpc"/>
                 <outlet property="titleLabel" destination="b74-tu-eSv" id="fcX-s7-bIt"/>
@@ -95,6 +96,10 @@
                         <constraint firstItem="E8L-7o-ew0" firstAttribute="width" secondItem="VHM-8F-qFi" secondAttribute="width" id="S1U-fA-xQa"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9l8-uR-6PZ">
+                    <rect key="frame" x="15" y="818" width="384" height="44"/>
+                    <color key="backgroundColor" name="BrightWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlU-sz-0bg" customClass="SecButton" customModule="CommonUI">
                     <rect key="frame" x="15" y="818" width="384" height="44"/>
                     <color key="backgroundColor" name="SECBlue"/>
@@ -102,6 +107,21 @@
                         <constraint firstAttribute="height" constant="44" id="YOw-LY-AVX"/>
                     </constraints>
                     <state key="normal" title="Edytuj">
+                        <color key="titleColor" name="BrightWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-XN-nBp" customClass="SecButton" customModule="CommonUI">
+                    <rect key="frame" x="15" y="818" width="384" height="44"/>
+                    <color key="backgroundColor" name="SECRed"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="4xg-lT-bXv"/>
+                    </constraints>
+                    <state key="normal" title="SignOut">
                         <color key="titleColor" name="BrightWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -118,8 +138,15 @@
                 <constraint firstItem="SlU-sz-0bg" firstAttribute="leading" secondItem="38C-VV-veN" secondAttribute="leading" constant="15" id="GMP-Rr-lJm"/>
                 <constraint firstItem="VHM-8F-qFi" firstAttribute="leading" secondItem="38C-VV-veN" secondAttribute="leading" constant="15" id="JlI-Gd-d2B"/>
                 <constraint firstItem="38C-VV-veN" firstAttribute="trailing" secondItem="SlU-sz-0bg" secondAttribute="trailing" constant="15" id="L4e-YB-oap"/>
+                <constraint firstItem="9l8-uR-6PZ" firstAttribute="bottom" secondItem="SlU-sz-0bg" secondAttribute="bottom" id="OuF-Ic-EmV"/>
                 <constraint firstItem="38C-VV-veN" firstAttribute="bottom" secondItem="SlU-sz-0bg" secondAttribute="bottom" id="QTi-Ys-0np"/>
                 <constraint firstItem="38C-VV-veN" firstAttribute="bottom" secondItem="VHM-8F-qFi" secondAttribute="bottom" id="RAT-Wd-Vnz"/>
+                <constraint firstItem="9l8-uR-6PZ" firstAttribute="trailing" secondItem="SlU-sz-0bg" secondAttribute="trailing" id="Uci-0Y-Qb7"/>
+                <constraint firstItem="9l8-uR-6PZ" firstAttribute="centerX" secondItem="SlU-sz-0bg" secondAttribute="centerX" id="UkA-Mk-rDd"/>
+                <constraint firstItem="38C-VV-veN" firstAttribute="trailing" secondItem="Tqe-XN-nBp" secondAttribute="trailing" constant="15" id="iYF-jq-2hs"/>
+                <constraint firstItem="9l8-uR-6PZ" firstAttribute="top" secondItem="SlU-sz-0bg" secondAttribute="top" id="lzg-MG-LXV"/>
+                <constraint firstItem="Tqe-XN-nBp" firstAttribute="leading" secondItem="38C-VV-veN" secondAttribute="leading" constant="15" id="pkw-dB-AdT"/>
+                <constraint firstItem="Tqe-XN-nBp" firstAttribute="bottom" secondItem="38C-VV-veN" secondAttribute="bottom" id="rNj-Zn-7Ju"/>
                 <constraint firstItem="38C-VV-veN" firstAttribute="trailing" secondItem="VHM-8F-qFi" secondAttribute="trailing" constant="15" id="uyH-VV-fSD"/>
             </constraints>
             <point key="canvasLocation" x="1109" y="92"/>
@@ -129,6 +156,9 @@
         <designable name="SlU-sz-0bg">
             <size key="intrinsicContentSize" width="43" height="30"/>
         </designable>
+        <designable name="Tqe-XN-nBp">
+            <size key="intrinsicContentSize" width="56" height="30"/>
+        </designable>
     </designables>
     <resources>
         <namedColor name="BrightWhite">
@@ -136,6 +166,9 @@
         </namedColor>
         <namedColor name="SECBlue">
             <color red="0.0" green="0.50980392156862742" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SECRed">
+            <color red="0.8666666666666667" green="0.17647058823529413" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

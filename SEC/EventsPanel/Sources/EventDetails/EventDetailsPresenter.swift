@@ -5,6 +5,7 @@ import CoreLocation
 
 protocol EventDetailsPresenterLogic {
     func preapareEventDetails(with event: EventDetails)
+    func preapareButtons(isUserSignedUp: Bool)
 }
 
 final class EventDetailsPresenter {
@@ -24,6 +25,10 @@ final class EventDetailsPresenter {
 }
 
 extension EventDetailsPresenter: EventDetailsPresenterLogic {
+    func preapareButtons(isUserSignedUp: Bool) {
+        viewController?.presentButtons(isUserSignedUp: isUserSignedUp)
+    }
+    
     func preapareEventDetails(with event: EventDetails) {
         
         let presentable = EventDetailsPresentable(

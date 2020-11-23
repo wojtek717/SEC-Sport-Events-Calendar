@@ -1,0 +1,7 @@
+mutation InsertEventsParticipants($eventId: uuid, $userId: String, $id: String) {
+  insert_Events_participants_one(object: {event_id: $eventId, user_id: $userId, id: $id}) {
+    event_id
+    id
+    user_id
+  }
+}

@@ -4,7 +4,9 @@ import UIKit
 
 public protocol CreatorFirstStepDependency: Dependency {}
 
-public protocol CreatorFirstStepRouting: RoutesDefinition {}
+public protocol CreatorFirstStepRouting: RoutesDefinition {
+    var secondStep: CreatorSecondStepComponent { get }
+}
 
 public final class CreatorFirstStepComponent: Component<CreatorFirstStepDependency> {}
 
@@ -23,4 +25,8 @@ extension CreatorFirstStepComponent: RoutableComponent {
     }
 }
 
-extension CreatorFirstStepComponent: CreatorFirstStepRouting {}
+extension CreatorFirstStepComponent: CreatorFirstStepRouting {
+    public var secondStep: CreatorSecondStepComponent {
+        CreatorSecondStepComponent(parent: self)
+    }
+}

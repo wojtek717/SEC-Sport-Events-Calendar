@@ -36,6 +36,7 @@ final class CreatorFirstStepViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        textFieldChanged()
     }
     
     // MARK: - Private Methods
@@ -78,7 +79,8 @@ final class CreatorFirstStepViewController: UIViewController {
     }
     
     @objc private func nextButtonTapped() {
-        
+        view.dismissKeyboard()
+        router?.navigateToSecondStep()
     }
     
     @objc private func textFieldChanged() {

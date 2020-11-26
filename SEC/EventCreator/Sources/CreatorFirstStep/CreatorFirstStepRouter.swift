@@ -3,6 +3,7 @@ import UIKit
 typealias CreatorFirstStepRouterType = CreatorFirstStepRouterProtocol
 
 @objc protocol CreatorFirstStepRouterProtocol {
+    func navigateToSecondStep()
     func dismiss()
 }
 
@@ -29,6 +30,13 @@ final class CreatorFirstStepRouter {
 }
 
 extension CreatorFirstStepRouter: CreatorFirstStepRouterProtocol {
+    func navigateToSecondStep() {
+        let secondStepViewController = routes.secondStep.viewController
+        viewController?.navigationController?.pushViewController(
+            secondStepViewController,
+            animated: true)
+    }
+    
     func dismiss() {
         viewController?.navigationController?.dismiss(animated: true)
     }

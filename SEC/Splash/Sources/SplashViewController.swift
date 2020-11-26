@@ -60,6 +60,8 @@ final class SplashViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setup() {
+        UINavigationBar.appearance().tintColor = DesignSystem.R.color.secRed()
+        
         tenisBall.image = CommonUI.R.image.tenisBall()
         
         let yPosition = ((view.frame.height / 2) + (tenisBall.frame.height / 2))

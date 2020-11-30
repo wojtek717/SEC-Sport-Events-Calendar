@@ -7,5 +7,6 @@ public struct EventEntity {
     var startDate: Date?
     var endDate: Date?
     var maxParticipants: Int?
-    var localization: CLLocation?
+    var latitude: Double?
+    var longitude: Double?
 }

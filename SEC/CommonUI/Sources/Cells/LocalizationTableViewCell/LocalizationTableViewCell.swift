@@ -3,10 +3,16 @@ import UIKit
 public struct LocalizationTableViewCellPresentable {
     let cityName: String
     let bottomText: String
+    
+    public init(cityName: String,
+                bottomText: String) {
+        self.cityName = cityName
+        self.bottomText = bottomText
+    }
 }
 
-final class LocalizationTableViewCell: UITableViewCell {
-
+public final class LocalizationTableViewCell: UITableViewCell {
+    
     @IBOutlet private var cityLabel: UILabel!
     @IBOutlet private var bottomLabel: UILabel!
     

@@ -1,9 +1,11 @@
 import UIKit
 import CommonUI
 
-final class SportTypeSelectDataSource: NSObject, UITableViewDataSource {
+final class FourthStepDataSource: NSObject, UITableViewDataSource {
     
-    public var content = [SportTypeTableViewCellPresentable]()
+    // MARK: - Public Properties
+
+    public var content = [LocalizationTableViewCellPresentable]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return content.count
@@ -13,12 +15,10 @@ final class SportTypeSelectDataSource: NSObject, UITableViewDataSource {
         let presentableItem = content[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: CommonUI.R.reuseIdentifier.spotTypeTableViewCell,
+            withIdentifier: CommonUI.R.reuseIdentifier.localizationTableViewCell,
             for: indexPath)
         cell?.configure(with: presentableItem)
         
         return cell ?? UITableViewCell()
     }
-    
-    
 }

@@ -3,19 +3,24 @@ import UIKit
 protocol CreatorFirstStepInteractorLogic {
     func setTitle(_ title: String)
 }
-protocol CreatorFirstStepDataStore {}
+protocol CreatorFirstStepDataStore {
+    var eventEntity: EventEntity { get }
+}
 
 final class CreatorFirstStepInteractor: CreatorFirstStepDataStore {
+    
+    var eventEntity: EventEntity
 
     // MARK: - Private Properties
 
     private let presenter: CreatorFirstStepPresenterLogic
-    private var eventEntity = EventEntity()
 
     // MARK: - Initializers
 
-    init(presenter: CreatorFirstStepPresenterLogic) {
+    init(presenter: CreatorFirstStepPresenterLogic,
+         eventEntity: EventEntity) {
         self.presenter = presenter
+        self.eventEntity = eventEntity
     }
 }
 

@@ -30,7 +30,7 @@ final class CreatorSecondStepRouter {
 
 extension CreatorSecondStepRouter: CreatorSecondStepRouterProtocol {
     func navigateToThirdStep() {
-        let thirdStepViewController = routes.thirdStep.viewController
+        let thirdStepViewController = routes.thirdStep(eventEntity: dataStore.eventEntity).viewController
         viewController?.navigationController?.pushViewController(
             thirdStepViewController,
             animated: true)

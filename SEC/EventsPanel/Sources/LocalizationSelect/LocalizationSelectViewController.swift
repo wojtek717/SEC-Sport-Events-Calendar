@@ -82,7 +82,7 @@ final class LocalizationSelectViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(R.nib.localizationTableViewCell)
+        tableView.register(CommonUI.R.nib.localizationTableViewCell)
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.separatorStyle = .none

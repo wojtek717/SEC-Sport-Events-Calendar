@@ -85,6 +85,7 @@ final class CreatorFirstStepViewController: UIViewController {
     
     @objc private func textFieldChanged() {
         nextButton.isEnabled = titleTextField.text?.count ?? 0 >= 6
+        interactor?.setTitle(titleTextField.text ?? "")
     }
 }
 

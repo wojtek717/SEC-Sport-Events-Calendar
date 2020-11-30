@@ -70,6 +70,7 @@ final class CreatorSecondStepViewController: UIViewController {
     
     @objc private func nextButtonTapped() {
         view.dismissKeyboard()
+        
         router?.navigateToThirdStep()
     }
     
@@ -95,6 +96,7 @@ extension CreatorSecondStepViewController: KeyboardWorkerDelegate {
 
 extension CreatorSecondStepViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        interactor?.setDescription(textView.text)
         validateDescription(text: textView.text)
     }
 }

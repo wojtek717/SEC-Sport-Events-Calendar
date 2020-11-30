@@ -1,6 +1,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import CommonUI
 
 protocol LocalizationSelectPresenterLogic {
     func presentUserPlace(placeMark: CLPlacemark)

@@ -2,7 +2,9 @@ import UIKit
 
 typealias CreatorThirdStepRouterType = CreatorThirdStepRouterProtocol
 
-@objc protocol CreatorThirdStepRouterProtocol {}
+@objc protocol CreatorThirdStepRouterProtocol {
+    func navigateToFourthStep()
+}
 
 final class CreatorThirdStepRouter {
 
@@ -26,4 +28,11 @@ final class CreatorThirdStepRouter {
     }
 }
 
-extension CreatorThirdStepRouter: CreatorThirdStepRouterProtocol {}
+extension CreatorThirdStepRouter: CreatorThirdStepRouterProtocol {
+    func navigateToFourthStep() {
+        let fourthStepViewController = routes.fourthStep(eventEntity: dataStore.eventEntity).viewController
+        viewController?.navigationController?.pushViewController(
+            fourthStepViewController,
+            animated: true)
+    }
+}

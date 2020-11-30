@@ -63,7 +63,7 @@ final class SportTypeSelectViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(R.nib.spotTypeTableViewCell)
+        tableView.register(CommonUI.R.nib.spotTypeTableViewCell)
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.separatorStyle = .none

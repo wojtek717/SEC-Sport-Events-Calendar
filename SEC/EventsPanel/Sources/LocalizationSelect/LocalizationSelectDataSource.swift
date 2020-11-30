@@ -1,4 +1,5 @@
 import UIKit
+import CommonUI
 
 final class LocalizationSelectDataSource: NSObject, UITableViewDataSource {
     
@@ -14,7 +15,7 @@ final class LocalizationSelectDataSource: NSObject, UITableViewDataSource {
         let presentableItem = content[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: R.reuseIdentifier.localizationTableViewCell,
+            withIdentifier: CommonUI.R.reuseIdentifier.localizationTableViewCell,
             for: indexPath)
         cell?.configure(with: presentableItem)
         

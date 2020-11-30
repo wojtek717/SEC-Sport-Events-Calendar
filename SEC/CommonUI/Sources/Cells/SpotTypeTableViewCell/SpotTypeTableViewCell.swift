@@ -4,9 +4,17 @@ public struct SportTypeTableViewCellPresentable {
     let image: UIImage?
     let title: String
     let isSelected: Bool
+    
+    public init(image: UIImage?,
+                title: String,
+                isSelected: Bool) {
+        self.image = image
+        self.title = title
+        self.isSelected = isSelected
+    }
 }
 
-final class SportTypeTableViewCell: UITableViewCell {
+public final class SportTypeTableViewCell: UITableViewCell {
 
     @IBOutlet private var sportImageView: UIImageView!
     @IBOutlet private var checkMarkImageView: UIImageView!

@@ -1,9 +1,21 @@
 import UIKit
+import Core
+import DesignSystem
+import CommonUI
 
 protocol CreatorThirdStepViewControllerLogic: AnyObject {}
 
 final class CreatorThirdStepViewController: UIViewController {
+    
+    // MARK: - @IBOutlets
 
+    @IBOutlet private var nextButton: SecButton!
+    @IBOutlet private var beginDateLabel: UILabel!
+    @IBOutlet private var endDateLabel: UILabel!
+    @IBOutlet private var beginDatePicker: UIDatePicker!
+    @IBOutlet private var endDatePicker: UIDatePicker!
+    @IBOutlet private var cornerImageView: UIImageView!
+    
     // MARK: - Public Properties
 
     var interactor: CreatorThirdStepInteractorLogic?
@@ -20,7 +32,7 @@ final class CreatorThirdStepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setup()
+        setup()
     }
     
     // MARK: - Private Methods
@@ -29,6 +41,21 @@ final class CreatorThirdStepViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "When?"
+    }
+    
+    private func setup() {
+        cornerImageView.image = CommonUI.R.image.tenisBall()
+        
+        nextButton.addTarget(
+            self,
+            action: #selector(nextButtonTapped),
+            for: .touchUpInside)
+    }
+    
+    @objc private func nextButtonTapped() {
+        interactor?.setDate(beginDate: beginDatePicker.date,
+                            endDate: endDatePicker.date)
+        router?.navigateToFourthStep()
     }
 }
 

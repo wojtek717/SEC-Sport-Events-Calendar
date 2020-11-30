@@ -1,9 +1,16 @@
 import UIKit
 
-protocol CreatorSecondStepInteractorLogic {}
-protocol CreatorSecondStepDataStore {}
+protocol CreatorSecondStepInteractorLogic {
+    func setDescription(_ description: String)
+}
+
+protocol CreatorSecondStepDataStore {
+    var eventEntity: EventEntity { get }
+}
 
 final class CreatorSecondStepInteractor: CreatorSecondStepDataStore {
+    
+    var eventEntity: EventEntity
 
     // MARK: - Private Properties
 
@@ -11,9 +18,17 @@ final class CreatorSecondStepInteractor: CreatorSecondStepDataStore {
 
     // MARK: - Initializers
 
-    init(presenter: CreatorSecondStepPresenterLogic) {
+    init(presenter: CreatorSecondStepPresenterLogic,
+         eventEntity: EventEntity) {
         self.presenter = presenter
+        self.eventEntity = eventEntity
+        
+        print("==== \(eventEntity.title)")
     }
 }
 
-extension CreatorSecondStepInteractor: CreatorSecondStepInteractorLogic {}
+extension CreatorSecondStepInteractor: CreatorSecondStepInteractorLogic {
+    func setDescription(_ description: String) {
+        eventEntity.description = description
+    }
+}

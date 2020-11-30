@@ -15,6 +15,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatorThirdStepViewController" customModule="EventCreator" customModuleProvider="target">
             <connections>
+                <outlet property="beginDateLabel" destination="oIn-pu-qYO" id="0cs-wp-kuA"/>
+                <outlet property="beginDatePicker" destination="OTs-4c-GGx" id="Cxd-Qe-LOt"/>
+                <outlet property="cornerImageView" destination="HnE-aa-gdl" id="1yw-3F-oVG"/>
+                <outlet property="endDateLabel" destination="Mtm-68-ACB" id="NaM-nI-BeX"/>
+                <outlet property="endDatePicker" destination="OhX-bU-ue3" id="6qc-gf-icG"/>
+                <outlet property="nextButton" destination="oGe-Zg-Fy4" id="OQo-PE-Dwu"/>
                 <outlet property="view" destination="iN0-l3-epB" id="sNx-yD-tCh"/>
             </connections>
         </placeholder>
@@ -51,25 +57,58 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGe-Zg-Fy4" customClass="SecButton" customModule="CommonUI">
+                    <rect key="frame" x="15" y="818" width="384" height="44"/>
+                    <color key="backgroundColor" name="SECBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="HJ7-xG-M5v"/>
+                    </constraints>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" name="BrightWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tenis-ball" translatesAutoresizingMaskIntoConstraints="NO" id="HnE-aa-gdl">
+                    <rect key="frame" x="344" y="518" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="9I4-Pl-rzE"/>
+                        <constraint firstAttribute="height" constant="150" id="huF-6L-FYT"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="BrightWhite"/>
             <constraints>
+                <constraint firstItem="oGe-Zg-Fy4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="7G7-BV-RST"/>
                 <constraint firstItem="Mtm-68-ACB" firstAttribute="top" secondItem="OTs-4c-GGx" secondAttribute="bottom" constant="35" id="845-M8-56c"/>
                 <constraint firstItem="oIn-pu-qYO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="Jqo-x4-eER"/>
                 <constraint firstItem="OTs-4c-GGx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OKp-q6-Knn"/>
                 <constraint firstItem="OTs-4c-GGx" firstAttribute="top" secondItem="oIn-pu-qYO" secondAttribute="bottom" constant="25" id="QpA-1y-lhb"/>
+                <constraint firstItem="oGe-Zg-Fy4" firstAttribute="top" secondItem="HnE-aa-gdl" secondAttribute="bottom" constant="150" id="Riw-dx-uw9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Mtm-68-ACB" secondAttribute="trailing" constant="35" id="UOU-hD-onm"/>
+                <constraint firstAttribute="trailing" secondItem="HnE-aa-gdl" secondAttribute="trailing" constant="-80" id="VHP-UA-wTA"/>
                 <constraint firstItem="OhX-bU-ue3" firstAttribute="top" secondItem="Mtm-68-ACB" secondAttribute="bottom" constant="25" id="Vak-uj-lUs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="oGe-Zg-Fy4" secondAttribute="bottom" id="W3r-6C-Ehz"/>
                 <constraint firstItem="OhX-bU-ue3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mgB-y7-aXC"/>
                 <constraint firstItem="Mtm-68-ACB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="qrp-dT-eAs"/>
                 <constraint firstItem="oIn-pu-qYO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="35" id="r6k-3V-vzA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oGe-Zg-Fy4" secondAttribute="trailing" constant="15" id="wN9-Vf-Cx6"/>
                 <constraint firstAttribute="trailing" secondItem="oIn-pu-qYO" secondAttribute="trailing" constant="35" id="wie-ah-MYL"/>
             </constraints>
             <point key="canvasLocation" x="-175.36231884057972" y="52.901785714285715"/>
         </view>
     </objects>
+    <designables>
+        <designable name="oGe-Zg-Fy4">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="tenis-ball" width="277" height="277"/>
         <namedColor name="BrightWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

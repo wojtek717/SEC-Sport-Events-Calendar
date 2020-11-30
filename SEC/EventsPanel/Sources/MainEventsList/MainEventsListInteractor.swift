@@ -4,6 +4,7 @@ import Networking
 import Location
 import CoreLocation
 import Authentication
+import CommonUI
 
 protocol MainEventsListInteractorLogic {
     func fetchEvents(localizationType: QueryLocalizationType, sportTypes: [SportType])

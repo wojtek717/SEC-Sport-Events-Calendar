@@ -1,4 +1,5 @@
 import UIKit
+import CommonUI
 
 protocol SportTypeSelectInteractorLogic {
     func prepareSports()

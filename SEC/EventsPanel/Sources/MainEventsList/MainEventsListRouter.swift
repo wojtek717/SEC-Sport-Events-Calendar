@@ -1,5 +1,7 @@
 import UIKit
 import Authentication
+import CommonUI
+import EventCreator
 
 typealias MainEventsListRouterType = MainEventsListRouterProtocol
 
@@ -9,7 +11,8 @@ protocol MainEventsListRouterProtocol {
     func navigateToAuthentication()
     func navigateToUserProfile()
     func navigateToEventDetails(eventId: String)
-    func navigateToEventCreator()
+    func navigateToEventCreator(sportType: SportType)
+    func navigateToCreatorSportType()
 }
 
 final class MainEventsListRouter {
@@ -35,8 +38,16 @@ final class MainEventsListRouter {
 }
 
 extension MainEventsListRouter: MainEventsListRouterProtocol {
-    func navigateToEventCreator() {
-        let eventCreatorViewController = routes.eventCreator.creatorFirstStep.viewController
+    func navigateToCreatorSportType() {
+        let eventCreatorViewController = routes.eventCreator.creatorSportType(delegate: viewController).viewController
+        let navigationController = UINavigationController(rootViewController: eventCreatorViewController)
+        navigationController.modalPresentationStyle = .overCurrentContext
+        navigationController.modalTransitionStyle = .crossDissolve
+        viewController?.present(navigationController, animated: true)
+    }
+    
+    func navigateToEventCreator(sportType: SportType) {
+        let eventCreatorViewController = routes.eventCreator.creatorFirstStep(sportType: sportType).viewController
         let navigationController = UINavigationController(rootViewController: eventCreatorViewController)
         navigationController.modalPresentationStyle = .fullScreen
         viewController?.present(navigationController, animated: true)

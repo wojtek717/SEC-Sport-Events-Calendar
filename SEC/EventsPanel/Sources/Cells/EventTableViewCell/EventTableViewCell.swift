@@ -1,4 +1,5 @@
 import UIKit
+import CommonUI
 
 public struct EventTableViewCellPresentable {
     let title: String

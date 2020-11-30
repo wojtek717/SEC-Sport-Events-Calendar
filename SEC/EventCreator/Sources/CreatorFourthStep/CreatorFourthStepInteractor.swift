@@ -55,6 +55,8 @@ extension CreatorFourthStepInteractor: CreatorFourthStepInteractorLogic {
             
             eventEntity.latitude = coordinate?.latitude
             eventEntity.longitude = coordinate?.longitude
+            
+            print(eventEntity.latitude)
         }
     }
     

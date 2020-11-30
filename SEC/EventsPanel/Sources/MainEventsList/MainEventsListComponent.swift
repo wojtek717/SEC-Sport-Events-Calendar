@@ -6,6 +6,7 @@ import Location
 import Authentication
 import Profile
 import EventCreator
+import CommonUI
 
 public protocol MainEventsListDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }

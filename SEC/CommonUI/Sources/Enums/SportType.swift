@@ -1,6 +1,5 @@
 import UIKit
 import Core
-import CommonUI
 
 public enum SportType: Int, CaseIterable {
     case walking = 0
@@ -11,7 +10,7 @@ public enum SportType: Int, CaseIterable {
     public var image: UIImage? {
         switch self {
         default:
-            return CommonUI.R.image.running()
+            return R.image.running()
         }
     }
     

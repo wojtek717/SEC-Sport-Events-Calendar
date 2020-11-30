@@ -2,22 +2,27 @@ import Core
 import NeedleFoundation
 import UIKit
 
-public protocol CreatorFirstStepDependency: Dependency {
-    var eventEntity: EventEntity { get }
-}
+public protocol CreatorFirstStepDependency: Dependency {}
 
 public protocol CreatorFirstStepRouting: RoutesDefinition {
     func secondStep(eventEntity: EventEntity) -> CreatorSecondStepComponent
 }
 
-public final class CreatorFirstStepComponent: Component<CreatorFirstStepDependency> {}
-
-extension CreatorFirstStepComponent: RoutableComponent {
+public final class CreatorFirstStepComponent: Component<CreatorFirstStepDependency>, RoutableComponent {
+    
+    var eventEntity: EventEntity
+    
+    public init(parent: Scope, eventEntity: EventEntity) {
+        self.eventEntity = eventEntity
+        
+        super.init(parent: parent)
+    }
+    
     public var viewController: UIViewController {
         let viewController = CreatorFirstStepViewController(nib: R.nib.creatorFirstStepViewController)
 
         let presenter = CreatorFirstStepPresenter(viewController: viewController)
-        let interactor = CreatorFirstStepInteractor(presenter: presenter, eventEntity: dependency.eventEntity)
+        let interactor = CreatorFirstStepInteractor(presenter: presenter, eventEntity: eventEntity)
         let router = CreatorFirstStepRouter(viewController: viewController, dataStore: interactor, routes: self)
 
         viewController.interactor = interactor

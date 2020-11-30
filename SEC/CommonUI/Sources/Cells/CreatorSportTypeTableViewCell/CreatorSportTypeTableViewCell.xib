@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CreatorSportTypeTableViewCell" rowHeight="100" id="KGk-i7-Jjw" customClass="CreatorSportTypeTableViewCell" customModule="CommonUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgG-Zk-p5V">
+                        <rect key="frame" x="0.0" y="10" width="380" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWe-wB-LYG">
+                                <rect key="frame" x="15" y="28" width="350" height="24.5"/>
+                                <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundPrimary"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KWe-wB-LYG" secondAttribute="trailing" constant="15" id="XoF-OH-SYz"/>
+                            <constraint firstItem="KWe-wB-LYG" firstAttribute="centerY" secondItem="tgG-Zk-p5V" secondAttribute="centerY" id="agr-Xd-KIn"/>
+                            <constraint firstItem="KWe-wB-LYG" firstAttribute="leading" secondItem="tgG-Zk-p5V" secondAttribute="leading" constant="15" id="qfW-r1-wws"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tgG-Zk-p5V" secondAttribute="bottom" constant="10" id="1RV-5o-cRu"/>
+                    <constraint firstItem="tgG-Zk-p5V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eeS-oB-MOu"/>
+                    <constraint firstAttribute="trailing" secondItem="tgG-Zk-p5V" secondAttribute="trailing" id="nKM-Lw-mYM"/>
+                    <constraint firstItem="tgG-Zk-p5V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="tb4-cj-vIN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="titleLabel" destination="KWe-wB-LYG" id="ei2-7M-hAn"/>
+            </connections>
+            <point key="canvasLocation" x="78.260869565217391" y="97.767857142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundPrimary">
+            <color red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

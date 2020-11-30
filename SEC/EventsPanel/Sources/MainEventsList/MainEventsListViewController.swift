@@ -1,5 +1,7 @@
 import Core
 import UIKit
+import CommonUI
+import EventCreator
 
 protocol MainEventsListViewControllerLogic: AnyObject {
     func presentEvents(events: [MainEventsListRow])
@@ -121,7 +123,7 @@ extension MainEventsListViewController: MenuItemDelegate {
             case .profile:
                 router?.navigateToUserProfile()
             case .add:
-                router?.navigateToEventCreator()
+                router?.navigateToCreatorSportType()
             default:
                 return
             }
@@ -156,5 +158,11 @@ extension MainEventsListViewController: MainEventsListSelectionDelegate {
     
     func didSelectLocalizationType(_ queryLocalizationType: QueryLocalizationType) {
         searchLocalizationType = queryLocalizationType
+    }
+}
+
+extension MainEventsListViewController: MainEventsListCreatorDelegate {
+    func didSportTypeSelected(_ sportType: SportType) {
+        router?.navigateToEventCreator(sportType: sportType)
     }
 }

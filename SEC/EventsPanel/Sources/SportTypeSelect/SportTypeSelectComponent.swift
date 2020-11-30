@@ -1,6 +1,7 @@
 import Core
 import NeedleFoundation
 import UIKit
+import CommonUI
 
 public protocol SportTypeSelectDependency: Dependency {}
 

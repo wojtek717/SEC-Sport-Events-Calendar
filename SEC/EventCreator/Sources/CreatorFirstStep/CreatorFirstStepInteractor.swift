@@ -21,6 +21,8 @@ final class CreatorFirstStepInteractor: CreatorFirstStepDataStore {
          eventEntity: EventEntity) {
         self.presenter = presenter
         self.eventEntity = eventEntity
+        
+        print(eventEntity.sportType)
     }
 }
 

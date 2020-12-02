@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-SemiBold.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatorSportTypeViewController" customModule="EventCreator" customModuleProvider="target">
             <connections>
@@ -25,36 +30,64 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rh2-gE-94E">
-                    <rect key="frame" x="25" y="258" width="364" height="380"/>
+                    <rect key="frame" x="25" y="265.5" width="364" height="365"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcW-E8-rvw">
+                            <rect key="frame" x="15" y="10" width="334" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select sport type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-fm-uRQ">
+                                    <rect key="frame" x="83.5" y="17" width="167.5" height="26"/>
+                                    <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="22"/>
+                                    <color key="textColor" name="BrightWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="SECBlue"/>
+                            <constraints>
+                                <constraint firstItem="NZ0-fm-uRQ" firstAttribute="centerY" secondItem="WcW-E8-rvw" secondAttribute="centerY" id="0Vn-EY-24C"/>
+                                <constraint firstAttribute="height" constant="60" id="Ouz-Y1-wJW"/>
+                                <constraint firstItem="NZ0-fm-uRQ" firstAttribute="centerX" secondItem="WcW-E8-rvw" secondAttribute="centerX" id="wFu-TG-npi"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-Qe-okm">
+                            <rect key="frame" x="15" y="80" width="334" height="275"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
                     <color key="backgroundColor" name="BrightWhite"/>
+                    <constraints>
+                        <constraint firstItem="QiR-Qe-okm" firstAttribute="leading" secondItem="rh2-gE-94E" secondAttribute="leading" constant="15" id="3Fu-gN-Cq7"/>
+                        <constraint firstAttribute="bottom" secondItem="QiR-Qe-okm" secondAttribute="bottom" constant="10" id="5Yw-1I-yJw"/>
+                        <constraint firstItem="QiR-Qe-okm" firstAttribute="top" secondItem="WcW-E8-rvw" secondAttribute="bottom" constant="10" id="BFN-HO-DEK"/>
+                        <constraint firstAttribute="height" constant="365" id="N3Y-t5-CaN"/>
+                        <constraint firstItem="WcW-E8-rvw" firstAttribute="top" secondItem="rh2-gE-94E" secondAttribute="top" constant="10" id="T7F-Yh-OpE"/>
+                        <constraint firstAttribute="trailing" secondItem="WcW-E8-rvw" secondAttribute="trailing" constant="15" id="TT4-tq-hvA"/>
+                        <constraint firstAttribute="trailing" secondItem="QiR-Qe-okm" secondAttribute="trailing" constant="15" id="b5e-v6-tQO"/>
+                        <constraint firstItem="WcW-E8-rvw" firstAttribute="leading" secondItem="rh2-gE-94E" secondAttribute="leading" constant="15" id="lJV-zg-T8J"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-Qe-okm">
-                    <rect key="frame" x="40" y="273" width="334" height="350"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="350" id="GUn-kd-YFE"/>
-                    </constraints>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="rh2-gE-94E" firstAttribute="leading" secondItem="QiR-Qe-okm" secondAttribute="leading" constant="-15" id="B9u-9g-1r9"/>
+                <constraint firstItem="rh2-gE-94E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4HN-Wa-Lml"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rh2-gE-94E" secondAttribute="trailing" constant="25" id="Fxc-kv-5wb"/>
                 <constraint firstItem="7J0-lv-h7X" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="H27-yf-cwL"/>
-                <constraint firstItem="QiR-Qe-okm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="NIB-rX-vbg"/>
                 <constraint firstItem="7J0-lv-h7X" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NMp-CE-U91"/>
-                <constraint firstItem="QiR-Qe-okm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZNz-Ix-lBQ"/>
-                <constraint firstItem="rh2-gE-94E" firstAttribute="bottom" secondItem="QiR-Qe-okm" secondAttribute="bottom" constant="15" id="cmI-W7-k0t"/>
+                <constraint firstItem="rh2-gE-94E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="RBh-Ef-O3M"/>
                 <constraint firstItem="7J0-lv-h7X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jd0-PB-wYL"/>
+                <constraint firstItem="rh2-gE-94E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jn0-FL-658"/>
                 <constraint firstAttribute="bottom" secondItem="7J0-lv-h7X" secondAttribute="bottom" id="pIJ-ip-dZL"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QiR-Qe-okm" secondAttribute="trailing" constant="40" id="r5t-6k-6x7"/>
-                <constraint firstItem="rh2-gE-94E" firstAttribute="top" secondItem="QiR-Qe-okm" secondAttribute="top" constant="-15" id="tT8-Tj-7uo"/>
-                <constraint firstItem="rh2-gE-94E" firstAttribute="trailing" secondItem="QiR-Qe-okm" secondAttribute="trailing" constant="15" id="wcp-yq-PH6"/>
             </constraints>
             <point key="canvasLocation" x="-57.971014492753625" y="67.633928571428569"/>
         </view>
@@ -62,6 +95,9 @@
     <resources>
         <namedColor name="BrightWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SECBlue">
+            <color red="0.0" green="0.50980392156862742" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

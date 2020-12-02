@@ -85,5 +85,6 @@ extension CreatorFourthStepViewController: UITextFieldDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //interactor?.localizationSelected(at: indexPath.row)
         interactor?.setLocalization(selected: indexPath.row)
+        router?.navigateToFifthStep()
     }
 }

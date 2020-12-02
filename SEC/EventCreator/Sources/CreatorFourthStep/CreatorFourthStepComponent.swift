@@ -7,7 +7,9 @@ public protocol CreatorFourthStepDependency: Dependency {
     var locationWorker: LocationWorkerProtocol { get }
 }
 
-public protocol CreatorFourthStepRouting: RoutesDefinition {}
+public protocol CreatorFourthStepRouting: RoutesDefinition {
+    func fifthStep(eventEntity: EventEntity) -> CreatorFifthStepComponent
+}
 
 public final class CreatorFourthStepComponent: Component<CreatorFourthStepDependency>, RoutableComponent {
     
@@ -39,4 +41,8 @@ public final class CreatorFourthStepComponent: Component<CreatorFourthStepDepend
     }
 }
 
-extension CreatorFourthStepComponent: CreatorFourthStepRouting {}
+extension CreatorFourthStepComponent: CreatorFourthStepRouting {
+    public func fifthStep(eventEntity: EventEntity) -> CreatorFifthStepComponent {
+        CreatorFifthStepComponent(parent: self, eventEntity: eventEntity)
+    }
+}

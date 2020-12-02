@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Regular.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatorFifthStepViewController" customModule="EventCreator" customModuleProvider="target">
+            <connections>
+                <outlet property="countTextField" destination="91i-Bd-AUT" id="ep5-Ps-2SE"/>
+                <outlet property="errorLabel" destination="CAf-Zt-Wa3" id="nzB-vT-gJ8"/>
+                <outlet property="minusButton" destination="QVK-am-glN" id="ATF-wt-Qh2"/>
+                <outlet property="plusButton" destination="QQx-tP-QNt" id="RZb-JN-YAX"/>
+                <outlet property="view" destination="iN0-l3-epB" id="QgI-lL-Jfa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many participants?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elv-0a-76n">
+                    <rect key="frame" x="35" y="69" width="344" height="24.5"/>
+                    <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbl-Lx-M5R">
+                    <rect key="frame" x="160" y="118.5" width="94" height="60"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="70" placeholder="Bieg Niepodleglosci 10km" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91i-Bd-AUT">
+                            <rect key="frame" x="15" y="17" width="64" height="26"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="21"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" name="BackgroundPrimary"/>
+                    <constraints>
+                        <constraint firstItem="91i-Bd-AUT" firstAttribute="centerY" secondItem="Pbl-Lx-M5R" secondAttribute="centerY" id="1Pe-Oo-WVt"/>
+                        <constraint firstItem="91i-Bd-AUT" firstAttribute="centerX" secondItem="Pbl-Lx-M5R" secondAttribute="centerX" id="9YQ-fI-on4"/>
+                        <constraint firstAttribute="trailing" secondItem="91i-Bd-AUT" secondAttribute="trailing" constant="15" id="Kf0-en-waS"/>
+                        <constraint firstItem="91i-Bd-AUT" firstAttribute="leading" secondItem="Pbl-Lx-M5R" secondAttribute="leading" constant="15" id="McB-lu-hac"/>
+                        <constraint firstAttribute="width" constant="94" id="ZcZ-p7-rNI"/>
+                        <constraint firstAttribute="height" constant="60" id="ga5-Zh-LeN"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQx-tP-QNt">
+                    <rect key="frame" x="269" y="118.5" width="60" height="60"/>
+                    <color key="backgroundColor" name="BackgroundPrimary"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="oJr-ww-MkS"/>
+                        <constraint firstAttribute="width" constant="60" id="tVX-TX-cj3"/>
+                    </constraints>
+                    <state key="normal" title="+">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVK-am-glN">
+                    <rect key="frame" x="85" y="118.5" width="60" height="60"/>
+                    <color key="backgroundColor" name="BackgroundPrimary"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="FqL-me-jlQ"/>
+                        <constraint firstAttribute="height" constant="60" id="Nzn-86-AeH"/>
+                    </constraints>
+                    <state key="normal" title="-">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should be between 0-500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAf-Zt-Wa3">
+                    <rect key="frame" x="126" y="188.5" width="162" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                    <color key="textColor" name="SECRed"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="BrightWhite"/>
+            <constraints>
+                <constraint firstItem="CAf-Zt-Wa3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7zb-F0-piy"/>
+                <constraint firstItem="Pbl-Lx-M5R" firstAttribute="leading" secondItem="QVK-am-glN" secondAttribute="trailing" constant="15" id="Kgi-z9-oAc"/>
+                <constraint firstItem="elv-0a-76n" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="Ljo-1R-Gff"/>
+                <constraint firstItem="Pbl-Lx-M5R" firstAttribute="top" secondItem="elv-0a-76n" secondAttribute="bottom" constant="25" id="UbJ-oy-Ew3"/>
+                <constraint firstItem="elv-0a-76n" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="Xm5-87-Izq"/>
+                <constraint firstItem="QQx-tP-QNt" firstAttribute="centerY" secondItem="Pbl-Lx-M5R" secondAttribute="centerY" id="Z5T-JE-4P8"/>
+                <constraint firstItem="Pbl-Lx-M5R" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="alb-No-ZeO"/>
+                <constraint firstItem="QQx-tP-QNt" firstAttribute="leading" secondItem="Pbl-Lx-M5R" secondAttribute="trailing" constant="15" id="jWS-gs-MtI"/>
+                <constraint firstItem="QVK-am-glN" firstAttribute="centerY" secondItem="Pbl-Lx-M5R" secondAttribute="centerY" id="kh4-WM-TqR"/>
+                <constraint firstItem="CAf-Zt-Wa3" firstAttribute="top" secondItem="Pbl-Lx-M5R" secondAttribute="bottom" constant="10" id="vNB-Z7-UYL"/>
+                <constraint firstItem="elv-0a-76n" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-35" id="x4v-Zg-exT"/>
+            </constraints>
+            <point key="canvasLocation" x="68" y="69"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundPrimary">
+            <color red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrightWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SECRed">
+            <color red="0.8666666666666667" green="0.17647058823529413" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

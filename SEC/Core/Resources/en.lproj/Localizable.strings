@@ -36,3 +36,16 @@
 "creator_firstStep_desciption_label"="Enter the title of your event";
 "creator_next_button"="Next";
 "creator_firstStep_title_textfield_placeholder"="Marathon for sick dogs";
+"creator_sportType_label"="Select sport type";
+"creator_newEvent_title"="New event";
+"creator_newEvent_info_label"="Enter the title of your event";
+"creator_newEvent_titleTextField_placeholder"="Marathon for sick dogs";
+"creator_description_title"="Event's description";
+"creator_when_title"="When?";
+"creator_when_startDate_label"="Start date";
+"creator_when_endDate_label"="End date";
+"creator_where_title"="Where?";
+"creator_howMany_title"="How many?";
+"creator_howMany_info_label"="How many participants?";
+"creator_howMany_add_button"="Add Event";
+"creator_howMany_error_label"="The value should be between 0 and 500";

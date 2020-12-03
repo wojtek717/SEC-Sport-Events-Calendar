@@ -47,7 +47,7 @@ final class CreatorSecondStepViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Event's description"
+        title = Core.R.string.localizable.creator_description_title()
     }
     
     private func setup() {

@@ -43,7 +43,7 @@ final class CreatorFourthStepViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Where?"
+        title = Core.R.string.localizable.creator_when_title()
     }
     
     private func setupTextField() {
@@ -83,7 +83,6 @@ extension CreatorFourthStepViewController: UITextFieldDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //interactor?.localizationSelected(at: indexPath.row)
         interactor?.setLocalization(selected: indexPath.row)
         router?.navigateToFifthStep()
     }

@@ -18,6 +18,7 @@
                 <outlet property="addButton" destination="mwj-yN-OKq" id="yQC-w8-B6p"/>
                 <outlet property="countTextField" destination="91i-Bd-AUT" id="ep5-Ps-2SE"/>
                 <outlet property="errorLabel" destination="CAf-Zt-Wa3" id="nzB-vT-gJ8"/>
+                <outlet property="infoLabel" destination="elv-0a-76n" id="6Mo-tY-UFk"/>
                 <outlet property="minusButton" destination="QVK-am-glN" id="ATF-wt-Qh2"/>
                 <outlet property="plusButton" destination="QQx-tP-QNt" id="RZb-JN-YAX"/>
                 <outlet property="view" destination="iN0-l3-epB" id="QgI-lL-Jfa"/>

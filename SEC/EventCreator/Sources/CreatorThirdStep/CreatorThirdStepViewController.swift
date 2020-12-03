@@ -40,16 +40,21 @@ final class CreatorThirdStepViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "When?"
+        title = Core.R.string.localizable.creator_when_title()
     }
     
     private func setup() {
         cornerImageView.image = CommonUI.R.image.tenisBall()
         
+        nextButton.setTitle(Core.R.string.localizable.creator_next_button(), for: [])
+        
         nextButton.addTarget(
             self,
             action: #selector(nextButtonTapped),
             for: .touchUpInside)
+        
+        beginDateLabel.text = Core.R.string.localizable.creator_when_startDate_label()
+        endDateLabel.text = Core.R.string.localizable.creator_when_endDate_label()
     }
     
     @objc private func nextButtonTapped() {

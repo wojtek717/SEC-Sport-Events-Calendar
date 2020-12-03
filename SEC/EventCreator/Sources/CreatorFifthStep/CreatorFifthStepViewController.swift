@@ -16,6 +16,7 @@ final class CreatorFifthStepViewController: UIViewController {
     @IBOutlet private var countTextField: UITextField!
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var addButton: SecButton!
+    @IBOutlet private var infoLabel: UILabel!
     
     // MARK: - Public Properties
     
@@ -42,19 +43,22 @@ final class CreatorFifthStepViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "How many?"
+        title = Core.R.string.localizable.creator_howMany_title()
     }
     
     private func setup() {
         countTextField.keyboardType = .numberPad
         countTextField.delegate = self
         
+        infoLabel.text = Core.R.string.localizable.creator_howMany_info_label()
+        errorLabel.text = Core.R.string.localizable.creator_howMany_error_label()
+        
+        errorLabel.isHidden = true
+        
         countTextField.addTarget(
             self,
             action: #selector(textfieldChanged),
             for: .editingChanged)
-        
-        errorLabel.isHidden = true
         
         view.setupTapToDismiss()
         
@@ -62,7 +66,7 @@ final class CreatorFifthStepViewController: UIViewController {
     }
     
     private func setupButtons() {
-        addButton.setTitle("Add Event", for: [])
+        addButton.setTitle(Core.R.string.localizable.creator_howMany_add_button(), for: [])
         
         addButton.addTarget(
             self,

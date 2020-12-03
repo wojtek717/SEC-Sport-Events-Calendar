@@ -36,3 +36,16 @@
 "creator_firstStep_desciption_label"="Podaj tytuł swojego wydarzenia";
 "creator_next_button"="Dalej";
 "creator_firstStep_title_textfield_placeholder"="Bieg Niepodległości 10km";
+"creator_sportType_label"="Wybierz dyscyplinę ";
+"creator_newEvent_title"="Nowe wydarzenie";
+"creator_newEvent_info_label"="Wprowadź tytuł swojego wydarzenia";
+"creator_newEvent_titleTextField_placeholder"="Maraton dla chorych piesków";
+"creator_description_title"="Opis wydarzenia";
+"creator_when_title"="Kiedy?";
+"creator_when_startDate_label"="Data rozpoczęcia";
+"creator_when_endDate_label"="Data zakończenia";
+"creator_where_title"="Gdzie?";
+"creator_howMany_title"="Ile?";
+"creator_howMany_info_label"="Ile uczestników?";
+"creator_howMany_add_button"="Dodaj wydarzenie";
+"creator_howMany_error_label"="Wartość powinna być pomiędzy  0 a 500";

@@ -1,8 +1,12 @@
 import UIKit
+import Core
+import CommonUI
+import DesignSystem
 
 protocol CreatorFifthStepViewControllerLogic: AnyObject {
     func presentParticipantsValue(_ value: String)
     func shouldPresentErrorLabel(_ enabled: Bool)
+    func presentMainEventsList()
 }
 
 final class CreatorFifthStepViewController: UIViewController {
@@ -11,6 +15,7 @@ final class CreatorFifthStepViewController: UIViewController {
     @IBOutlet private var plusButton: UIButton!
     @IBOutlet private var countTextField: UITextField!
     @IBOutlet private var errorLabel: UILabel!
+    @IBOutlet private var addButton: SecButton!
     
     // MARK: - Public Properties
     
@@ -29,6 +34,7 @@ final class CreatorFifthStepViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        setupButtons()
     }
     
     // MARK: - Private Methods
@@ -40,16 +46,6 @@ final class CreatorFifthStepViewController: UIViewController {
     }
     
     private func setup() {
-        plusButton.addTarget(
-            self,
-            action: #selector(plusButtonTapped),
-            for: .touchUpInside)
-        
-        minusButton.addTarget(
-            self,
-            action: #selector(minusButtonTapped),
-            for: .touchUpInside)
-        
         countTextField.keyboardType = .numberPad
         countTextField.delegate = self
         
@@ -60,11 +56,36 @@ final class CreatorFifthStepViewController: UIViewController {
         
         errorLabel.isHidden = true
         
-        interactor?.setParticipantsValue(69)
+        view.setupTapToDismiss()
+        
+        interactor?.setParticipantsValue(50)
+    }
+    
+    private func setupButtons() {
+        addButton.setTitle("Add Event", for: [])
+        
+        addButton.addTarget(
+            self,
+            action: #selector(addButtonTapped),
+            for: .touchUpInside)
+        
+        plusButton.addTarget(
+            self,
+            action: #selector(plusButtonTapped),
+            for: .touchUpInside)
+        
+        minusButton.addTarget(
+            self,
+            action: #selector(minusButtonTapped),
+            for: .touchUpInside)
     }
 }
 
 extension CreatorFifthStepViewController: CreatorFifthStepViewControllerLogic {
+    func presentMainEventsList() {
+        router?.dismiss()
+    }
+    
     func shouldPresentErrorLabel(_ enabled: Bool) {
         errorLabel.isHidden = !enabled
     }
@@ -81,6 +102,10 @@ extension CreatorFifthStepViewController: CreatorFifthStepViewControllerLogic {
     
     func minusButtonTapped() {
         interactor?.changeParticipantsValue(by: -1)
+    }
+    
+    func addButtonTapped() {
+        interactor?.addEvent()
     }
     
     func textfieldChanged() {

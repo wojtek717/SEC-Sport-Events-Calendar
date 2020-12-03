@@ -1,0 +1,16 @@
+mutation InsertNewEvent(
+$creator: String,
+$type: Int,
+$title: String,
+$max_participant: Int,
+$localization: uuid,
+$end_date: timestamptz,
+$begin_date: timestamptz,
+$description: String) {
+insert_Events(objects: {creator: $creator, description: $description, begin_date: $begin_date, end_date: $end_date, localization: $localization, max_participant: $max_participant, title: $title, type: $type}) {
+returning {
+id
+}
+}
+}
+

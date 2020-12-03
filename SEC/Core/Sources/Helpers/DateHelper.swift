@@ -8,9 +8,16 @@ public final class DateHelper {
     // MARK: - Constants
     
     public enum Constants {
+        /// MM/dd/yy
         public static let monthDayYearFormat = "MM/dd/yy"
+        
+        /// dd/MM/yyyy
         public static let dayMonthYearFormat = "dd/MM/yyyy"
+        
+        /// yyyy-MM-dd'T'HH:mm:ssZ
         public static let fullDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        /// dd/MM/yyyy hh:mm
         public static let fullDateFullHour = "dd/MM/yyyy hh:mm"
     }
     

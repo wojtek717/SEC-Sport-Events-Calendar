@@ -1602,6 +1602,296 @@ public final class InsertEventsParticipantsMutation: GraphQLMutation {
   }
 }
 
+public final class InsertNewEventMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation InsertNewEvent($creator: String, $type: Int, $title: String, $max_participant: Int, $localization: uuid, $end_date: timestamptz, $begin_date: timestamptz, $description: String) {
+      insert_Events(objects: {creator: $creator, description: $description, begin_date: $begin_date, end_date: $end_date, localization: $localization, max_participant: $max_participant, title: $title, type: $type}) {
+        __typename
+        returning {
+          __typename
+          id
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "InsertNewEvent"
+
+  public var creator: String?
+  public var type: Int?
+  public var title: String?
+  public var max_participant: Int?
+  public var localization: String?
+  public var end_date: String?
+  public var begin_date: String?
+  public var description: String?
+
+  public init(creator: String? = nil, type: Int? = nil, title: String? = nil, max_participant: Int? = nil, localization: String? = nil, end_date: String? = nil, begin_date: String? = nil, description: String? = nil) {
+    self.creator = creator
+    self.type = type
+    self.title = title
+    self.max_participant = max_participant
+    self.localization = localization
+    self.end_date = end_date
+    self.begin_date = begin_date
+    self.description = description
+  }
+
+  public var variables: GraphQLMap? {
+    return ["creator": creator, "type": type, "title": title, "max_participant": max_participant, "localization": localization, "end_date": end_date, "begin_date": begin_date, "description": description]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("insert_Events", arguments: ["objects": ["creator": GraphQLVariable("creator"), "description": GraphQLVariable("description"), "begin_date": GraphQLVariable("begin_date"), "end_date": GraphQLVariable("end_date"), "localization": GraphQLVariable("localization"), "max_participant": GraphQLVariable("max_participant"), "title": GraphQLVariable("title"), "type": GraphQLVariable("type")]], type: .object(InsertEvent.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(insertEvents: InsertEvent? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "insert_Events": insertEvents.flatMap { (value: InsertEvent) -> ResultMap in value.resultMap }])
+    }
+
+    /// insert data into the table: "Events"
+    public var insertEvents: InsertEvent? {
+      get {
+        return (resultMap["insert_Events"] as? ResultMap).flatMap { InsertEvent(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "insert_Events")
+      }
+    }
+
+    public struct InsertEvent: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Events_mutation_response"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("returning", type: .nonNull(.list(.nonNull(.object(Returning.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(returning: [Returning]) {
+        self.init(unsafeResultMap: ["__typename": "Events_mutation_response", "returning": returning.map { (value: Returning) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// data of the affected rows by the mutation
+      public var returning: [Returning] {
+        get {
+          return (resultMap["returning"] as! [ResultMap]).map { (value: ResultMap) -> Returning in Returning(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Returning) -> ResultMap in value.resultMap }, forKey: "returning")
+        }
+      }
+
+      public struct Returning: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Events"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: String) {
+          self.init(unsafeResultMap: ["__typename": "Events", "id": id])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: String {
+          get {
+            return resultMap["id"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class InsertNewLocalizationMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation InsertNewLocalization($latitude: Float, $longitude: Float) {
+      insert_Localization(objects: {latitude: $latitude, longitude: $longitude}) {
+        __typename
+        returning {
+          __typename
+          id
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "InsertNewLocalization"
+
+  public var latitude: Double?
+  public var longitude: Double?
+
+  public init(latitude: Double? = nil, longitude: Double? = nil) {
+    self.latitude = latitude
+    self.longitude = longitude
+  }
+
+  public var variables: GraphQLMap? {
+    return ["latitude": latitude, "longitude": longitude]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("insert_Localization", arguments: ["objects": ["latitude": GraphQLVariable("latitude"), "longitude": GraphQLVariable("longitude")]], type: .object(InsertLocalization.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(insertLocalization: InsertLocalization? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "insert_Localization": insertLocalization.flatMap { (value: InsertLocalization) -> ResultMap in value.resultMap }])
+    }
+
+    /// insert data into the table: "Localization"
+    public var insertLocalization: InsertLocalization? {
+      get {
+        return (resultMap["insert_Localization"] as? ResultMap).flatMap { InsertLocalization(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "insert_Localization")
+      }
+    }
+
+    public struct InsertLocalization: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Localization_mutation_response"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("returning", type: .nonNull(.list(.nonNull(.object(Returning.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(returning: [Returning]) {
+        self.init(unsafeResultMap: ["__typename": "Localization_mutation_response", "returning": returning.map { (value: Returning) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// data of the affected rows by the mutation
+      public var returning: [Returning] {
+        get {
+          return (resultMap["returning"] as! [ResultMap]).map { (value: ResultMap) -> Returning in Returning(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Returning) -> ResultMap in value.resultMap }, forKey: "returning")
+        }
+      }
+
+      public struct Returning: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Localization"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: String) {
+          self.init(unsafeResultMap: ["__typename": "Localization", "id": id])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: String {
+          get {
+            return resultMap["id"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class InsertNewUserQueryMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

@@ -3,7 +3,7 @@ import CoreLocation
 import CommonUI
 
 public struct EventEntity {
-    var sportType: SportType
+    var sportType: SportType?
     var title: String?
     var description: String?
     var startDate: Date?

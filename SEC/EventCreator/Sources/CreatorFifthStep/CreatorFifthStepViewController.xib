@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatorFifthStepViewController" customModule="EventCreator" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="mwj-yN-OKq" id="yQC-w8-B6p"/>
                 <outlet property="countTextField" destination="91i-Bd-AUT" id="ep5-Ps-2SE"/>
                 <outlet property="errorLabel" destination="CAf-Zt-Wa3" id="nzB-vT-gJ8"/>
                 <outlet property="minusButton" destination="QVK-am-glN" id="ATF-wt-Qh2"/>
@@ -96,11 +97,27 @@
                     <color key="textColor" name="SECRed"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwj-yN-OKq" customClass="SecButton" customModule="CommonUI">
+                    <rect key="frame" x="15" y="818" width="384" height="44"/>
+                    <color key="backgroundColor" name="SECBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="at0-S6-Pzr"/>
+                    </constraints>
+                    <state key="normal" title="Edytuj">
+                        <color key="titleColor" name="BrightWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="BrightWhite"/>
             <constraints>
                 <constraint firstItem="CAf-Zt-Wa3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7zb-F0-piy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mwj-yN-OKq" secondAttribute="bottom" id="EaP-Fz-SY8"/>
                 <constraint firstItem="Pbl-Lx-M5R" firstAttribute="leading" secondItem="QVK-am-glN" secondAttribute="trailing" constant="15" id="Kgi-z9-oAc"/>
                 <constraint firstItem="elv-0a-76n" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="Ljo-1R-Gff"/>
                 <constraint firstItem="Pbl-Lx-M5R" firstAttribute="top" secondItem="elv-0a-76n" secondAttribute="bottom" constant="25" id="UbJ-oy-Ew3"/>
@@ -108,19 +125,29 @@
                 <constraint firstItem="QQx-tP-QNt" firstAttribute="centerY" secondItem="Pbl-Lx-M5R" secondAttribute="centerY" id="Z5T-JE-4P8"/>
                 <constraint firstItem="Pbl-Lx-M5R" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="alb-No-ZeO"/>
                 <constraint firstItem="QQx-tP-QNt" firstAttribute="leading" secondItem="Pbl-Lx-M5R" secondAttribute="trailing" constant="15" id="jWS-gs-MtI"/>
+                <constraint firstItem="mwj-yN-OKq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="kNX-5z-h0J"/>
                 <constraint firstItem="QVK-am-glN" firstAttribute="centerY" secondItem="Pbl-Lx-M5R" secondAttribute="centerY" id="kh4-WM-TqR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mwj-yN-OKq" secondAttribute="trailing" constant="15" id="l6A-X7-Pq9"/>
                 <constraint firstItem="CAf-Zt-Wa3" firstAttribute="top" secondItem="Pbl-Lx-M5R" secondAttribute="bottom" constant="10" id="vNB-Z7-UYL"/>
                 <constraint firstItem="elv-0a-76n" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-35" id="x4v-Zg-exT"/>
             </constraints>
             <point key="canvasLocation" x="68" y="69"/>
         </view>
     </objects>
+    <designables>
+        <designable name="mwj-yN-OKq">
+            <size key="intrinsicContentSize" width="43" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="BackgroundPrimary">
             <color red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrightWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SECBlue">
+            <color red="0.0" green="0.50980392156862742" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SECRed">
             <color red="0.8666666666666667" green="0.17647058823529413" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

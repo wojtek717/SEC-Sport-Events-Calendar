@@ -3,6 +3,7 @@ import UIKit
 protocol CreatorFifthStepPresenterLogic {
     func preapareParticipantValue(_ value: Int)
     func errorLabelIsEnabled(_ enabled: Bool)
+    func presentMainEventList()
 }
 
 final class CreatorFifthStepPresenter {
@@ -19,6 +20,10 @@ final class CreatorFifthStepPresenter {
 }
 
 extension CreatorFifthStepPresenter: CreatorFifthStepPresenterLogic {
+    func presentMainEventList() {
+        viewController?.presentMainEventsList()
+    }
+    
     func errorLabelIsEnabled(_ enabled: Bool) {
         viewController?.shouldPresentErrorLabel(enabled)
     }

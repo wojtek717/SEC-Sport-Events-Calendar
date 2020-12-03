@@ -3,6 +3,8 @@ import NeedleFoundation
 import UIKit
 import Location
 import CommonUI
+import Networking
+import Authentication
 
 public protocol EventCreatorRouting: RoutesDefinition {
     func creatorFirstStep(sportType: SportType) -> CreatorFirstStepComponent
@@ -19,6 +21,19 @@ public final class EventCreatorComponent: BootstrapComponent {
     var locationWorker: LocationWorkerProtocol {
         locationComponent.locationWorker
     }
+    
+    var networkingWorker: NetworkingWorkerProtocol {
+        networkingComponent.networkingWorker
+    }
+    
+    var authenticationWorker: AuthenticationWorkerProtocol {
+        authenticationComponent.authenticationWorker
+    }
+    
+    var dateHelper: DateHelper {
+        DateHelper()
+    }
+
 }
 
 extension EventCreatorComponent: EventCreatorRouting {

@@ -52,6 +52,9 @@ final class MainEventsListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
+        
+        interactor?.fetchEvents(localizationType: searchLocalizationType ?? .everywhere,
+                                sportTypes: searchSportTypes ?? SportType.allCases)
     }
     
     override func viewDidLoad() {

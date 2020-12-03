@@ -2,7 +2,9 @@ import UIKit
 
 typealias CreatorFifthStepRouterType = CreatorFifthStepRouterProtocol
 
-@objc protocol CreatorFifthStepRouterProtocol {}
+@objc protocol CreatorFifthStepRouterProtocol {
+    func dismiss()
+}
 
 final class CreatorFifthStepRouter {
 
@@ -26,4 +28,8 @@ final class CreatorFifthStepRouter {
     }
 }
 
-extension CreatorFifthStepRouter: CreatorFifthStepRouterProtocol {}
+extension CreatorFifthStepRouter: CreatorFifthStepRouterProtocol {
+    func dismiss() {
+        viewController?.navigationController?.dismiss(animated: true)
+    }
+}

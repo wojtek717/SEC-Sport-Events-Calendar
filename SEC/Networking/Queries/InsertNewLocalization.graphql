@@ -1,0 +1,8 @@
+mutation InsertNewLocalization($latitude: Float, $longitude: Float) {
+  insert_Localization(objects: {latitude: $latitude, longitude: $longitude}) {
+    returning {
+      id
+    }
+  }
+}
+
